@@ -1,0 +1,32 @@
+retrieval:
+  # Dense retrieval
+  dense_top_k: 30
+  dense_score_threshold: 0.35
+
+  # Sparse retrieval (BM25)
+  sparse_top_k: 30
+  sparse_score_threshold: 0.0
+
+  # Fusion
+  fusion_method: "rrf"  # rrf | weighted
+  rrf_k: 60
+  dense_weight: 0.6
+  sparse_weight: 0.4
+
+  # Reranking
+  rerank_top_k: 10
+  rerank_model: "BAAI/bge-reranker-v2-m3"
+
+  # Diversification
+  diversify: true
+  diversity_penalty: 0.3
+  max_per_channel: 3
+  max_per_video: 2
+
+  # OKF
+  okf_top_k: 5
+  okf_confidence_threshold: 0.5
+
+  # Context window
+  max_context_chunks: 8
+  max_context_tokens: 3000

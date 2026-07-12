@@ -1,0 +1,40 @@
+categories:
+  - id: texting
+    name: "Texting & Messaging"
+    description: "Advice on texting patterns, response timing, message content"
+
+  - id: first_dates
+    name: "First Dates"
+    description: "Planning, behavior, and follow-up for first dates"
+
+  - id: attraction
+    name: "Building Attraction"
+    description: "Creating and maintaining romantic interest"
+
+  - id: confidence
+    name: "Confidence & Mindset"
+    description: "Inner game, self-esteem, and mental frameworks"
+
+  - id: online_dating
+    name: "Online Dating"
+    description: "Profile optimization, swiping strategy, app-specific advice"
+
+  - id: conversation
+    name: "Conversation Skills"
+    description: "Starting, maintaining, and deepening conversations"
+
+  - id: relationships
+    name: "Relationships"
+    description: "Maintaining and improving existing relationships"
+
+  - id: breakup
+    name: "Breakups & Moving On"
+    description: "Handling breakups, healing, and re-entering dating"
+
+  - id: social_skills
+    name: "Social Skills"
+    description: "General social dynamics, body language, social awareness"
+
+  - id: lifestyle
+    name: "Lifestyle & Self-Improvement"
+    description: "Fitness, fashion, hobbies, and personal development"

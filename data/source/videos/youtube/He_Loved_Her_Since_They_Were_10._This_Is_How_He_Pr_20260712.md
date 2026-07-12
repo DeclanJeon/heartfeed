@@ -1,0 +1,22 @@
+---
+title: "He Loved Her Since They Were 10. This Is How He Proposed  (Matty Mac - The Proposal)"
+uploader: "Matty Mac"
+url: https://www.youtube.com/watch?v=OuXKkROBkiI
+duration: 298
+downloaded: 2026-07-11T17:04:09.687Z
+platform: youtube
+---
+
+![thumbnail](https://i.ytimg.com/vi/OuXKkROBkiI/maxresdefault.jpg)
+
+## [00:02]
+
+my girlfriend Jess and I have known each other since we were 10 for months she has been dropping hints about getting engaged little did she know I had been setting up a surprise for her I told her my cousin Maddie needed a couple to star in his music video and he asked us to help she has absolutely no idea that all of this was set up to capture our special moment while we spent the day at Love Park her family and friends were at the restaurant preparing for the last scene let's do this [Music] [Applause] [Music] tell me you want me tell me to stay tell me you wouldn't have it any other way tell me I'm yours tell me today tell me right now before I turn and walk away cuz I've been thinking overthinking every little thing you say and do I've been thinking overthinking when you looked at me and said you felt it too tell me you love me tell me to stay grab me around my wayist don't let me walk away tell me I'm all yours tell me today tell me I warm your soul when skies are cloudy gray and I pray you feel the same cuz I've been thinking about giving you my last name this world is full of crazy things but the most insane must be waking up without you next to me I don't want to wake without you next to me tell me you love me and that will never change tell me that I'm the one you'll call your falling chain tell me I'm all yours and you're here to stay tell me you'll die if we don't kiss every day I'll be the mister if you'll be my mes and I'll be the wizard to grant you all of your wishes follow me alone we'll tiptoe down a golden Road and when we finally find our home I'll put my queen at top her throne I'll tell her I love you every day I'll come home with chocolates and a red bouquet we'll get through the hard times we'll never freay we'll stay in color while the world's in black and gray so tell me you want me tell me to stay grab me around my waist don't let me walk away tell me you love me till our final days cuz I've been hoping that you'll marry me someday I've been that you'll marry
+
+## [03:37]
+
+me I don't even know where to start we've been through so much over the years it's gotten us to this perfect moment whole day's been about you you're the sweetest sexiest smartest person I know and you're even pretty funny sometimes [Music] you motivate me to be the best person I can be every day I want to spend every day with you for the rest of my [Music] life will you marry me oh my God
+
+## [04:32]
+
+[Music] oh my God you guys so I'll tell her I love you every day I'll come home with chocolates and her red bouquet we'll get through the hard times we'll never freay we'll stay in color are the worlds in black and gray so tell me you want me

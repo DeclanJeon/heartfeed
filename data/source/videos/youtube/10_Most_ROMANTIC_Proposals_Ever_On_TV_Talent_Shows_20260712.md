@@ -1,0 +1,186 @@
+---
+title: "10 Most ROMANTIC Proposals Ever On TV Talent Shows!"
+uploader: "Talent Recap"
+url: https://www.youtube.com/watch?v=-WjxBjrxsuk
+duration: 2721
+downloaded: 2026-07-11T17:08:05.453Z
+platform: youtube
+---
+
+![thumbnail](https://i.ytimg.com/vi/-WjxBjrxsuk/sddefault.jpg)
+
+## [00:00]
+
+[Music] subscribe ring the notification bell and leave a comment down below [Music] mom and dad are here they've always believed in me and my music but i wish my boyfriend matt could be here [Music] he's the most supportive loving awesome guy i've ever met i don't want to get ahead of myself but i think he's probably the one but we don't need to tell him that quite yet i mean i don't know if he knows but i know he couldn't come this week he's finishing up finals he's in his last semester school it broke his heart he was crying actually to me that he couldn't be here this is the most important performance in my life and um if i could call him and tell him that i got a yes i just know he'd be so happy and so proud of me and and i don't know just excited yeah i'm pretty dang in love [Music] i'm gonna be singing wicked game let's go [Music] come on [Music] know [Music] hold it out go go go baby go [Applause] [Music] [Applause] my name is matt zabra aren't you hannah's boyfriend
+
+## [02:54]
+
+um i haven't been here all week because of exams but i couldn't wait another day
+
+## [03:07]
+
+[Music] [Applause] [Music] [Applause] [Music] oh my god will you marry me [Applause] [Music] [Music]
+
+## [04:02]
+
+[Music] [Applause] good one there boy good one [Music] good job good job come on man he did ask me first he did he asked me first all right good he got the thumbs [Music] [Applause] [Music] makeup i took six exams yesterday um i drove 11 hours this morning just to get here matt is the most amazing man [Applause] no matter what happens i'm gonna go home smiling tonight hopefully i don't go home now [Music] why won't someone love me like that stop it [Music] i've got my eyes on you
+
+## [05:33]
+
+[Applause] [Music]
+
+## [05:48]
+
+you know
+
+## [05:58]
+
+[Applause] [Music]
+
+## [06:09]
+
+welcome to team legend is it okay if i have to share this moment with my girlfriend yeah why not oh my gosh is she gonna sing too what's your name tiffany tiffany welcome to the voice thank you so um being that you gave me a yes yeah i want to see if uh
+
+## [06:41]
+
+[Music] let him get on his knees
+
+## [06:53]
+
+[Music] [Applause] [Music] show me [Applause] is [Applause] [Music] [Applause] [Music] despite all the things [Music] still feel the pace [Applause] [Music]
+
+## [08:13]
+
+[Applause] [Music] [Applause]
+
+## [08:43]
+
+[Music]
+
+## [09:03]
+
+i'll let simon take it first simon uh guys guys guys can i be honest with you i didn't like it what come on [Applause] i loved it i heard some really really good singers in there as well i love you guys i i loved it too i mean i love the main vocalist i thought you were fantastic definitely left me wanting more could actually hear all 12 parts which is very very hard to do i absolutely loved it thank you you know what before before we carry on i really need to know who this crush is of yours young man jeremy can you please just confess just get it over and done with brother actually i i got a surprise a little what oh it's a teapot i don't know if any of you all watch the office but i'm gonna be jim for a minute and hopefully she'll be pam [Applause] what's happening from the office oh my god it's a letter oh gosh okay oh my gosh read it out loud you make me happier than pretzel day prom wow [Applause] right here are you saying are you dead yesterday you'll go [Music] [Applause]
+
+## [11:17]
+
+[Applause] thank you so much brilliant oh i feel i feel great anyway what did you think i thought they were amazing i think that you're amazing but you know what i want to go to the prom with who you no you make me happy let's go simon 100 yes i'm going to give you a second yes of course i'm going to say yes howie and i'm going to make you all happier than pretzel day with your fourth yes [Applause]
+
+## [12:11]
+
+we got our first american idol couple ace young and diana degarmo ah how cute come on up here for a second you guys are too cute come on up here for a second on the stage give it up for ace and diana it was a few years ago wasn't it it's amazing what can happen out of this show looking very pretty diana ace looking very pretty as well here let me give you this i hear that you guys uh you have some big news you you moved in together is that right yes we did oh that's cool congratulations thank you and uh this has always been home to us and i uh i felt that this would be the perfect place to ask a simple question well karen dim the lights here we go [Music] diana [Music] we have conquered broadway together we have created all your new music together [Music] we have an amazing group of people around us and uh with the help of david webb jewelry i have a way to make this fun last forever you ready
+
+## [13:41]
+
+[Applause] i love you to death you're my best friend i want to make this last forever and i will do anything in my power to have the most imaginable and amazing life together if you will have me diana nicole degarmo will you [Music] marry me [Applause] found [Applause] i'm shaking let's see if i can hold it here i'll hold the box thank you
+
+## [14:41]
+
+congratulations [Applause] thank you guys thank you ryan you all right how are you i'm so speechless right now um wow babe you picked a good one all right this is hard to keep secret um and my makeup's running so mine too after that thank you aysen diana [Music]
+
+## [15:20]
+
+we've been together like six months now and it is it's like a fairy tale sure love yeah we sing like for hours each day without without it being rehearsing we just sing whatever comes out of our mouth [Applause] to walk into that room today is probably going to be one of the most memorable days of my our life hello hi i hope it goes the right way what's your name where he knows she knows are you a couple we're we're couples we are cooking you kind of finish each other's conversations yeah it's it's cute i like that where are you both from i'm from newcastle i'm originally from bedford okay my mom lives in norway as well and she's here today so so have you guys met before no first today's the first time first time today well they put you in the deeper didn't they so how many years has it been that you've been singing together since the day we met that was how we met she messaged me on christmas eve and we were living together by boxing really obviously you've got good chemistry but more importantly it's about now what are you going to say justin bieber love yourself oh cool yeah let's hear
+
+## [16:35]
+
+for all it times that you reigned in my parade and all the clubs you're getting using my name you think you broke my heart oh boy for goodness sake [Music] [Music] you should know that my mama don't like you and she likes everyone and i never liked to admit that i was wrong and i've been caught up in my job didn't see what's going on now i know
+
+## [17:43]
+
+[Applause] i like the way shauna you controlled the performance you controlled the whole audition and managed to make this about the two of you silvia you don't have the best voice in the world by far but you do have great chemistry together thank you there's something so great about the two of you louie what do you think i have to say yes yes yes you have four yeses can i just stop for one second before we go i'd like the opportunity to ask this beautiful woman if you will be my wife will you marry me oh my god
+
+## [18:45]
+
+oh [Applause] [Music]
+
+## [19:04]
+
+oh my god your hands shaking come here [Music]
+
+## [19:19]
+
+i like them both it just shows you that red headed girls can be nice oh yeah [Laughter] hey baby i think i want to marry you oh there's going to be an x factor wedding is going to be the best man oh yeah wait before you continue watching this video because i know you will three things subscribe ring the notification bell and leave a comment down below [Music] i don't like the ways looking at you oh yeah i'm starting to think you want him to well i turn my cheek music up and i'm puffing my chest i'm turning red in the face you can call me obsessed it's my right to be hellish [Applause]
+
+## [20:27]
+
+[Applause] is [Music]
+
+## [20:44]
+
+i actually bring mitchell out is that possible who's mitchell mitchell's my a partner oh oh gorgeous hi mitchell hi mitchell hi how are you uh good he's very he was not a little nervous i'm sorry um so i just wanted to bring you out here because we've had a beautiful six years together and i i'm really nervous but um you're nervous and um been a constant support for me over these last six years so i just wanted to ask you will you marry me yes
+
+## [21:44]
+
+oh all right okay now i i promise you no matter what decision you make keep my name on the wedding because what i will do is perform when love takes over at your wedding are you serious i'm very serious that is amazing i'm very serious if you give me a mic and a guitar honey we will make that thing happen you can have whatever you want at my way i would be honored to sing at your wedding thank you so much honored thank you congratulations [Applause] [Music] you know what all right what's your name uh jacob jones all right hi jacob where are you from uh from team in surrey what do you do for a day job uh so i'm a barber normally but i teach people how to cut hair and stuff okay so why why bgt this year uh my girlfriend sent in she's over there in the in the red jacket she um so she did the application yeah she sent it in i had no idea about it well so she was more insistent about you doing it than you were um i think i just wasn't as confident with it and i've never really sung at a massive high scale so and what's her name uh her name's faye all right faye no pressure we're all going to be looking at you throughout this before we've uh we've brought our daughter today as well she's four months old what's her name uh nancy all right so let's do this for fan nancy what's the song uh you are so beautiful and who are you gonna sing that to straight to that lady in the red coat that's nice all right good luck thank you
+
+## [23:47]
+
+i hope he's good after all this
+
+## [23:58]
+
+[Applause] [Music] to me you are so beautiful to me can't you see [Music] for foreign [Music] are so beautiful
+
+## [24:57]
+
+[Music] can't you see [Applause] [Music] [Applause] that's a bit of a joe cocker impression in my opinion you know with the kind of the rasp and everything so can i ask you just to sing from the first verse up until the first chorus and we just lose that kind of gravity thing because i want to hear your voice yeah no music please i just want to hear you and this is obviously an important moment let's do this right [Applause] you are so beautiful to me you are so beautiful to me can't you see you're everything i hope for enjoy [Music] you are so beautiful to me [Applause] [Music] [Applause] [Music] thank you i'm going to say yes yeah i'm saying yes thank you it's a yes from me thank you very much thank you [Applause] this might be a surprise jacob jones but you got four years [Music] [Applause] [Music] [Applause] [Music] [Applause] [Music] [Applause] [Music] [Applause] [Music]
+
+## [27:29]
+
+um i just wanted to do one thing before i came today if i got four yeses there was another yes that i wanted to get what i was just wondering if i could ask my girlfriend to come up on stage [Music] come up
+
+## [28:00]
+
+[Music] i love you literally more than anything and i'm i'm so happy that you believe in me and that you did this for me and i wanted to ask you something so [Music] he's doing it hey will you marry me [Applause] [Music] okay your name is david gray and why do you enter the show i'll audition today for my girlfriend wrong answer yes like have you ever done something out of your element for love yeah well today today is kind of like that you sound very in love i'm very very very sweet i'm very in love okay and what are you gonna say i'm gonna sing a little uh for my boy usher nice and slow all right ready i need y'all to help me out a little bit now [Applause] it's seven o'clock on the dock i'm in my drop top cruising the streets i got a real pretty pretty little thing that's waiting [Music] don't keep me waiting i got plans to put my hands in places i've never seen girl you know what i mean so let me take it to a place nice and quiet there ain't no one that's an interrupt ain't got a rush i just wanna take it when you say you were doing this for love was it your girlfriend who asked you to do this well i mean she this is a competition for her she's taking it serious she's a great talented singer what's the name for her her name's lauren wagons bad they call her way okay we're gonna vote paulina i'm sorry dave i'm gonna say no kelly i'm gonna have to say no debbie um no sorry thank you david thank you very much hello everybody [Applause] hey your name is lauren wagospat david's girlfriend absolutely let me ask you a question lorne why did you make him do this i didn't make him do it he supports everything i do we do everything together but you realize he's he was competing against you we love competing against each other i mean so i have a question what are you doing girl he's entered the competition to support you you said he supports everything i do i just need a tip um i'm sweet i love him with everything i have well honey i'm gonna be sweet love whoever this man is they'll come into my life too what are you gonna sing for us today teenage dream by katy perry all right
+
+## [31:51]
+
+you think i'm pretty without any makeup on you think i'm funny when i tell the punchline wrong [Music] [Music] no regrets just love we can dance until we die you and i will be on forever you make me feel like i'm living up [Applause] hey hey [Applause] [Music] i want to tell you something i love you more than anything in this world [Music] it doesn't matter what anybody thinks or what the judges thinks i love you forever and i support you in whatever you do [Music] lauren wagner
+
+## [33:06]
+
+[Applause] [Music]
+
+## [33:32]
+
+i love you so much [Applause] [Music] oh my gosh
+
+## [33:54]
+
+[Music] what's your name my name is travis travis prep travis where you from tifton georgia uh what you gonna do for us today i'm gonna sing for you today my entire life i wanted to be a singer but it's tough because you have got to silence the voice in your head that is saying you can't so i'm here today because my girlfriend put me up to it honestly she's my my rock she's my encouragement i wouldn't trade her for anything wish me luck from afar you ready yes sir all right go for it [Music] [Applause]
+
+## [35:02]
+
+so is this a song that you always sing and this is a song i sing around the house my girlfriend she had to push me up to it honestly i would never ever have gotten up here and sing like that really she's right here on the front row that's her right there where is she is that you come here come on up that's my baby let me talk to her so you heard him do this yeah he sings to me all the time and you talked him into coming here tonight and doing this yeah don't you think everybody should hear this how long have you guys been going out i will be five years so you have a very special lady who saw something special in you and brought it to all of america that's a smart move young lady actually actually howie what you're right and i have something to say to her i have loved you from the very first moment i laid eyes on me
+
+## [36:18]
+
+oh
+
+## [36:29]
+
+will you marry me [Applause]
+
+## [36:48]
+
+this will be
+
+## [36:56]
+
+thank you for sharing you know this moment with the nation and your love with us and and we want to share our love of what you do with one giant yes [Music] [Applause] hello hi guys sam do you want to just introduce yourself to everyone here please yeah i'm uh sam black i'm 27 i'm from the isle of man and i'm a pastor this is crazy being a boot camp is really surreal i'm from a small place so to come this far i am i'm proud of myself simon do you like sam you sang the song well i have to say thank you no it's a very old-fashioned song but it's just finding out where your direction should be yeah totally i'm just really happy to be here but boot camp was a rocky road for me [Music] i put a lot of pressure on my shoulders to try to do well i don't feel like i'm singing it good enough my voice is going i just felt like nothing i was doing was going right at all i was disappointed because i think he's got something but he was good at the old days i was pretty convinced i was going home what we're going to do is we're going to give you all a chance now that i'm here i could actually i could actually do something the closer you get like the more you want it it's pretty much everything right now my girlfriend's like right near the front as well so that's what go out there nailed the song i'll live for my girlfriend i'm a baby i miss here today been for like almost five years now the case and she sees me rock if i can better myself and make a better life for me and my family [Music] tell me why you've given up work to come here sam uh well to be honest that's what i provided for me girlfriend and me baby and how old is he he's eight months old but i'm here with my girlfriend uh sam what are you gonna sing and white i'm gonna sing dale shannon run away i just love that type of music to be honest all right sam good luck thank you [Applause] as i walk along i wonder what went wrong with our love a love that was so strong and as i still walk on i think of the things we've done together while our hearts are young [Applause] i'm walking in the ring [Applause] [Music] i would not have advised you to sing this song [Music] what do you do with that sharon i don't think he's good enough
+
+## [40:46]
+
+sam [Music] can i suggest that we just hear you we slow the song down so at least we can hear a version of the song and hear your voice properly because this is going to be a struggle otherwise okay noise [Applause] as i walk along i wonder what went wrong with our love a love that was so strong [Applause] in days i still walk on i think of the things we've done together while our hearts are young i'm walking in the ring tears are falling and i feel the pain wishing you were here by me to end this misery i wonder where she will stay my little runaway [Music] [Applause] [Music] [Applause] [Music] i felt like when you asked him to do an archipelago [Music] [Applause] [Music] sam i'm going to be really really honest with you hello we all really like you have we got to know you [Music] [Applause] [Music] okay sam i think people are going to really like you [Music] but we are going to have to say no
+
+## [43:04]
+
+[Music] is it something i can do before i go so i'm never going to get this chance you do whatever you want hey babe come here [Applause]
+
+## [43:30]
+
+oh my god [Applause] [Music] [Applause] [Music] sam she'd say yes she said yes
+
+## [44:10]
+
+[Music] that sam with the wrong hands thank you very much guys honestly and you emma you've got yourself one heck of a nice guy there ever i wish we could have said yesterday but i think this is probably better than a yes from us right thank you very much good luck both of you [Music] thank you everybody [Applause] hey guys i'm alicia dixon i was your favorite judge on britain's got talent and i'm over here in america doing america's got talent you know what it kind of looks like i'm really good friends with simon cowell for more of these videos from talent free gap all you need to do hit that button below to subscribe [Music] you

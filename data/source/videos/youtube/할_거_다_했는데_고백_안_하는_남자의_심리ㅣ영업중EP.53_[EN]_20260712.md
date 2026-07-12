@@ -1,0 +1,296 @@
+---
+title: "할 거 다 했는데 고백 안 하는 남자의 심리ㅣ영업중EP.53 [EN]"
+uploader: "십이층"
+url: https://www.youtube.com/watch?v=3FlYEnsG4dE
+duration: 2937
+downloaded: 2026-07-11T17:15:59.068Z
+platform: youtube
+---
+
+![thumbnail](https://i.ytimg.com/vi/3FlYEnsG4dE/maxresdefault.jpg)
+
+## [00:00]
+
+I'm comedian Kim Kyu Won. Cute. When you say, "Drink up, you jerk!" When you say, "You jerk!"
+some guy definitely goes... What's with that look, you jerk! Image Game! "What if you weren't dating
+Kim Won Hun right now!" I've never seen a bastard who wouldn't do this! Wow, seriously! - 500 percent guaranteed.
+- They'd do it for sure. Hasn't this happened to you? It has. She has! She says she has! She says she has! What they always do is... Right, right. Why are you like that? Seriously, why? I really can't do this today.
+
+## [00:37]
+
+Comedy is all about timing!
+
+## [00:44]
+
+Kissing is about timing. Want to kiss me? Is your lung capacity low? You should do some work out. Shopping is all about timing! You gotta buy it... Now! Subscribing is all about timing! We're almost at one million. Timing is everything. It's already 2026... Many people make - I did.
+- diet plans for the New Year. Most people set weight loss
+as their New Year's goal. So if you go to the gym in January or February it's packed with people. Exactly. And the funniest part is on the morning of January 1st I assumed the gym would be closed
+so I wasn't going to go. But I looked it up they were actually open
+even at the crack of dawn on New Year's. Do you work out? I run a lot... I'm running a half marathon in the spring. How do you even run that? So you've been doing it this whole time? Yeah, I've been training alone.
+I increase my speed... Usually, you lose a lot of weight doing that. You do lose weight. But why... But if I lose even more weight I'm scared I'll get too fast.
+So I'm holding myself back. There is a way to eat the same amount
+but gain less weight. You just have to control your blood sugar spikes. - How do you do that?
+- Something good for that is eating apples with peanut butter. So to help you guys stay on top of your diets! And to make sure you have
+healthy snacks in the New Year we have Olgok peanut butter and yakgwa here! That's perfect, I love it! Gotta diet. Whenever I was on a strict diet this is all I ate for breakfast. - Really?
+- Yes, really! With peanut butter. But if pH-1 says he ate it
+it sounds much more convincing. But it really is delicious! The peanut aroma is insane. There's no way this isn't good. Give it a try. It's tasty. It's so nutty! Since it's creamy, it'll be easy to dip things in. It's smooth! It's like jam! Jam! But it's not too sweet! I like that it's not sweet! This peanut butter is
+made of 100 percent Korean peanuts. Since there are no other additives
+you can trust it and eat up! Olgok. They say these are specially selected peanuts
+from Gochang, Jeonbuk! Aren't I an honorary ambassador for Jeonbuk? In Jeonbuk since it's near the sea and the soil is rich and fertile the crops grow really well. It definitely tastes fresh. It has a high-end flavor. And we also have yakgwa here. At the bottom of the yakgwa box there's a joke that says
+"This is what you call yakgwa." I'm curious how old the CEO is. They're probably born in '86. I really love yakgwa! And you know what? This yakgwa is also made with Korean peanuts. I was getting hungry, so this is perfect. You can't go wrong with yakgwa but why is this so savory and delicious? It kind of tastes like peanut crackers! The sweetness isn't overwhelming at all! Right, it's subtle. And more importantly I think the peanuts in the yakgwa
+make it taste even better. Also, the price is important. Each yakgwa is only 500 won. - Really?
+- Why is it so cheap? Yakgwa is so expensive at cafes these days. Since it's Lunar New Year soon this would be a great gift for the elderly. They don't like things too sweet. They'll eat a few and say
+"Oh, that's a bit sweet." But this one is perfect for them
+to snack on whenever they're a bit hungry. It's tasty. There's also a discount link for our subscribers so please check the description for more details. Let's keep our snacks healthy this year! And let's stay on top of our diets. I'm really going to succeed this time. For real. Who's really hot these days? Hot boy. A hot... evenly cooked pig! There's a lineage for this, you know? The chubby guy lineage. Yoo Min Sang. - Rising pig! Rising pig!
+- Moon Se Yoon, but now... The MZ Pig! The MZ pig is here today. The MZ Pig. Kim Kyu Won. He's biting his lower lip again. Right now... is... chubby guy fetish time. I've fallen for him. Kim Kyu Won has come - to Youngupjung.
+- Kim Kyu Won. I thought I came to the wrong place. Maybe you came to the wrong place? But Won Hun texted me "Who do you think you are to come here?" When did I ever say that? - You just joined the show!
+- That's a lie, it's a lie. Look at him acting like a territorial veteran. Apologize to him! I hate it when people make things up just to be funny! Then let me show the KakaoTalk message… Yeah, show it. I didn't have any info, but last time Jay Park came on and he said, "Who do you think
+you are coming here?" Hey. - Why are you like this?
+- I was just so grateful. I meant it like, "I'm so honored someone so important came here." I was saying it indirectly. This is a first for me. Someone who only joined the show six episodes ago acting all territorial toward a guest. Why are you even here? I don't know either. Kyu Won, introduce yourself. English? No, no. - Korean!
+- In Korean? I've been working hard as the leading figure of the next-gen chubby guy fetish. I'm comedian Kim Kyu Won. So cute. As far as I know the term "chubby guy fetish"
+didn't even exist before. I've never heard of it! It's a new term so did you make it up? Or was there already a trend you hopped on? There was a comment on one of my videos that got over a thousand likes. It said, "Kim Kyu Won is so sexy. I hope he never loses weight. Why do I find him so sexy?" The username was "Chubby Guy Fetish." - So...
+- So you made it from that? I mentioned it once during a live stream and then all my fans changed their usernames to "Chubby Guy Fetish." I also heard it was your birthday recently and you had a fan meeting? They opened a birthday cafe for me. A birthday cafe? - Wow, I'm jealous!
+- Only idols get those. - In Gangnam!
+- Exactly. Wow, in Gangnam? But wait why did you rent out
+a Myeongnyun Jinsa Galbi for a fan cafe...? - That's...
+- Wow, I'm jealous. Wasn't it there? No, it wasn't there. But I'm curious. Since we usually talk about dating here have you ever dated? To be completely honest except for when I was in the army I have never stopped dating. Are you in the army right now? Even now... Asking if he's in the army right now... You're so sure he isn't dating. A career soldier! A career soldier! Hey, that's a good way to put it. There really are chubby guy fetish fans. No, it's a real thing! There are people who like bears. People who like that teddy bear vibe! I have a lot of friends like that too! I'm dating someone right now. How long have you been together? A little over two years. I haven't done much variety before so I'm honestly really nervous. What's there to be nervous about? And Kim Won Hun totally crushed my spirit. Won Hun, seriously! - Why are you like that?
+- Kyu Won... Kyu Won actually likes being the teasing target. That's right, that's right. He wants this position. I came here today with a mindset. If I try to protect my image here I'll end up being nothing! So, whether you're curious or not - I'll tell you everything!
+- I'm curious! - I'm going all in!
+- Love it! But wait, why do you have syrup on your face...? Why is it there? What? When did you eat that? It's humid, so it keeps… It's really hot. Let's have Kyu Won read today's topic. Today's topic, timing! Timing! When do you feel more attracted? When someone smells good
+vs. when they have a nice voice. The moment you feel attracted. I've experienced both of these. But there is definitely a difference between men and women. It's pretty big. Actually, men are more drawn to scent. Huh? No, no. - No?
+- No, don't talk like you know everything. You're such a soft guy. Soft... I'm saying, when you're walking
+and you catch a woman's scent there are scents that make you turn your head. There are, there are. That's happened to you? - I have.
+- Totally! Me too! Well, I don't go as far as turning my head! - Just "It smells good."
+- "Smells good." I keep remembering that scent. But I've never thought a woman's voice was "pretty." Really? There are many. Or maybe... "Hello, Won Hun." Your voice sounds like
+you have bad breath right now. The funny thing is it's not about fake cute voices but there's a specific frequency I'm drawn to. There's a tone that I like. I don't like those kinds of voices. I don't like high-pitched, whiny voices. You do that sometimes. "Oh, come on." No. Do it more intensely! No! I really hate that. - He's definitely sure.
+- You told me to do it! Why confess now? - I've been holding it in.
+- She must be shocked. And I haven't used this voice once today. I only did it because you told me to! - But your real voice isn't like that.
+- He must have hated you so much. Right. Okay, good. You must have hated it
+when she sang that Wax song! But you have to sing it like that! One more time, an encore... Oppa! Look only at me! Look at me! Now, make me yours How's this tone? This frequency? Disgusting. I think most people find
+that kind of voice exhausting. But some people might find that voice charming! Sure! There might be people like that. But as for scent I'm the type to feel attracted
+when someone smells good. Even if their voice isn't great I feel like I could find other charms in them. But if their voice is amazing but their scent is bad... Fair point. But doesn't a bad voice ruin the mood too? It does! Even for men, like... Hey Ji You! Absolutely not! Hey, eat this apple. It's kind of cute when you do it. This is peanut butter. Voice is really important. A voice over the phone is huge! But Won Hun has a nice voice! - He does have a good voice.
+- When I was dating my voice over the phone... There were many people who fell hard for it. I bet there were! From 10 p.m. to midnight
+in that late-night mood... "Hello? Oh, Ji You." - Yeah?
+- "Did you eat?" And please say "Good night" for us. Good night. Nice voice. I suddenly changed my mind about this. I thought having a bad voice might be somewhat okay but for example, if you're kissing
+or trying to set the mood and suddenly that voice from earlier comes out... wouldn't that totally ruin the mood? But who on earth would talk like that while kissing? Well, if the tongue pokes too hard you might say it out of surprise. - Because it went in too fast?
+- Yeah, just bam! Right in. But Kyu Won, the topic is about the timing of becoming attracted. The timing of feeling attraction! What you're talking about is the next stage
+after the attraction is already there. As for me, I think a fresh floral scent or a woody scent on a woman would be attractive. I'm very sensitive to scents. In real life, Kyu Won always carries perfume with him he smells good. What kind of perfume do you wear? I put some... here... Where, where? - I'm not sniffing that spot.
+- Really? I sprayed it on my neck today. I've heard that women are often very attracted to voices. But I think the opposite. I think women are actually
+super sensitive to scent. I once got to know this guy I met this guy, and his scent was so good. Even after our situationship ended
+I actually asked him what perfume he used. I just couldn't stop thinking about it. Then maybe a year or two passed and I randomly smelled that same scent somewhere. I literally turned around. It instantly brought back all those memories. When people get hooked on a scent some of them even recommend that same perfume
+to the next guy they date. Wow. I've actually given it as a gift. - You have?
+- Yeah. What if, on the other hand
+your boyfriend gave you a gift and it turned out to be a scent
+his ex-girlfriend used to wear? How would you feel? I wouldn't care at all! And I've received one like that before. My partner meeting my friends
+at a time when I'm not there... Why are you angry? My partner meeting my friends
+at a time when I'm not there... Acceptable vs. Unacceptable. How can anyone accept this? - Are they crazy?
+- He's angry! He's angry! He's heated up. But there's a story behind this. Ah! There's a story. Yes, let's read the whole thing first. I have a girlfriend of the same age
+whom I've been dating for a year. She moved here alone from another region so I felt bad that she had no friends. So, I took the opportunity
+to introduce her to my neighborhood friends. That was a mistake from the start. My girlfriend loved that
+their sense of humor clicked, so she had fun. The problem is, even on weekdays
+when I'm too busy to go she still wants to hang out with them on her own. One day in the group chat, they were
+talking about grabbing beers after work. I said I couldn't make it
+because I had to work late. And my girlfriend casually said "I'm in." It's all guys there. Even when I'm not around
+she hangs out with them, and it bothers me. Am I being petty for not being okay with this? It's all guys? Let's see a show of hands, quick. Let's assume they're your own friends. - Yeah, same here!
+- Okay, okay, let's go. You have to think of them as your own friends. Let's start with "Unacceptable." Raise your hand for unacceptable! You all think it's okay? Everyone thinks it's okay?
+You really think it's okay? It's really half and half right now.
+If I think of them as my friends... You have to think of them as your friends. You're okay with it? I'm okay with it. - I'm okay too.
+- My friends! Since they're my friends. To me, it's unacceptable. Absolutely not. I'm going with unacceptable. Thinking of my friends, someone just flashed through my mind. There are only men among my friends so why would my girlfriend go there? What kind of gathering is that? Exactly. I wouldn't encourage it. I'm not exactly encouraging it either but if it's an unavoidable situation... What kind of situation! Is someone going to shoot and kill her? What kind of situation! It's fine if I join the group later. Even if I were to join later if they are already drinking and I arrive with my girlfriend already there laughing and joking with my friends... And someone says
+"Hey, I'm sitting next to your girlfriend." Just seeing that would make me lose it. - Really?
+- "Your girlfriend is next to me"? "Hurry up, she's been waiting... She's been waiting for ages." Wouldn't that make you lose it? Like, they were being touchy? Just... I just hate the situation itself! And if they're having fun and the energy goes up people start making slips of the tongue. "Actually, Kyu Won... Hey, can I say this? The girl Kyu Won used to date..." While they were talking about something? And then, when you suddenly arrive there's this atmosphere
+that only I'm left out of... Since you came late... And if they get along so well and their humor matches perfectly that they have great chemistry... Then no matter how much they are just friends a strange vibe starts to form. You start comparing too. No, you wouldn't compare them. Why would I compare them to my boyfriend? Subconsciously, you try talking to your boyfriend but the banter isn't great. Then you think "Wow, it was way more fun talking to that guy. When am I going to see him again?"
+That's what happens. "That friend, Won Hun, is so funny. Kyu Won's friend, Won Hun." Won Hun is hilarious." "Let's invite Won Hun." "Is Won Hun not coming today?" I wouldn't go. I already said it's unacceptable for me. I said I can't go. He said it's unacceptable. Don't put me in this role-play. The way I see it
+it's not a problem with the girlfriend but a battle of trust with the friends. That's why I said it's acceptable. That's why I said it's acceptable too. I think the girlfriend is weird too. Why would she say, "I'm in" without reading the room? Because she's lonely. If she's lonely... Maybe she just had too much fun with your friends. Exactly, that's it. She moved here alone
+and doesn't have any friends. So you feel bad for her. So you introduced her to your trusted friends. And now they click really well. Now they're basically her friends too. Sure, she met them through her boyfriend but it's not like she's thinking
+of them romantically. She's just hanging out with friends. But how do you know that for sure? That's why, just looking at this story if I put myself in this person's shoes
+it's unacceptable. Because you don't know. It's like a deep-sea phobia of the unknown. It always comes down to that word! Why go out of your way? Why do you have to go that far! Can't you just hold back a little? Are you going to die if you're bored? But she's already had a taste of it. A taste of what? When I'm in a group like this if my friend's girlfriend is there... I try really hard to make her laugh. All my friends do! Whether we admit it or not
+the spotlight is on her. And I hate that. I hate the idea of my girlfriend getting all the spotlight from my friends. Of course I trust my friends. But sometimes there's a weird twist. I'm telling you, there's a subtle atmosphere. - And they're the opposite sex.
+- Where is it? The question says "meeting my friends without me is crossing the line." Is that really crossing the line? He said he couldn't go because of overtime. And without even asking him once she just said, "I'm in." That's the point. That's what crossed the line. If she had at least called him or texted, "I'm so bored, is it okay if I go?" then maybe it's not crossing the line. Good point. She said nothing to her boyfriend and just went "I'm in." This is... This girlfriend
+is doing a bit of "petty-lighting." "Why are you making a big deal out of that?
+Don't be so petty." And as that builds up... Is there another reason why
+she's so determined to go even when the boyfriend isn't there...? It's definitely because it's fun! And those people treat her so well. My friends do. And since old times, when there are
+many men and only one woman? the atmosphere becomes... Even if it's many women and one man the atmosphere becomes very doting! Exactly. Even if my friends aren't trying to hit on her... - Right!
+- If a woman goes, my friends will be like "Wow, sister-in-law is here!" "She's here!" They'll joke around and she becomes the queen of the table. She's just sitting there
+and the guys are entertaining her. But the fact that she says "I'm in" without even asking for consent is just wicked. It's truly wicked. While they are hanging out, among the men someone says, "Hey, let's go for a smoke!" They step out! "Hey, but you know Ji You? She seems pretty cool." This definitely happens! It's not that they're trying to date her. But when someone says, "She seems cool"
+then a friend will say "You crazy bastard, knock it off! "I'm joking." Like this...! There are guys who do that as a joke! It definitely happens! Since we are projecting
+our own friends into this... It might not be the case for everyone. Exactly. But since there could be people like that... - Our friends might not be like that!
+- It's possible! If I were the girlfriend... and if it has reached this point it's not like the guys are making me laugh just for me but we're all... "Hey, you jerk," while having a drink. It's probably that kind of vibe. Right, that's what I was thinking. - They've become so close.
+- I know what you mean! But in the middle of that when she says, "You jerk!"
+there is definitely a man who'll be like... What's with that look in your eyes, you punk? - There's definitely someone like that!
+- What! It's not to this extent. Did you come to the wrong table? Let's say Won Hun is my boyfriend. And you're his really close friend. But you think like this... You'd act like this? When I'm like "Hey, you jerk! Drink up, you punk!" You'd look at her like that? Well, he could get sentimental
+on that particular day. Guys also do this thing. Even when a friend's girlfriend is there... "Okay! Image Game! Suppose you're not dating Won Hun right now. And you absolutely had to date one person here." Wow, seriously! "Who would you pick? One, two, three." They definitely play Image Game like this! If they don't do this... I have never seen a guy who doesn't do this! Wow, really! - 500 percent guaranteed.
+- They definitely do it! You've never had that happen to you? I have. She said she has! She's done it! She said she has! The woman has no choice
+but to think about it seriously too because he said she moved here alone
+and has no friends. So when they met
+it wasn't just a "friend of my boyfriend" whom she'd only see once. She starts to rely on him a little... "Oh, if I'm in this area, I'll hang out with him." That kind of feeling grows. And when playing that Image Game the woman thinks about it seriously too. And women know better what men are like... Even though they are my boyfriend's friends while my boyfriend is away they could still, in any case look at me with that much
+of a possibility in mind. Honestly, you know that deep down! No, no. Women know everything! No, and also... if the way he looks at me is different then I wouldn't hang out with him. Right, that's how it should be. But I'm curious about this too. If I were the boyfriend, and my girlfriend and my friends had all met up and hung out before. And I knew the atmosphere was
+one where they'd go, "Hey, you punk!" Then I wonder if he'd be this anxious. Because it wasn't like that... - Good point.
+- Maybe that's why he's feeling anxious. "The girlfriend said she had fun
+because their humor matches!" Exactly! It says right there that she had fun! Let's say you're going to
+your boyfriend's group of friends. Do you go with a bare face? - I'd never go with a bare face.
+- You'd wear makeup when you go! Full makeup, and she'd even spray perfume on her hips before going. See, why! - You shouldn't do that.
+- Why are you getting all dolled up? Men will wonder, "Why did she put on makeup?" "Why did she get all dressed up?" If I were the guy... I just! I just hate it! My girlfriend! I hate that she got all dolled up to go! Is it okay if she goes with a bare face? That would be a bit better. But even if it's to be polite wearing such pretty clothes and getting all dolled up is what I hate. I hate that too. But this one's tough.
+I feel like I was kind of persuaded earlier. What Kyu Won said the part where she didn't even ask her boyfriend and just said, "I'm in."
+That's what really bugs me. Just saying "I'm in" without asking. "I'm in!" And I hate this yellow hand emoji. She looks way too excited to go. Her boyfriend's probably at work
+sees that message, and thinks "Why wouldn't she at least ask me first?" But this yellow hand looks too excited. You see how it's almost waving? And... whenever something like that happens there's always that one friend who asks "Is Won Hun okay with this?
+Did Won Hun say you could go?" Someone always comments that. "My boyfriend will be fine with it. He isn't that petty of a guy." - "You're okay with it, right?"
+- This is seriously annoying. I'd rather have a friend
+who asks something like that. But now you can react with emojis, right? This specific emoji. I think the person who uses
+this one would piss me off more. Exactly. After she says that everything that follows in the chat
+would get on my nerves. Like, "Hey, today's gonna be fun!" "Hey, you might not make it home tonight." Saying stuff like that. "Is it cool if we roll in at sunrise?" Wow, seriously... "Hey, come prepared for the image game." But honestly, from the girlfriend's perspective I'd honestly prefer if my boyfriend said "Hey, I introduced you to my friends
+because I didn't want you to feel lonely. But seeing you hang out with them without me… I feel a little jealous. I'd rather you not go." I think it's better to just say that. - You definitely have to talk about it.
+- From the girlfriend's point of view instead of saying, "There are so many guys why are you going without me?" Say something like, "I'm feeling a bit jealous." But she could just not go. Or just go when the boyfriend can join. Next, which double date timing
+would you want to avoid more? One with a filthy rich couple
+vs. one with an overly lovey-dovey couple? Examples of the rich couple. You finally buy a new car after saving up but they say, "Wow, you're so frugal." You're talking about life updates and they say, "How do you even survive
+at a company? Just start a business like me." You're in line at the airport for a trip together but you're at different entrance lines. This is really... They're in Business, we're in Economy. Well, that last one is... Aren't the first two examples making the billionaires look too villainous? But for them that's really how it looks to them so they might say those things. With no bad intentions. Because they've lived like that their whole lives they don't really understand the value of money. Now, examples of the lovey-dovey couple. One of them cuts up all the food
+and feeds it to the other. One person never even uses their own hands. In front of you, they wrap their arms
+around each other's necks and deep kiss. Wrap their arms around the neck. You're just sitting there watching that? It says deep! Deep! Calling each other ridiculous pet names with over-the-top reactions. - What are they doing?
+- What is this? Beom-kko, You-kko. My baby. Kiss me! Minus-kku... - Hug me!
+- Subtract-kko. Ppae-kko. But if it's the rich couple at least we might get a free meal out of it. "Hey, wanna try that fine dining place?" "Well… we're kinda broke… Ji You, let's just hang back." "Let's just all eat together." "Shall we?" As if you'd go like that. Like the girlfriend would... - Still, I'd benefit from it.
+- Because you think you'd get something? But with a lovey-dovey couple
+there's nothing in it for me. But I think I'd want to avoid
+the billionaire couple because I wouldn't want
+my girlfriend to feel small. What a romantic. If it's a lovey-dovey couple I can just express my affection more intensely. If they're wrapping arms and deep kissing I can just do the same. You said you'd do more. You have to do more. You said you'd do more. What are you going to do? What should I do? Wrap around her waist or... Climb onto her lap and kiss her? Just pick her up completely. Wow. Standing up? Yeah, just walk around doing it. If they're over there
+wrapped around each other kissing... Satellite kiss! Satellite kiss! I can just do this. But with the rich couple no matter how much I pretend I'm fine my girlfriend might still feel intimidated. Right, right. I'm afraid she'd get hurt. Then let's vote on this first. Right, right. Hands up for billionaires! Which one do you want to avoid more. This is the worst. If we have to go on a double date the fact that I have to keep
+watching that behavior is torture for me. As for billionaires, if I play along I might get some crumbs. That's just your own happy imagination. Everywhere we go, they'd ask "Won Hun, have you ever
+been to a place like this?" "No, I haven't." "Oh, so it's your first time." "Yes, yes." "Well, you can experience it now. Aren't you going to say thank you?" "Thank you." - This is just!
+- This is just! That's just being rude! I said thank you. "Honey, stop saying thank you!" - I said I thanked him.
+- Let's just go. "Thanks." Let me try to convince you. My point is that this one is worse. But here's the key point in my opinion. Synchronization! If my girlfriend and I have our financial situations and backgrounds perfectly synchronized and we have this unspoken agreement like "Yeah, we don't have much money
+so let's just live within our means. No matter how they spend
+let's just do what fits us. That's enough for us." If we're on the same page even if they say, "This car is so frugal" we can just hear it and brush it off. Because they're rich. "We're doing fine in our own way. Our car is good enough." We can do that, but the other one... Just watching them is annoying. Doing a deep kiss
+and making sounds right in front of us... It's just so irritating. That is a pain you can't escape. The billionaire one is a pain I can ignore. - I disagree.
+- I disagree. But can you really ignore that? But they aren't attacking us they really mean it without any bad intentions. But that's what makes it so hard.
+Because there's no bad intention I can't even say anything back. You don't have to say anything. I was thinking about how much we can be compared. With billionaires, the comparison is numerical. If we go on a trip together you see the price of business and economy. - Right.
+- It's the same with wedding gifts. The moment you see it numbers pop over people's heads. But even for a single trip when we walk into a restaurant... "Oh my, this is 400 bucks..." "400 bucks per person..." It's all numbers! "They're really... working hard on that kiss." "They're doing it with 82 percent energy." It's not like that. For me hanging out with the billionaire couple... They'll see us as numbers the whole time? No, that's stressful for me too. Regardless of how that person sees it "I'm so grateful." "It costs so much, I feel bad." "I feel like I should pay some of it
+but I couldn't." I don't think I could get past that. Even if the numbers come to mind it's the billionaire couple that's abnormal. The spending habits of regular people... It's not something to be ashamed of. "This is what's right for us." That's how it should feel. But like you said earlier If we're synchronized and they're doing a deep kiss
+with their arms wrapped... "Oh? They're kissing. Shall we kiss too?" We can do it together. Kyu Won, good job. That was a good point. We can't catch up to them. We can't keep up. We can't catch up through our efforts alone. No, I'm saying there's no need to catch up. You just shouldn't start the comparison at all. Just ignore it. See them
+as being on a different level. You can ignore this one too. When you try to catch up you can never catch up to that. And even if you're synchronized you don't know if the girlfriend
+is getting hurt or not. If we hang out together and say, "It's okay, we'll treat you next time" and inside she's thinking "Next time again…" - Because she knows your situation.
+- Right! The point here is
+a double date you want to avoid. The point is that
+the lovey-dovey couple is more hated. With them, even the conversation is annoying. The time spent with them is just irritating. With a billionaire couple you might feel a bit of comparison but once the conversation starts
+and you're actually talking it's all normal. But from what I see the tone of conversation itself... Look at the example here. "How can you work at a company?
+Just run a business." "I want to run a business too but I feel more comfortable as an employee." "How long are you going to live like that?" "Things might go wrong later. It's not like a business succeeds
+just because I want to do it." "Hey, look at me. I started a business and I'm making 100 billion won." "Then you treat us today!" "You cheap bastard." You shouldn't do that. There he goes again. But I'm also curious about this. If they're truly billionaires would they really talk like that? It feels like they're saying it on purpose. Bros who have a lot of money and rich people talk like that all the time. How do they talk? They just eat the food they usually order and treat us. The price is insane. They just eat it. - That makes us feel pressured.
+- Right. The burden just builds up. Okay, I've been persuaded. I'm thinking back to people I've met like that. Not couple just guys. But whenever we met it was always talk about their assets. "This time it's a Panamera." "This time it's a Porsche." Talking about stuff like that as if it's nothing. - And I'm just listening.
+- You can't join in. I just get annoyed. It's just obnoxious. That's right. It's a completely different world. And if you're already bothered alone imagine going through that with someone you love. - Right.
+- I can't do that. She might get envious. If I had to go on a date ten times with these couples I still wouldn't want to go
+ten times with the lovey-dovey one. If it's ten times by the fifth time with the billionaires
+I'd give up and say "Hey, let's at least get something out of this." That's how it would go. But by the fifth time
+I don't think I'd have the energy anymore. "There they go again. I really can't stand this." With billionaires, by the fifth time since they know what I earn, they'd say "Won Hun, take a taxi home." "Thanks." They could do that. That's possible. - If you let go of your pride?
+- Yeah. Don't just think about yourself. Imagine your girlfriend is with you. But with the lovey-dovey couple there are many people around. In a public place like this doing a deep kiss
+and expressing affection like that... As someone who is with them - It's embarrassing.
+- it's shameful. Knowing that I'm an acquaintance
+of people like that... No. I think I get it now. Just the fact that I'm in
+that space together with them makes me someone who gets pointed at too. Don't you have friends like that? One lovey-dovey couple? - There are many couples like that.
+- Right. There are many, but... I just thought, "I guess
+that's just how they are." I don't think I ever thought
+"Why are they like that? It's uncomfortable." Imagine the two of them
+being super affectionate and some random third party
+is filming a video of it. But then, in the background I'm caught in the shot as an acquaintance. So in the comments, people go "Hey, Kim Won Hun, isn't that you?" Exactly. "Why are you friends with them?" "I just happen to know them." But as for the billionaires...
+Let's say we go to a really nice restaurant and I'm caught in the photo. "Hey, Kim Won Hun, is this you?" - Yeah!
+- "How?" "Just someone I know." I'm sold. Your pride might be hurt once or twice but if you truly synchronize and say "Hey, let's change our strategy this time." Wait, I'm asking if you'd
+really say that to your girlfriend. "We're meeting a billionaire couple today
+so let's change our strategy and get them to pay for everything." If the girlfriend is on the same page you'd set the strategy together and go in with that mindset. I think Kyu Won just wants to get free meals. I mean, how great is it? We eat here, and then say "Hey, let's go get seafood stone-pan jjapagetti." See, you're going to eat again. Seafood stone-plate jjapagetti. And you might even get to
+visit the billionaire's house. Exactly. And when you go to a place like that while looking around the dressing room they might say, "Hey, do you want to wear this?" That's nice. - Yeah!
+- Right. "If you're throwing away that luxury box..." You can sell those on
+a second-hand market these days. - Like Hermes boxes.
+- Right, paper bags and such. But there's also this. After hanging out with a lovey-dovey couple what if your girlfriend says
+"Did you see how he takes care of her? You don't do that for me." - "Did you see how affectionate he was?"
+- They compare. In the short term you might fight over the lovey-dovey couple but looking at the future from the girlfriend's perspective things that cause more stress - are more likely to happen.
+- Right, her pride might get hurt. The more frustrating timing of movie clichés. Doing exactly what they were told not to do vs. villains being way too gentle. The example for
+"doing what they were told not to do" is going to places they shouldn't go. Opening things they shouldn't open which always leads to problems. The example for gentle villains is not attacking all at once
+during a fight but waiting for their turn. And consistently sending out warning notices. "Here I come!" Like that? And let's say they land a punch. The hero gets hit. Jackie Chan is over here doing his thing. The villain could just go and hit him again. But in those moments
+what the tall white guy always does is... Right, right. "I'm going in." It's like pro wrestling. I punch him and he falls. But then this guy picks up a chair and sneaks up behind. I don't notice, and then... Ack! Exactly. The protagonist infiltrates the place and kills them one by one. But why are the villains always... "Hello!" drinking coffee on the balcony in pairs? That's negligence of duty. They're just drinking coffee there and then someone comes from behind. And there's this too. The female lead is injured. She's running away. But she hurt her leg, so she can't run. She's limping along slowly. The villain could just run and catch her. But with an axe or something... they just walk slowly. You know what I mean? - They could just come quickly.
+- Exactly. And at the end, after the lead defeats every single henchman and finally it's down to a one-on-one showdown if the villain says
+"Consider yourself lucky today"... and just leaves, it's so frustrating. Why? I don't relate to that. Give us another one. One more relatable thing. One more. Let me squeeze out one more! Sure, there are plenty of things villains do. And about "doing exactly
+what they were told not to do" in horror movies, when you hear "Agh!" You hear a scream like that they go there in slow motion and insist on opening the door. That's because the plot needs to happen. Right. - Otherwise, the script wouldn't move forward.
+- And there's that. Not turning on the lights. If it ended with them living happily there it wouldn't be a horror movie. But what about not turning
+on the lights when they get home? That's also necessary for the movie. If you look at it that way
+they can't do anything! Hands up for "Doing exactly
+what they were told not to do"! The frustrating one? Doing exactly what they were told not to do. Delivery-gone-wrong movies are built on that trope. "You're not allowed to look. Just deliver it." "Don't look!" "Never open it." If he just delivered it
+the movie would end happily on a beach in San Francisco. But on the way he always goes, "What on earth is this!" and opens the trunk. True. "What is this?" - Busted.
+- But then a cop is right there! Right. "We're going to perform a search. Please open the trunk for a moment." "There's nothing in the trunk." "Darn it! I'm screwed!"
+
+## [32:53]
+
+That's true. Did no one save you so you were just staying there? You should've helped me up after the skit. No. There was no one around. I was also in a situation where I had to run
+I couldn't help it. It's like, "Why is he doing that?" Honestly, we don't get that frustrated about gentle villains. The most frustrating thing... I was thinking of the Supermarket Auntie
+from the movie The Chaser. I was thinking about that. "That man... is right here!" The movie I was thinking of was actually Sunflower. The scene where he fights dozens of gangsters. If you look at the guys in the back... Right. Why do they do that? Seriously, why? They only attack if they make eye contact. They have to make eye contact. - Right.
+- Only then do they give them a kick. And then, the protagonist arrives empty-handed fights off like 17 people and finally gets to the boss. He could just shoot him and be done but he insists on putting his gun down too. He doesn't shoot. He even takes off his bulletproof vest saying he'll fight with his bare hands. And then he dies. When cornered, he reaches for the gun... - Trying to grab the gun.
+- So he puts the gun... nearby just in case. And it's always just out of reach. - Right, right.
+- Just like this. And at the end, the foot close-up! Foot close-up. You know that thing. The cliff! Right, right. The villain saves him? The villain has a change of heart and saves him. And to get to that cliff
+it's actually quite high. Even from 500 meters away
+you can see it's a cliff. But they insist on going there...
+
+## [34:22]
+
+Twist their ankle dramatically. And someone has to grab them. They have to grab them. For me, this is definitely
+"Doing exactly what they were told not to do." Thinking about it again if villains are too gentle at least you get cool action scenes. The hero gets to shine. But "doing exactly what they're told not to do" just makes you go, "Why is he like that?" Right, right. There are way too many of those. I think the former is more frustrating too. Next, ranking the timing
+when a talking stage falls apart. One. Opening up about past dating history. Two. Opening up about detailed family issues. Three. Expressing disappointment and jealousy. Four. Letting out bodily functions. Talking stage killer moments! This is tough. What are you eating? - This is an apple.
+- An apple? I really want to buy this. It's so tasty. - The plate?
+- No. The spoon? My number one is already decided. - No need to look further, one is already set.
+- Me too! Most guys don't like this one. This one? - Right!
+- Same here. It completely shatters the fantasy for me. Everyone agrees on this. Even if you experience it... For me, number one is past dating history. Then bodily functions
+then disappointment, then family stories. The rest are somewhat similar, but one and two... I guess guys really hate bodily functions. I thought I was the only one who hated it. The reason this is the first dealbreaker is that it feels like they
+don't respect me during the talking stage. If they put me first they would never
+talk about their past relationships. So the moment they bring it up I'm like, "What?" "Are they trying to make me jealous?" "Or are they comparing me?" I think it's number one because they are bringing up something
+that doesn't need to be said. As for number two, I think I'd lose interest. That's quite unexpected from you. It's because we're just in the talking stage. - It doesn't matter if we're dating.
+- Really? But our relationship isn't at that level yet. It's not official yet? And I want to feel butterflies. but if they do that, it kind of ruins it. I still haven't opened up about bodily functions. Even though you're married? I did, but my wife hasn't. Same here. It's okay to open up about bodily functions while maintaining a certain level of manners but if in talking stage... It's just... way too soon! And what's really bad is doing it unilaterally. Judging the timing on their own and... Wait, what... what did you do? "Is this sound cute enough? - Since we're talking?"
+- It sounds like a door opening. And everyone thinks this just means farting. But it doesn't have to be that
+to be a dealbreaker. - What is it?
+- What other bodily function? When I was in a talking stage with someone it was a cold winter. She came out with her nose all red she went "It's so cold" and sneezed. And something just hung there. Like Maeng-gu? A snot bubble? Yes, just like Maeng-gu. It was hanging there so she tried to fix it cutely in a hurry... "Sorry."
+
+## [37:18]
+
+She tried to be cute about it but a long... like a skid mark... It stayed? It stayed? It must have scraped through the makeup. The snot must have gone in
+while wiping off the makeup. So she quickly wiped it with her coat sleeve but while we were walking I kept getting distracted by it. I'm telling you, even if it's not farting
+it's bound to ruin the mood. But what about this? For example, we're together
+and we're in the talking stage. I accidentally let out a small fart. "I'm sorry...!" "I'm really sorry." That's cute! That is cute. - "Sorry, sorry."
+- It's okay. "Sorry!" - "Sorry."
+- How long are you gonna do that? "I'm so sorry. I must be crazy." "I'm such an idiot!" If they do that... Cute. That's actually cute. But no combos. Once? Once during the talking stage
+I'd just think it was a mistake. Won Hun... "Sorry!" That's a no. You should just pretend you didn't hear it. And for me, women's facial hair... Well, that can't be helped. It just grows. You know that peach-fuzz facial hair. If there's a lot, from a distance... you might think, "Wait, is that a mustache?" Some people have it that thick. There are, there are. Even for those people, you can't help - but think, "I wish she'd shave that."
+- They should, but it's a hassle. Then what about this? For example things go well and you're about to sleep together but the woman has armpit hair. It's winter, so she just didn't manage it. She didn't think this would happen today. Actually, in the past I knew a girl who was pretty laid-back. She was wearing a sleeveless top and she missed a spot... in the back. Really? No way. If you lift your arm, you'd see it. Yeah, you see it when lifted. I looked really closely, and it wasn't even black. So I said as a joke "Whoa, is this a calligraphy brush?" What? Why would you say that? It's not that I saw it on purpose. You just saw something there? - You were just joking? Just a joke?
+- Was it just a joke? "Did you shave everything?"
+I asked, and then we both saw it. We both saw it and I should've pretended not to see it. But I tried to make it less awkward by saying, "Is that a brush?" How did she react? Her face turned red... Of course. She wouldn't be like
+"Yeah, it's a brush." It's not like I lost feelings for her or started hating her because of that. But I felt a bit embarrassed too... Then what do you think about the other three? But you said earlier that you hate it when
+someone opens up about their past. But during the talking stage isn't that a somewhat natural topic? People ask "Why did you break up?" a lot. But it's like this. If I ask and we both share, that's fine. But if they suddenly bring it up first... "I dated this girl for a year and a half and we didn't get along because of this." They keep going on without reading the room. If you keep hearing that, it's annoying! Right! I didn't even ask. And within Seoul, the places people hang out are all pretty much the same. So everywhere we go is an old date spot. "The food here is good. Oh! Sorry, sorry. I came here with that ex I told you about." Wow... that's... Getting lost in the memories
+right then is the absolute worst. True. Suddenly. Give me a break. Wait, right here. "Whoa, this writing is still here?" Are you kidding me? Caress it. What do you want? The pork cutlet is good. That's too much. Well, that's not just
+opening up about dating history it's just straight-up reminiscing. But expressing disappointment
+or jealousy is also... I don't really like it. Really? Yeah, it's ranked third and while it can be cute to some extent if it becomes too repetitive I find it very exhausting. Me too. I can't take it lightly. I want to say, "Don't worry you're the only one I like." But instead, it's like
+"What am I supposed to do? There's nothing I can do about this. Why is she struggling so much?"
+It ends up like that. So I get stressed out. And if they're like that during the talking stage you think, "Wow...
+what will it be like if we date?" - You get that thought.
+- Definitely. But I thought it was just light jealousy. Even light jealousy! I can't take it lightly! Right! During the talking stage you should be trying to look your best
+and be careful with each other. But if they're already like... "I'm upset about this." "I don't get this." Then regarding dating her... She's gonna be... "Why are you so busy? Why no reply?" We're just talking! Exactly! We're literally just talking. We're not even dating yet... During the time you should be
+impressing each other... I guess it would go like this. "If it's like this now will you be better at
+keeping in touch when we date?" "No, it's just that right now we are still in the process
+of getting to know each other... Since you're not my girlfriend I don't report every little thing." "But we're in the process of knowing each other and you still aren't in touch." "That changes once we start dating." "Will you reply more often then once we date?" "Since you're not my girlfriend right now..." It's over right then, isn't it? That's just how I feel. What I'm curious about is
+if you show jealousy, for example... "Hey, you were being really sweet to her earlier." If you do that is it okay if I just respond casually like, "Whatever," and just move on? Since I showed jealousy, I'd expect him to say something like
+"Aw, but you're the only one for me." - Something like that.
+- Those words? But I hate the act of doing that just to hear - a specific designated answer.
+- Exactly. Me too. We are really similar. I know that too! I know that if I say those words
+the fight will end. I know what she wants to hear. But I just don't want to say it. Then what do you do? I feel that way too. But if you give in to that then when you're actually dating
+the level of disappointment... it starts as a cute "I'm sad" but turns into, "Why did you do that?" It changes like that! Exactly. Once you're dating they think, "This person is mine" so they'll say things like "You shouldn't have acted that way." They try to trap you and change you. But they express it because they like you so much. - It's not on purpose...
+- I know. I get it. If you know, then just do it! We just have different dating styles. I don't want to date like that! I do express myself, but I don't do it directly as if she's already my girlfriend. And I don't fulfill all the obligations you'd have in a real relationship. - We're just talking.
+- Because we're just talking. It's literally just the talking stage. But when you're talking, you're getting to know
+each other with the intention of dating. Don't you make some effort? That's what I'm saying! You express yourself freely. Maybe that little bit
+of disappointment and jealousy was her way of hinting right before a confession. Just a little hint. Not openly saying "I'm upset." Not like that. Not, "I'm upset!" Just a subtle hint. People always do this during the talking stage. "Why haven't you asked me out yet?" Can't you do it yourself? You can ask me out. I don't understand that either. Why does the man always have to be the one to ask? If she feels it too, she could suggest it first. "How about we give this a try?" If she said that, then I could say "Sure! Let's start dating." It could go like that but they just keep waiting. Why do they wait! Am I being a jerk right now? No, you can feel that way. But if a woman actually confessed first I think that would be quite attractive. Well, there are women who confess first. But when she says, "Why aren't you asking me out?" it's probably because you're already acting
+like you're in a relationship but you haven't said the words. - So like, "Wait..."
+- Oh, is that so? She might be giving you a chance. Yeah, that too. She might think, "Wait
+maybe he has no intention of dating me?" - That must be it!
+- She asks because she thinks that. So that's why she asks. "Why are you acting like we're together but not saying we are?" But a man has his own plan, like "I'll ask her to be my girlfriend
+the next time we meet." But she can't wait for that moment! "Why aren't you asking me out?" I was going to do it next week. So you were going to confess? I was going to! - It was just a matter of timing?
+- Yeah. But when we were filming together we met a couple in the talking stage in Hongdae. Right, exactly. It was so funny. We asked, "Can we interview you?" They were already walking hand-in-hand. But they said they weren't dating. They weren't dating! So we interviewed them and asked "Is that how it's done these days?" I was so surprised. I asked, "When are you going to confess?" And the guy said... "I'm going to do it today!" He must have held her hand
+because he's doing it today! I think she knew it was coming. That she'd get asked out today. That's why she held his hand! These days it's much clearer. - No more awkward in-between stuff.
+- Cool and sexy! Disappointment, hmmph! Bodily functions on your own. None of that! - Just blunt! Honest.
+- Just being honest. "How about it? Want to see a movie?" "Sure, let's go." After three dates, it's confession day. They just hold hands! And saying "Why aren't you confessing?" In a way, since they both know they'll date the woman could obviously confess first but it's like she's saying, "You go first." She worked up the courage? Right. Like acting cute. And if she had a really strong ego
+she wouldn't even bring it up. She'd just wait. That's hard for me. That kind of stuff is hard. Detailed family stories could be a lot of happy things. But usually it's not the happy stuff. I think they'd tell the bad side first. "Actually, my family is like this..." "Actually, my dad's business is failing..." I think they'd tell those stories first. It makes you feel for them
+but at the same time, there is a bit of a burden. Opening up in such detail. Yeah, if it's too detailed! It's something that
+doesn't need to be shared just yet. But on the contrary, when I hear those details I feel closer faster. Oh, me too! You start feeling sympathy. You think "They told me something this hard because they trust me." So your feelings grow. Anyway, the rankings didn't change. Anyway, we had a bit of a brawl today. How was it today? It's definitely hard. No, you did well. I don't have much experience in talk shows and it's only my second time meeting you my first time meeting you and I haven't seen you much either. But toward the end, you guys started playing along so it became fun and I'm sad that it's over. Wanna grab a meal after this? Sounds good. We have some sad news. Next week, Monday to Wednesday
+is the Lunar New Year so to celebrate the holiday it's been decided that we'll take a week off. People might leave mean comments like "Who do you think you are to take a break?" - "Get to work!"
+- "Is this the time for you to be resting?" Please go to Kyu Won's Instagram - and leave those comments there.
+- Right. - Thank you.
+- Thank you. This is Beom's friend, Chicken Angel. I bet you were really popular in high school. You should watch that video. The video from his glory days. By the way, do you curse at close friends? Curse at me. How could I? Just do it. Hey, you crazy jerk. Know your place! You sang that song and introduced me! Ji You needs to get married. I contacted my friend about this. What is this? Keep your eyes on me. Right now Kyu Won is alone on team
+"The Villains Are Too Gentle." He's fighting a lone battle. But for example, like what you said earlier someone falls off a cliff. But then suddenly someone save them. And the two of them sit there panting asking, "Why did you do that back then?" If it goes like that, it gets longer... What movie is this? I don't know what movie it is. I haven't seen that movie. It sounds like a movie about loyalty. Like a youth drama. - Avatar Three...
+- No, this is... I really can't do this today. Here, have one of these.

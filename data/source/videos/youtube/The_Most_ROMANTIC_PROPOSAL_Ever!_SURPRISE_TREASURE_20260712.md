@@ -1,0 +1,90 @@
+---
+title: "The Most ROMANTIC PROPOSAL Ever! *SURPRISE TREASURE HUNT* | Andrea & Lewis"
+uploader: "Andrea & Lewis"
+url: https://www.youtube.com/watch?v=nR9xTUPbRSs
+duration: 1053
+downloaded: 2026-07-11T17:40:04.744Z
+platform: youtube
+---
+
+![thumbnail](https://i.ytimg.com/vi/nR9xTUPbRSs/maxresdefault.jpg)
+
+## [00:00]
+
+i love your mouth i love you moistest i love you more than most i love you the most in the world i am gonna officially finally propose to andrea i have been trying to risk since the day we met and i think it's crazy because the moment we met i knew i absolutely knew i was going to marry her every day she makes my life just like an adventure closest to infinity yeah to infinity and beyond better and i'm so freaking excited so yeah this is for the love of my life i love you andrea i'm gonna marry you one day today is the day wish me luck yes okay cutie pie are you ready for today yeah so this came for you in the mail and i don't know what it is but it looks hella scary the secret of the kelly to discover family secrets a quest you must go once you start never return or the truth be left untold begin to beware calm strong i stay outside the sun the rain they're by my side i give birds homes and help you breathe i even give you fruity yes so what's our first hint tree tall and strong i stay outside the sun the rain they're by my side i give birds homes and help you breathe i even give you fruit to eat oh you're better at reading out of all the things that were running through my head i never expected this yes sir
+
+## [01:47]
+
+on the map you'll find your clue a secret message hiding in blue look around and you shall see but beware you might you may have to ride and you shall see a bee a lee a t a d a me a ski a jet ski you're joking what's this camera for are we gonna take pictures all day yeah there may be some writing that looks a bit handwritten i'm gonna find it i'm gonna find it okay don't look south and the north you'll see not the east but west could be okay where's cocaine is that where we're going all right grab the treasure chest we have to go quickly let's go we gotta get to cocaine quickly and find out what the next clue is i hope there's no pirates is that a clue no did you find cocaine 18 minutes okay we gotta go we're here what are we doing now we're going on jet skiing my first time ever going jet skiing yeah this is gonna be so sick i can't wait there's my girlfriend my very soon to be wife very very soon stay tuned
+
+## [03:09]
+
+[Music] [Applause] look at that cutie pie over a cutie there this is the best day ever and there's more to come after it's so much fun that was so epic that's so powerful but when you're going fast that [ __ ] is epic the hint was you'll find your next clue hiding in blue right whoa oh my god what does it say this is the cutest thing ever how am i even gonna get this treasure out they didn't make this treasure hunt to be easy they really didn't did they this is difficult to get out there you've arrived at tier 2 multiply by 30 and tier 3 will find you in these waters you very may well think but look on the horizon the building will be pink we've arrived at tier two multiply by thirty two by thirty sixty here's sixty and tier three will find you tier sixty the pink building is near pier 60. wow you're good at this let's go let's go we're driving there's a big ass fire over there hopefully that's not the pink building can you see the pink building it's that one wait the pink building is right there huh are we going on those fun red thingies yes sir oh my god yay oh my god i've never gone on one of them oh i ain't gonna get in the treasure is on the first floor you ready let's go room bro baby yes sir [Music] my baby oh hey hardy you got a nice little ride there huh you single i mean i got a pretty good play so we got the little mini car yeah but i thought there was like a clue somewhere i don't know it has to be like [Music] i didn't do anything about what's that is that passport expires it already expired it expired on the 13th of may who points down another three to win three more places my friend dave bust his beak so i took him for a spin fly like a bird swore through the sky this crystal clear room will stand close nearby here dave can fly with such little strife but be wary you must find his very old wife what oh no i thought i was good until now come on you got those bubs there's a code in there somewhere my friend dave bust his beak so i took him for a spin dave and busters no way i'm good aren't i all right we gotta go quickly though yeah we gotta go oh my god what is this you are smart girl i ate him aren't i here dave can fly with such little strength but beware you must find a very old one let's go whoa look at him driving come on quickly the treasure waits my friend dave busses beak so i took him for a spin fly like a bird soar through the sky this crystal clear room will stand close nearby shut the [ __ ] up what no it's not cool no whoa i fly that's not at dave and busters we're not going to david buster's well we took dave for a spin is i fly right next to dave and busters shut the [ __ ] up luis you're good at this i'm good at that you are good at this oh my god oh my god that's what you're getting more excited high five what she is getting all of these hints brilliantly you are doing brilliant bubs and they're like not even easy enjoy being on the ground for as long as possible because we're about to go indoor [Music]
+
+## [07:28]
+
+skydiving be wary you must find his very old wife i know you already spotted it oh my gosh it literally looks like his life there's a key this key will bring you to a room where things are meant to go [Music] [Music] this key will bring you to a room where things are meant to go kaboom break it down tear it up the next clue is in my gut and my gut oh my god this is so cool that's why so many activities in one day this is just like the funnest day ever we just changed clothes we're about to go into the smash room heat this key will bring you to a room where things are meant to go kaboom break it down tear it up the next clue is in my gut you are ready look at you at least let's go oh [ __ ] yes sir
+
+## [08:38]
+
+oh [Music]
+
+## [08:49]
+
+you're missing them you're missing a badly
+
+## [09:07]
+
+a treasure oh this is a key a key take the gold and end right in here if you continue you may lose something here take the gold and end right here is there chocolate in this house because i want this chocolate hey
+
+## [09:27]
+
+a special spot just for me and you before you go make sure you look pretty the sand in the wind can get pretty pretty
+
+## [09:41]
+
+[Music]
+
+## [09:48]
+
+i wanted to do that i want to know oh geez okay i'm over here check out your muffin i'm gonna figure it out ready cheers
+
+## [10:17]
+
+go to the key you'll find the clue a special spot just for me and you before you go make sure you look pretty the sand and the wind can get pretty gritty clear out of the beach exactly we're going back to clearwater beach yeah all the way back before you go make sure you look pretty the sun in the wind can get pretty gritty are you at home yeah you're good at these high five so me and my beautiful queen we're walking north of san qui this is pretty north isn't it this is very north of saint key oh wait the glow the glow oh no you look so hot exactly you literally look so hot are you sure we're so close ready yeah open your eyes oh my god [Music]
+
+## [11:26]
+
+do [Music]
+
+## [11:39]
+
+[Music]
+
+## [11:48]
+
+[Laughter] oh i'm gonna give you a little bit of direction you know if we are pretty much talking about vision okay just some lifestyle real fun stuff um nothing too crazy that's right [Music] this is so cute okay let's see you weren't expecting to like do a shoot right now are you not at all as long as we're together we'll make it through this i knew that it was true from the very first time i kissed [Music] i know every day [Music]
+
+## [13:04]
+
+[Music] hold your eyes [Music]
+
+## [13:38]
+
+[Laughter] [Music]
+
+## [13:52]
+
+[Laughter] oh god oh my god i love you so much [Music] oh my god my life with you is just so magical we do love you so much you just make every single day so special to me and i never ever ever want our honeymoon face to end because it's been three years and so far the three years have been magical you know almost three years i just want to keep creating with you forever do this forever and ever okay i just love you i love your family i love everything that we created together and i just want to make it forever and ever and oh my god if i could propose to you a million billion times i would okay but you finally found the treasure okay we're such a mess you finally found the treasure baby where are you my
+
+## [15:53]
+
+again
+
+## [16:03]
+
+[Music] oh [Music] i hope you know [Music] i won't let go [Music] tonight until the morning oh i'll stay by your side [Music]
+
+## [17:32]
+
+you

@@ -1,0 +1,50 @@
+---
+title: "Meeting My Girlfriend For The First Time | A Long-Distance Love Story"
+uploader: "Ameer Corro"
+url: https://www.youtube.com/watch?v=9-ilqtCd474
+duration: 757
+downloaded: 2026-07-11T17:34:41.989Z
+platform: youtube
+---
+
+![thumbnail](https://i.ytimg.com/vi/9-ilqtCd474/maxresdefault.jpg)
+
+## [00:00]
+
+[Music] holy [ __ ] here we go here we go here we go now you might be wondering how i got here well let me tell you my name's amir and before this i had never met my girlfriend in real life this is the story of how [Music] meet annie singer-songwriter content creator my favorite human alive she's from philadelphia usa while i'm on the complete opposite side of the continent in vancouver canada it's march 2020 the world has gone halfway to hell people are fighting viciously over toilet paper everyone's going crazy so to lighten up everybody's mood i decided to go live on instagram every day at 5 00 pm and i called it live at five and if you remember this shout out you and og you know what's good now at the same time my best friend shamir had recently befriended an artist from philadelphia he told me how they had found one another on the spotify fans also like page and were now following each other and talking on instagram shamir told her about me as well and so while i was live on instagram that day i saw her name pop up and i decided to say hi over time that one small exchange eventually flowered into comments into conversations and eventually into hour-long facetime calls and so naturally feelings developed at first we chose to keep it open and casual understandably we wanted to see each other in person first before making it official and so we waited and waited and waited all the while border restrictions showed no sign of easing up and at the same time we were still calling every single day neither of us interested in talking to anybody else and so we decided you know what let's just call it what it is so we decided to make it official now it was definitely an abnormal start to a relationship but of course it was an abnormal time still we did our best to make it feel normal and thankfully with the help of technology it was fairly easy we went on dates cooked together read together exercised together meditated together literally anything and everything together we also watched sunsets wrote songs and celebrated special days together this beautiful girl just sent me another gift [Music] no [ __ ] way
+
+## [02:35]
+
+oh my god are you real for real for real all the while we waited patiently for things to open up but it wasn't always easy often times it felt like i was in a pitch-black tunnel with no light at the end still we decided to push through until finally the universe listened did you is it confirmed your booking is confirmed
+
+## [03:11]
+
+[Music] i will see you soon i will see you soon suddenly it all felt so real we had a countdown a definite date to look forward to and the excitement was indescribable time seemed to move both lightning fast and glacially slow days blending into one another like someone took my calendar and turned it into a smoothie not bad i'm seeing you next week next week okay that seems unreal time is going by so fast you know how fast weeks go yeah so then i'm going to say see you tomorrow at some point [Music] see you soon excitement and nervousness are two sides of the same coin so as the anticipation built so did the anxiety it is currently 5 30 a.m i have been trying to go to sleep for the last hour i've been really restless and just really uneasy lately but three days less than three days to go just saying that i feel so like excited yes and at the same time i'm so nervous and so scared there's different things playing out in my head like oh my gosh what if it doesn't work out oh my gosh what if my intuition is trying to tell me that this isn't the right choice but if i'm making a huge mistake what if this was all just a big mistake i wrote something down on my journal that i wanted to share i wrote right here you'll never know unless you go i'll never know unless you go i think that applies to everything you don't know if something is a good thing or a mistake until you actually only hindsight makes things clear so i will push through i try to get some sleep [Music] the next three days were a whirlwind of packing prepping and emotions now thankfully i made sure to hang out with all my friends before i left they always keep me grounded just like that it was finally time to go i'm on my way to the airport oh my goodness yeah it's really hitting me [Music] made it through airport security found my gate just found a little five corner i forgot to share my itinerary so i'm leaving vancouver at 10 45 pm i'm arriving in toronto at 6 a.m toronto time which is 3 00 a.m vancouver time and then i have a flight from toronto to philly which is two hours long plus a 12-hour layover in toronto where i get to see some of my best friends that i've actually never met before so i'm really looking forward to that boarding the flight right now i will see you all in toronto peace [Music]
+
+## [06:43]
+
+it's time to meet up [Music] [Music] oh my gosh oh that's so good to see hi say hi to the vlog hi maria harrison what's good after eating a good breakfast and jamming for a little bit we went out to explore the city it felt so good to be traveling again especially after a year and a half of lockdown we ran into my other friend matt who's also from vancouver ate a good lunch and just like that i was off to philly all right i'm about to board the plane right now i am so excited so so excited and at the same time so nervous because it's so uncertain i don't know what to expect i'm just gonna kind of allow myself to go with the flow you know no expectations no agenda no nothing except just being fully present i'm so excited this is about to be such a monumental growth experience and i know that no matter what happens i win not going to take it too seriously i'm just going to have fun so that's all it is at the end of the day i'm just gonna let it go and let it be
+
+## [08:14]
+
+if you had asked me a year ago where i saw myself in 2021 i never would have guessed that i'd be here flying 2933 miles across the continent in the middle of a pandemic to meet a girl that i've never met before it sounds crazy and it doesn't make sense it's scary it's reckless and most of all there's no guarantee but what i've learned is that if you're looking for guarantees you'll only find them in hindsight and so with every step forward i took i repeated to myself you'll only know if you go you'll only know if you go holy [ __ ] here we go here we go here we go oh my god [Music] here we go my heart is racing i'm ready i'm grounded [Music] i'm ready to meet her i'm ready my heart is racing i'm so nervous and so excited to finally wrap my arms around her and to finally hold her and finally like make it real you know i've been waiting for this for a long time
+
+## [09:42]
+
+[Music] [Applause] [Music]
+
+## [10:00]
+
+i got it on camera sort of sort of well you can assume what happened you like random music yeah yeah it was really cute okay well what the reenactment was it was like
+
+## [10:18]
+
+hi anyways we're going to go get pancakes for dinner now bye bye i guess this is what they mean when they say that love is a choice love is choosing to go for it even if there are no guarantees it's choosing them every day no matter the miles and so annie my love if love is a choice then loving you was the best choice i ever made [Applause] [Music] till then [Music]
+
+## [11:09]
+
+[Music] enough being in a hallmark movie let's drive she hit a car she hit a car oh my goodness right now we're calling my mom okay [Music] hi hello hi mom hi peter hi hi oh [ __ ] you know he's going to freak the hell out blue let's call it [Music]
+
+## [12:06]
+
+hi i made it oh my god [Music] you

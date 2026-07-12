@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "datewise-rag"
+version = "0.1.0"
+description = "Evidence-first hybrid RAG assistant for dating and relationship questions"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.0",
+    "qdrant-client>=1.12.0",
+    "pydantic-settings>=2.0",
+    "FlagEmbedding>=1.2.0",
+    "pyyaml>=6.0",
+    "python-multipart>=0.0.9",
+    "httpx>=0.27.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.8.0",
+    "mypy>=1.13.0",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dating_rag"]
