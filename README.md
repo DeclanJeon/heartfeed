@@ -82,6 +82,25 @@ cp .env.example .env
 # .env 파일을 편집하여 API 키 설정
 ```
 
+## LLM 프로바이더 설정
+
+`LLM_PROVIDER` 환경 변수로 LLM 백엔드를 선택합니다.
+
+### openai (기본값)
+정적 API 키를 사용하는 모든 OpenAI 호환 엔드포인트입니다. `LLM_API_KEY` / `LLM_API_URL` / `LLM_MODEL` 과 선택적 폴백(`LLM_FALLBACK_*`)을 설정하세요.
+
+### nous (Hermes 운영 에이전트 토큰 재사용)
+운영 서버에 이미 작동 중인 **Hermes agent**의 NousResearch OAuth 토큰을 그대로 재사용합니다. 별도 API 키가 필요 없고, 토큰은 `~/.hermes/auth.json` 에서 읽어 만료(≈1시간) 시 자동 갱신됩니다. 기본 모델은 Hermes와 동일한 빠른 `stepfun/step-3.7-flash:free` 입니다.
+
+```bash
+# .env
+LLM_PROVIDER=nous
+LLM_NOUS_MODEL=stepfun/step-3.7-flash:free   # 생략 시 기본값
+LLM_NOUS_AUTH_PATH=~/.hermes/auth.json        # Hermes auth.json 경로
+```
+
+> Hermes 인증이 만료되면 `hermes auth add nous` 로 재로그인하세요. HeartFeed는 토큰 갱신 실패 시 폴백(`LLM_FALLBACK_*`)으로 전환됩니다.
+
 ### 실행
 
 ```bash

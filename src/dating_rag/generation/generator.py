@@ -84,6 +84,10 @@ class AnswerGenerator:
 
     Works with any OpenAI-compatible chat completions API.
     Supports both regular and streaming generation.
+
+    When ``provider="nous"`` the API key is resolved dynamically from the
+    Hermes operational agent's OAuth token (refreshed on demand), so no static
+    key is needed and the same fast flash model Hermes uses is reused.
     """
 
     def __init__(
@@ -96,6 +100,9 @@ class AnswerGenerator:
         fallback_api_url: str = "",
         fallback_api_key: str = "",
         fallback_model: str = "",
+        provider: str = "openai",
+        nous_model: str = "stepfun/step-3.7-flash:free",
+        nous_auth_path: str = "~/.hermes/auth.json",
     ) -> None:
         """Initialize the generator.
 
@@ -107,6 +114,9 @@ class AnswerGenerator:
             fallback_api_url: Fallback API base URL (optional).
             fallback_api_key: Fallback API key (optional).
             fallback_model: Fallback model identifier (optional).
+            provider: "openai" (static key) or "nous" (Hermes OAuth token).
+            nous_model: Model slug when provider == "nous".
+            nous_auth_path: Path to Hermes auth.json for Nous token resolution.
         """
         self.api_url = api_url.rstrip("/")
         self.api_key = api_key
@@ -114,8 +124,17 @@ class AnswerGenerator:
         self.fallback_api_url = fallback_api_url.rstrip("/") if fallback_api_url else ""
         self.fallback_api_key = fallback_api_key
         self.fallback_model = fallback_model
+        self.provider = (provider or "openai").lower()
         self._timeout = timeout
         self._client = httpx.AsyncClient(timeout=timeout)
+        self._nous: "NousTokenProvider | None" = None
+        if self.provider == "nous":
+            from dating_rag.generation.nous_client import NousTokenProvider
+
+            self._nous = NousTokenProvider(
+                auth_path=nous_auth_path,
+                model=nous_model,
+            )
 
     # -- helpers ----------------------------------------------------------
 
@@ -124,6 +143,18 @@ class AnswerGenerator:
         if self.api_key:
             headers["Authorization"] = f"Bearer {self.api_key}"
         return headers
+
+    def _resolve_endpoint(self) -> tuple[str, str, str]:
+        """Return ``(api_url, api_key, model)`` for the next call.
+
+        For the ``nous`` provider the API key is fetched fresh from the Hermes
+        OAuth token on every call (cheap, memoized + auto-refreshed inside the
+        provider), so it never goes stale.
+        """
+        if self.provider == "nous" and self._nous is not None:
+            creds = self._nous.resolve()
+            return creds["base_url"], creds["api_key"], creds["model"]
+        return self.api_url, self.api_key, self.model
 
     def _format_context(self, context: list[RetrievalResult]) -> str:
         """Format retrieval results when no pre-built context is supplied."""
@@ -168,9 +199,8 @@ class AnswerGenerator:
         response_format: dict[str, str] | None = None,
     ) -> str:
         """Call primary LLM, fall back to secondary on failure."""
-        configs = [
-            (self.api_url, self.api_key, self.model),
-        ]
+        self._nous_refreshed_for_call = False
+        configs = [self._resolve_endpoint()]
         if self.fallback_api_url and self.fallback_api_key:
             configs.append((self.fallback_api_url, self.fallback_api_key, self.fallback_model))
 
@@ -200,10 +230,21 @@ class AnswerGenerator:
                     return str(data["choices"][0]["message"]["content"])
                 except Exception as exc:
                     last_error = exc
+                    # Nous OAuth tokens can expire mid-flight; on 401 force a
+                    # token refresh once and retry before giving up.
+                    status = getattr(getattr(exc, "response", None), "status_code", None)
+                    if (
+                        self.provider == "nous"
+                        and self._nous is not None
+                        and status == 401
+                        and not getattr(self, "_nous_refreshed_for_call", False)
+                    ):
+                        self._nous_refreshed_for_call = True
+                        logger.warning("Nous token rejected (401) — forcing refresh and retry")
+                        self._nous.force_refresh()
+                        continue
                     # Only retry on rate limit (429) or server errors (5xx)
-                    is_retryable = False
-                    if hasattr(exc, "response") and hasattr(exc.response, "status_code"):
-                        is_retryable = exc.response.status_code in (429, 500, 502, 503, 504)
+                    is_retryable = status in (429, 500, 502, 503, 504)
                     if not is_retryable and attempt == 0:
                         # Non-retryable error on first attempt → skip retries, try next config
                         logger.warning("LLM call failed (%s/%s): %s", api_url, model, exc)
@@ -273,12 +314,13 @@ class AnswerGenerator:
             context_text,
         )
 
+        api_url, api_key, model = self._resolve_endpoint()
         async with self._client.stream(
             "POST",
-            f"{self.api_url}/chat/completions",
-            headers=self._headers(),
+            f"{api_url}/chat/completions",
+            headers={"Content-Type": "application/json", **({"Authorization": f"Bearer {api_key}"} if api_key else {})},
             json={
-                "model": self.model,
+                "model": model,
                 "messages": messages,
                 "temperature": temperature,
                 "max_tokens": max_tokens,

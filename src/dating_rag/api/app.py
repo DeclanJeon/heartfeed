@@ -211,6 +211,9 @@ async def lifespan(app: FastAPI):  # noqa: ANN201
         fallback_api_url=settings.llm.fallback_api_url,
         fallback_api_key=settings.llm.fallback_api_key,
         fallback_model=settings.llm.fallback_model,
+        provider=settings.llm.provider,
+        nous_model=settings.llm.nous_model,
+        nous_auth_path=settings.llm.nous_auth_path,
     )
 
     prompts = load_prompts(config_dir=settings.config_dir)

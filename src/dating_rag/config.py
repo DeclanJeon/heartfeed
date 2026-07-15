@@ -37,6 +37,12 @@ class LLMSettings(BaseSettings):
     fallback_api_url: str = "https://openrouter.ai/api/v1"
     fallback_api_key: str = ""
     fallback_model: str = "google/gemma-4-31b-it:free"
+    # Provider selection: "openai" (default, any OpenAI-compatible key) or
+    # "nous" (reuses the Hermes operational agent's NousResearch OAuth token).
+    provider: str = "openai"
+    # Nous provider settings (used when provider == "nous").
+    nous_model: str = "stepfun/step-3.7-flash:free"
+    nous_auth_path: str = "~/.hermes/auth.json"
 
     model_config = {"env_prefix": "LLM_"}
 
