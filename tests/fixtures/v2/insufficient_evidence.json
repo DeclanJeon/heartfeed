@@ -1,0 +1,21 @@
+{
+  "request_id": "d4e5f6a7-b8c9-0123-defa-234567890123",
+  "schema_version": "2",
+  "api_version": "v2",
+  "status": "insufficient_evidence",
+  "reason_code": "below_threshold",
+  "message": "질문하신 내용에 대해 신뢰할 수 있는 증거를 충분히 확보하지 못했습니다. 검색된 관련 콘텐츠가 있으나, 최소 신뢰 점수 기준을 충족하지 못하여 답변을 생성하기 어렵습니다.",
+  "retrieval_summary": {
+    "total_candidates": 5,
+    "above_threshold_count": 1,
+    "min_threshold": 0.7,
+    "max_score": 0.52,
+    "categories_searched": ["연애", "소통"],
+    "query_language": "ko"
+  },
+  "suggestions": [
+    "질문을 더 구체적으로 작성해 주세요. 예: '연인과 다툰 후 화해하는 방법'",
+    "관련 주제 영상이 추가되면 더 나은 답변을 드릴 수 있습니다",
+    "현재는 한국어 연애 상담 콘텐츠를 중심으로 검색됩니다"
+  ]
+}

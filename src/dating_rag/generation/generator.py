@@ -1,17 +1,34 @@
 """LLM-based response generation with streaming and citation support."""
 
 from __future__ import annotations
+import logging
+import asyncio
 
 import json
 import re
 from collections.abc import AsyncIterator
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import httpx
 
-from dating_rag.domain.models import ChatResponse, QueryPlan, RetrievalResult
-from dating_rag.generation.prompts import SYSTEM_PROMPT, build_prompt
+from dating_rag.domain.models import (
+    ChatResponse,
+    ChatV2Answered,
+    ActionItem,
+    AnsweredContent,
+    Citation,
+    EvidenceClaim,
+    PersonalizationBlock,
+    CulturalReflectionBlock,
+    ConflictItem,
+    QueryPlan,
+    RetrievalResult,
+)
+from dating_rag.generation.prompts import SYSTEM_PROMPT, build_prompt, build_v2_prompt
+if TYPE_CHECKING:
+    from dating_rag.retrieval.context_builder import CitationRegistry
 
+logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
 # Citation extraction helpers
@@ -71,11 +88,14 @@ class AnswerGenerator:
 
     def __init__(
         self,
-        api_url: str = "https://api.openai.com/v1",
+        api_url: str = "https://api.xiaomimimo.com/v1",
         api_key: str = "",
-        model: str = "gpt-4o-mini",
+        model: str = "mimo-v2.5",
         *,
         timeout: float = 60.0,
+        fallback_api_url: str = "",
+        fallback_api_key: str = "",
+        fallback_model: str = "",
     ) -> None:
         """Initialize the generator.
 
@@ -84,10 +104,16 @@ class AnswerGenerator:
             api_key: API authentication key.
             model: Model identifier.
             timeout: HTTP request timeout in seconds.
+            fallback_api_url: Fallback API base URL (optional).
+            fallback_api_key: Fallback API key (optional).
+            fallback_model: Fallback model identifier (optional).
         """
         self.api_url = api_url.rstrip("/")
         self.api_key = api_key
         self.model = model
+        self.fallback_api_url = fallback_api_url.rstrip("/") if fallback_api_url else ""
+        self.fallback_api_key = fallback_api_key
+        self.fallback_model = fallback_model
         self._timeout = timeout
         self._client = httpx.AsyncClient(timeout=timeout)
 
@@ -133,6 +159,63 @@ class AnswerGenerator:
 
     # -- non-streaming generation -----------------------------------------
 
+    async def _call_llm(
+        self,
+        messages: list[dict[str, str]],
+        temperature: float = 0.7,
+        max_tokens: int = 2000,
+        *,
+        response_format: dict[str, str] | None = None,
+    ) -> str:
+        """Call primary LLM, fall back to secondary on failure."""
+        configs = [
+            (self.api_url, self.api_key, self.model),
+        ]
+        if self.fallback_api_url and self.fallback_api_key:
+            configs.append((self.fallback_api_url, self.fallback_api_key, self.fallback_model))
+
+        last_error: Exception | None = None
+        for api_url, api_key, model in configs:
+            for attempt in range(3):  # max 3 retries per config
+                try:
+                    headers: dict[str, str] = {"Content-Type": "application/json"}
+                    if api_key:
+                        headers["Authorization"] = f"Bearer {api_key}"
+                    body: dict[str, Any] = {
+                        "model": model,
+                        "messages": messages,
+                        "temperature": temperature,
+                        "max_tokens": max_tokens,
+                        "stream": False,
+                    }
+                    if response_format:
+                        body["response_format"] = response_format
+                    response = await self._client.post(
+                        f"{api_url}/chat/completions",
+                        headers=headers,
+                        json=body,
+                    )
+                    response.raise_for_status()
+                    data: dict[str, Any] = response.json()
+                    return str(data["choices"][0]["message"]["content"])
+                except Exception as exc:
+                    last_error = exc
+                    # Only retry on rate limit (429) or server errors (5xx)
+                    is_retryable = False
+                    if hasattr(exc, "response") and hasattr(exc.response, "status_code"):
+                        is_retryable = exc.response.status_code in (429, 500, 502, 503, 504)
+                    if not is_retryable and attempt == 0:
+                        # Non-retryable error on first attempt → skip retries, try next config
+                        logger.warning("LLM call failed (%s/%s): %s", api_url, model, exc)
+                        break
+                    if is_retryable and attempt < 2:
+                        delay = 2 ** attempt  # 1s, 2s, 4s
+                        logger.warning("LLM call failed (%s/%s), retrying in %ds: %s", api_url, model, delay, exc)
+                        await asyncio.sleep(delay)
+                    else:
+                        logger.warning("LLM call failed (%s/%s) after %d attempts: %s", api_url, model, attempt + 1, exc)
+        raise last_error  # type: ignore[misc]
+
     async def generate(
         self,
         question: str,
@@ -152,22 +235,7 @@ class AnswerGenerator:
             system_prompt,
             context_text,
         )
-
-        response = await self._client.post(
-            f"{self.api_url}/chat/completions",
-            headers=self._headers(),
-            json={
-                "model": self.model,
-                "messages": messages,
-                "temperature": temperature,
-                "max_tokens": max_tokens,
-                "stream": False,
-            },
-        )
-        response.raise_for_status()
-
-        data: dict[str, Any] = response.json()
-        return str(data["choices"][0]["message"]["content"])
+        return await self._call_llm(messages, temperature, max_tokens)
 
     # -- streaming generation ---------------------------------------------
 
@@ -265,6 +333,181 @@ class AnswerGenerator:
             conflicts=conflicts,
             plan=plan,
         )
+
+    async def build_v2_response(
+        self,
+        question: str,
+        context: list[RetrievalResult],
+        context_text: str,
+        plan: QueryPlan,
+        registry: CitationRegistry,
+        *,
+        system_prompt: str | None = None,
+        personalization: PersonalizationBlock | None = None,
+        cultural_reflection: CulturalReflectionBlock | None = None,
+        conversation_context: str = "",
+        temperature: float = 0.5,
+        max_tokens: int = 3000,
+    ) -> ChatV2Answered:
+        """Build a v2 JSON-constrained response with citation validation.
+
+        Args:
+            question: User's dating advice question.
+            context: Raw retrieval results (for fallback context formatting).
+            context_text: Pre-formatted evidence context with [S1]/[C1] labels.
+            plan: The query plan.
+            registry: Citation registry from ContextBuilder.build_context_with_registry.
+            system_prompt: Override the default system prompt.
+            personalization: Optional personalization metadata to include.
+            cultural_reflection: Optional cultural reflection metadata to include.
+            temperature: Sampling temperature (lower for JSON reliability).
+            max_tokens: Maximum response tokens.
+
+        Returns:
+            Validated ChatV2Answered.
+
+        Raises:
+            ValueError: If citation validation fails after one retry.
+        """
+        user_content = build_v2_prompt(
+            question, context_text, plan, registry.citation_ids(),
+        )
+        if conversation_context:
+            user_content = conversation_context + "\n\n" + user_content
+        messages = [
+            {"role": "system", "content": system_prompt or SYSTEM_PROMPT},
+            {"role": "user", "content": user_content},
+        ]
+
+        for attempt in range(2):
+            raw_content = await self._call_llm(
+                messages,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                response_format={"type": "json_object"},
+            )
+
+            # Strip markdown code fences if present
+            clean = raw_content.strip()
+            if clean.startswith("```"):
+                lines = clean.splitlines()
+                if lines[0].startswith("```"):
+                    lines = lines[1:]
+                if lines and lines[-1].strip().startswith("```"):
+                    lines = lines[:-1]
+                clean = "\n".join(lines)
+
+            # Extract JSON from response
+            json_start = clean.find("{")
+            json_end = clean.rfind("}")
+            if json_start == -1 or json_end == -1 or json_end <= json_start:
+                if attempt == 0:
+                    logger.warning("No JSON found in LLM response, retrying")
+                    messages = list(messages)
+                    messages.append({"role": "user", "content": "위 응답에서 JSON을 찾을 수 없습니다. 반드시 JSON 객체만 반환해주세요."})
+                    continue
+                raise ValueError(f"No JSON found in LLM response: {raw_content[:200]}")
+
+            parsed = json.loads(clean[json_start:json_end + 1])
+
+            # Validate citation IDs
+            invalid_ids = self._validate_v2_citations(parsed, registry)
+            if not invalid_ids:
+                break
+
+            # Retry with error feedback
+            if attempt == 0:
+                error_feedback = (
+                    f"\n\n[SYSTEM FEEDBACK — RETRY]\n"
+                    f"The following citation IDs do not exist in the registry: "
+                    f"{', '.join(sorted(invalid_ids))}.\n"
+                    f"Available IDs: {', '.join(registry.citation_ids())}.\n"
+                    f"Regenerate the JSON using only valid citation IDs."
+                )
+                messages = list(messages)  # copy
+                messages.append({"role": "user", "content": error_feedback})
+                continue
+
+            raise ValueError(
+                f"Citation validation failed after retry. Invalid IDs: {invalid_ids}"
+            )
+
+        # Build ChatV2Answered from parsed JSON
+        answer = parsed.get("answer", {})
+        answer_obj = AnsweredContent(
+            empathy=str(answer.get("empathy", "")),
+            situation_framing=str(answer.get("situation_framing", "")),
+            actions=[
+                ActionItem(
+                    text=str(a.get("text", "")),
+                    basis=str(a.get("basis", "accepted_evidence")),
+                    citation_ids=a.get("citation_ids"),
+                    example=a.get("example"),
+                    evidence_quote=a.get("evidence_quote"),
+                )
+                for a in answer.get("actions", [])
+            ],
+            boundaries=str(answer.get("boundaries", "")),
+            summary=str(answer.get("summary", "")),
+        )
+
+        evidence_claims = [
+            EvidenceClaim(
+                claim_id=str(ec.get("claim_id", "")),
+                text=str(ec.get("text", "")),
+                citation_ids=list(ec.get("citation_ids", [])),
+                support_state=str(ec.get("support_state", "supported")) if str(ec.get("support_state", "supported")) in ("supported", "disputed", "conditional") else "supported",
+            )
+            for ec in parsed.get("evidence_claims", [])
+        ]
+
+        citations = [
+            Citation(
+                citation_id=str(c.get("citation_id", "")),
+                source_type=str(c.get("source_type", "transcript")) if str(c.get("source_type", "transcript")) in ("transcript", "claim") else "transcript",
+                source_id=str(c.get("source_id", "")),
+                title=str(c.get("title", "")),
+                creator=str(c.get("creator", "")),
+                timestamp_url=c.get("timestamp_url"),
+                start_seconds=c.get("start_seconds"),
+                end_seconds=c.get("end_seconds"),
+                accepted_score=float(c.get("accepted_score", 0)),
+            )
+            for c in parsed.get("citations", [])
+        ]
+
+        return ChatV2Answered(
+            request_id=str(parsed.get("request_id", "unknown")),
+            status="answered",
+            answer=answer_obj,
+            evidence_claims=evidence_claims,
+            citations=citations,
+            personalization=personalization,
+            cultural_reflection=cultural_reflection,
+        )
+
+    @staticmethod
+    def _validate_v2_citations(
+        parsed: dict[str, Any],
+        registry: CitationRegistry,
+    ) -> set[str]:
+        """Return the set of invalid citation IDs found in *parsed*, or empty if valid."""
+        allowed = set(registry.citation_ids())
+        invalid: set[str] = set()
+
+        # Check evidence_claims
+        for ec in parsed.get("evidence_claims", []):
+            for cid in ec.get("citation_ids", []):
+                if cid not in allowed:
+                    invalid.add(cid)
+
+        # Check actions
+        for action in parsed.get("answer", {}).get("actions", []):
+            for cid in action.get("citation_ids", []) or []:
+                if cid not in allowed:
+                    invalid.add(cid)
+
+        return invalid
 
     async def close(self) -> None:
         """Close the underlying HTTP client."""

@@ -21,12 +21,17 @@ from qdrant_client.models import (
 
 from dating_rag.domain.models import TranscriptChunk
 
-# Payload fields to index for filtering
 PAYLOAD_INDEXES: list[tuple[str, PayloadSchemaType]] = [
     ("video_id", PayloadSchemaType.KEYWORD),
     ("channel_id", PayloadSchemaType.KEYWORD),
+    ("channel_name", PayloadSchemaType.KEYWORD),
     ("category", PayloadSchemaType.KEYWORD),
     ("language", PayloadSchemaType.KEYWORD),
+    ("corpus_type", PayloadSchemaType.KEYWORD),
+    ("evidence_role", PayloadSchemaType.KEYWORD),
+    ("transcript_status", PayloadSchemaType.KEYWORD),
+    ("source_origin", PayloadSchemaType.KEYWORD),
+    ("fallback_used", PayloadSchemaType.BOOL),
     ("views", PayloadSchemaType.INTEGER),
 ]
 
@@ -61,7 +66,7 @@ def build_qdrant_filter(filters: dict[str, Any] | None) -> Filter | None:
                 FieldCondition(key=key, match=MatchValue(value=value))
             )
 
-    return Filter(must=conditions)
+    return Filter(must=conditions)  # type: ignore[arg-type]
 
 
 class QdrantStore:
@@ -110,15 +115,23 @@ class QdrantStore:
             )
 
     def collection_exists(self, collection_name: str) -> bool:
-        """Check whether a collection exists.
-
-        Args:
-            collection_name: Name of the collection.
-
-        Returns:
-            True if the collection exists.
-        """
+        """Check whether a collection exists."""
         return self.client.collection_exists(collection_name=collection_name)
+
+    def ensure_payload_indexes(self, collection_name: str) -> None:
+        """Create the filter indexes required by the retrieval contract."""
+        if not self.collection_exists(collection_name):
+            return
+        for field_name, field_type in PAYLOAD_INDEXES:
+            try:
+                self.client.create_payload_index(
+                    collection_name=collection_name,
+                    field_name=field_name,
+                    field_schema=field_type,
+                )
+            except Exception as exc:
+                if "already exists" not in str(exc).lower():
+                    raise
 
     def delete_collection(self, collection_name: str) -> None:
         """Delete a collection.

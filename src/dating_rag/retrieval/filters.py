@@ -14,6 +14,7 @@ def build_qdrant_filter(
     include_category: bool = True,
     language: str | None = None,
     min_views: int | None = None,
+    require_transcript_evidence: bool = False,
 ) -> Filter | None:
     """Build a Qdrant filter from a QueryPlan.
 
@@ -26,7 +27,26 @@ def build_qdrant_filter(
     Returns:
         A Qdrant Filter object, or None if no filters apply.
     """
+
     conditions: list[FieldCondition] = []
+
+    if require_transcript_evidence:
+        conditions.extend(
+            [
+                FieldCondition(
+                    key="corpus_type",
+                    match=MatchValue(value="transcript"),
+                ),
+                FieldCondition(
+                    key="evidence_role",
+                    match=MatchValue(value="source_evidence"),
+                ),
+                FieldCondition(
+                    key="transcript_status",
+                    match=MatchValue(value="available"),
+                ),
+            ]
+        )
 
     if include_category and plan.category_filter:
         conditions.append(
@@ -66,4 +86,4 @@ def build_qdrant_filter(
     if not conditions:
         return None
 
-    return Filter(must=conditions)
+    return Filter(must=conditions)  # type: ignore[arg-type]

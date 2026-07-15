@@ -29,11 +29,14 @@ class EmbeddingSettings(BaseSettings):
 
 
 class LLMSettings(BaseSettings):
-    """LL API settings."""
+    """LLM API settings with fallback support."""
 
-    api_url: str = "https://api.openai.com/v1"
+    api_url: str = "https://api.xiaomimimo.com/v1"
     api_key: str = ""
-    model: str = "gpt-4o-mini"
+    model: str = "mimo-v2.5"
+    fallback_api_url: str = "https://openrouter.ai/api/v1"
+    fallback_api_key: str = ""
+    fallback_model: str = "google/gemma-4-31b-it:free"
 
     model_config = {"env_prefix": "LLM_"}
 

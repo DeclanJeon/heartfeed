@@ -3,6 +3,14 @@ categories:
     name: "Texting & Messaging"
     description: "Advice on texting patterns, response timing, message content"
 
+  - id: mbti
+    name: "MBTI & Relationship Tendencies"
+    description: "MBTI-themed relationship patterns, with individual-difference caveats"
+
+  - id: long-distance
+    name: "Long-Distance Relationships"
+    description: "Communication, trust, visits, and expectations across distance"
+
   - id: first_dates
     name: "First Dates"
     description: "Planning, behavior, and follow-up for first dates"

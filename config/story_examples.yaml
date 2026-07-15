@@ -1,0 +1,106 @@
+examples:
+  - id: rabbit-and-turtle
+    title: 토끼와 거북이
+    source_type: editorial_illustrative_summary
+    evidence_role: non_evidence
+    production_eligible: true
+    editorial_status: human_reviewed
+    rights:
+      status: approved
+      basis: editorial_original_summary
+      jurisdiction: KR
+      source_urls: []
+      checked_at: "2026-07-12"
+    provenance:
+      created_by: editorial
+      derived_from_original_text: false
+      reviewer: human
+    content_hash: "sha256:86d54abdf120d8eaf7b11d614761203962b56c40de4482024b41878930d5d6ac"
+    summary: 거북이가 빠른 토끼와의 경주에서 서두르지 않고 꾸준히 자기 속도로 나아간다는 이야기입니다.
+    analogy: 관계도 한 번의 극적인 행동보다 서로 합의한 속도로 꾸준히 대화하고 약속을 지키는 과정이 중요할 수 있습니다.
+    topics: [long-distance, relationships, conversation]
+    caution: 상대를 경주 상대처럼 평가하거나 한쪽의 노력만 요구하는 비유로 사용하지 않습니다.
+  - id: heungbu-and-nolbu
+    title: 흥부와 놀부
+    source_type: editorial_illustrative_summary
+    evidence_role: non_evidence
+    production_eligible: true
+    editorial_status: human_reviewed
+    rights:
+      status: approved
+      basis: editorial_original_summary
+      jurisdiction: KR
+      source_urls: []
+      checked_at: "2026-07-12"
+    provenance:
+      created_by: editorial
+      derived_from_original_text: false
+      reviewer: human
+    content_hash: "sha256:f3075ea47da522e8bd9d5f04746ecea6aa4a1803cd8a503d7503fca7e89bce80"
+    summary: 형제의 대조를 통해 나눔과 욕심, 행동의 결과를 보여주는 한국 설화입니다.
+    analogy: 대화가 막혔을 때도 내가 원하는 것만 밀어붙이기보다 상대의 필요와 내가 줄 수 있는 것을 함께 살피는 태도를 생각해볼 수 있습니다.
+    topics: [conversation, texting, relationships]
+    caution: 연애 상대를 착한 사람과 나쁜 사람으로 단순히 나누거나 도덕적으로 심판하는 비유로 사용하지 않습니다.
+  - id: chunhyangjeon
+    title: 춘향전
+    source_type: editorial_illustrative_summary
+    evidence_role: non_evidence
+    production_eligible: true
+    editorial_status: human_reviewed
+    rights:
+      status: approved
+      basis: editorial_original_summary
+      jurisdiction: KR
+      source_urls: []
+      checked_at: "2026-07-12"
+    provenance:
+      created_by: editorial
+      derived_from_original_text: false
+      reviewer: human
+    content_hash: "sha256:a7fc07ddf00f639eae1fef945a0bc546187d82772ec925e0bc5527893b1d79f0"
+    summary: 압박과 거리 속에서도 자신의 의사와 약속을 지키려는 춘향의 이야기를 다루는 고전소설입니다.
+    analogy: 연락을 멈추거나 관계의 속도를 늦출 때도 상대의 반응을 조종하기보다 내 경계와 의사를 분명히 하는 태도를 떠올릴 수 있습니다.
+    topics: [no-contact, breakup, relationships]
+    caution: 인내나 기다림을 무조건적인 희생과 동일시하지 않으며 안전하지 않은 관계를 미화하지 않습니다.
+  - id: kongjwi-and-patjwi
+    title: 콩쥐팥쥐
+    source_type: editorial_illustrative_summary
+    evidence_role: non_evidence
+    production_eligible: true
+    editorial_status: human_reviewed
+    rights:
+      status: approved
+      basis: editorial_original_summary
+      jurisdiction: KR
+      source_urls: []
+      checked_at: "2026-07-12"
+    provenance:
+      created_by: editorial
+      derived_from_original_text: false
+      reviewer: human
+    content_hash: "sha256:4375522e7cdb9bf15f6efd18aa274f9b74c2a9d80c7eead772a81195943a59ab"
+    summary: 어려운 환경 속에서도 도움을 받고 자기 삶을 회복하는 콩쥐의 이야기입니다.
+    analogy: 이별 뒤 회복은 혼자 버티는 시험이라기보다 믿을 수 있는 사람에게 도움을 요청하고 생활을 다시 세우는 과정일 수 있습니다.
+    topics: [breakup, no-contact, confidence]
+    caution: 고통을 참고 버티면 반드시 보상받는다는 식으로 해석하지 않습니다.
+  - id: simcheongjeon
+    title: 심청전
+    source_type: editorial_illustrative_summary
+    evidence_role: non_evidence
+    production_eligible: true
+    editorial_status: human_reviewed
+    rights:
+      status: approved
+      basis: editorial_original_summary
+      jurisdiction: KR
+      source_urls: []
+      checked_at: "2026-07-12"
+    provenance:
+      created_by: editorial
+      derived_from_original_text: false
+      reviewer: human
+    content_hash: "sha256:f7cba7a278ca6369059166643aef299a995636ba4380db470436c971555dd507"
+    summary: 가족을 위해 자신을 희생하는 심청의 이야기를 다루는 고전소설입니다.
+    analogy: 연애에서 상대를 위해 노력할 때도 나의 안전과 한계를 완전히 포기하지 않는 균형이 필요하다는 점을 생각하게 합니다.
+    topics: [relationships, breakup, confidence]
+    caution: 자기희생을 건강한 사랑의 필수 조건으로 제시하지 않습니다.

@@ -1,0 +1,21 @@
+retrieval_thresholds:
+  general_advice:
+    min_score: 0.015
+    min_count: 2
+    min_diversity: 2
+  specific_example:
+    min_score: 0.012
+    min_count: 1
+    min_diversity: 1
+  compare_viewpoints:
+    min_score: 0.012
+    min_count: 3
+    min_diversity: 2
+  high_risk:
+    min_score: 0.010
+    min_count: 1
+    min_diversity: 1
+  creator_lookup:
+    min_score: 0.010
+    min_count: 1
+    min_diversity: 1

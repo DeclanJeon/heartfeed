@@ -3,91 +3,62 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
-import yaml
+import yaml  # type: ignore[import-untyped]
 
 if TYPE_CHECKING:
     from collections.abc import Iterator
 
 
-def load_metadata(path: Path) -> dict[str, str]:
-    """Parse YAML frontmatter from a markdown file.
+Metadata = dict[str, Any]
 
-    Args:
-        path: Path to the markdown file.
-
-    Returns:
-        Dictionary of frontmatter fields. Values are strings except
-        ``duration`` which is returned as an ``int`` when parseable.
-    """
-    content = path.read_text(encoding="utf-8")
-
-    metadata: dict[str, str] = {}
-    if not content.startswith("---"):
-        return metadata
-
-    # Split on --- delimiters; parts[1] is the YAML block
-    parts = content.split("---", 2)
-    if len(parts) < 3:
-        return metadata
-
+def _parse_frontmatter(raw: str) -> Metadata:
+    """Parse frontmatter while preserving YAML scalar and collection types."""
+    metadata: Metadata = {}
     try:
-        parsed = yaml.safe_load(parts[1].strip())
-        if isinstance(parsed, dict):
-            for key, value in parsed.items():
-                metadata[str(key)] = str(value) if value is not None else ""
+        parsed = yaml.safe_load(raw)
     except yaml.YAMLError:
-        # Fallback: line-by-line key:value parsing
-        for line in parts[1].strip().splitlines():
-            if ":" in line:
-                key, value = line.split(":", 1)
-                metadata[key.strip()] = value.strip().strip('"')
+        parsed = None
+    if isinstance(parsed, dict):
+        return {str(key): value for key, value in parsed.items()}
 
+    # Keep a conservative fallback for the malformed legacy files.
+    for line in raw.strip().splitlines():
+        if ":" in line:
+            key, value = line.split(":", 1)
+            metadata[key.strip()] = value.strip().strip('"')
     return metadata
 
 
-def load_transcript(path: Path) -> dict[str, str]:
-    """Load a single markdown transcript file.
-
-    Parses YAML frontmatter and the timestamped transcript body.  The body
-    is everything after the frontmatter closing ``---``, excluding the
-    ``![thumbnail](…)`` line.
-
-    Args:
-        path: Path to the markdown file.
-
-    Returns:
-        Parsed transcript with frontmatter fields and ``body`` text.
-    """
+def load_metadata(path: Path) -> Metadata:
+    """Parse YAML frontmatter from a markdown file without type loss."""
     content = path.read_text(encoding="utf-8")
+    if not content.startswith("---"):
+        return {}
+    parts = content.split("---", 2)
+    if len(parts) < 3:
+        return {}
+    return _parse_frontmatter(parts[1])
 
-    # Frontmatter
-    frontmatter: dict[str, str] = {}
+
+def load_transcript(path: Path) -> Metadata:
+    """Load frontmatter and the timestamped transcript body."""
+    content = path.read_text(encoding="utf-8")
+    frontmatter: Metadata = {}
     body = content
-
     if content.startswith("---"):
         parts = content.split("---", 2)
         if len(parts) >= 3:
-            try:
-                parsed = yaml.safe_load(parts[1].strip())
-                if isinstance(parsed, dict):
-                    for key, value in parsed.items():
-                        frontmatter[str(key)] = str(value) if value is not None else ""
-            except yaml.YAMLError:
-                for line in parts[1].strip().splitlines():
-                    if ":" in line:
-                        key, value = line.split(":", 1)
-                        frontmatter[key.strip()] = value.strip().strip('"')
+            frontmatter = _parse_frontmatter(parts[1])
             body = parts[2].strip()
 
-    # Drop the thumbnail line if present
     lines = body.splitlines()
     filtered = [ln for ln in lines if not ln.strip().startswith("![thumbnail]")]
-    body = "\n".join(filtered).strip()
-
-    frontmatter["body"] = body
+    frontmatter["body"] = "\n".join(filtered).strip()
     return frontmatter
+
+
 
 
 def load_transcript_segments(body: str) -> list[dict[str, object]]:
@@ -152,7 +123,7 @@ def load_all_transcripts(data_dir: Path) -> Iterator[dict[str, str]]:
     Yields:
         Parsed transcripts as dictionaries (frontmatter + body).
     """
-    for path in sorted(data_dir.glob("*.md")):
+    for path in sorted(data_dir.rglob("*.md")):
         try:
             yield load_transcript(path)
         except Exception:
@@ -170,5 +141,5 @@ def load_directory(directory: Path, glob: str = "*.md") -> Iterator[dict[str, st
     Yields:
         Parsed transcripts as dictionaries.
     """
-    for path in sorted(directory.glob(glob)):
+    for path in sorted(directory.rglob(glob)):
         yield load_transcript(path)

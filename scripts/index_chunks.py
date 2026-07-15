@@ -4,7 +4,7 @@
 import json
 import sys
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal, cast
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
@@ -33,11 +33,17 @@ def _timestamp_url(url: str, start_seconds: float) -> str:
     return f"{url}{separator}t={max(0, int(start_seconds))}"
 
 
+def _as_bool(value: object) -> bool:
+    """Parse boolean metadata without treating the string ``false`` as true."""
+    if isinstance(value, bool):
+        return value
+    return str(value).strip().lower() in {"1", "true", "yes", "y"}
+
 def index_chunks(
     chunks_dir: str = "data/chunks",
     collection: str = "datewise_transcripts",
     catalog_path: str = "data/catalog-index.json",
-):
+) -> None:
 
     """Index all chunks into Qdrant, enriching payloads from the video catalog."""
     
@@ -67,34 +73,55 @@ def index_chunks(
     chunks: list[TranscriptChunk] = []
     for raw in all_raw:
         try:
-            # Ensure required fields
             if "chunk_id" not in raw:
                 continue
             video_id = str(raw.get("video_id", ""))
             catalog_item = catalog.get(video_id, {})
             start_seconds = float(raw.get("start_seconds", 0) or 0)
             source_url = str(catalog_item.get("url", ""))
+            tags = raw.get("tags", [])
+            if isinstance(tags, str):
+                tags = [tags]
             chunk = TranscriptChunk(
-                chunk_id=raw["chunk_id"],
+                chunk_id=str(raw["chunk_id"]),
                 video_id=video_id,
-                channel_id=raw.get("channel_id", ""),
-                channel_name=raw.get("channel_name") or catalog_item.get("channel", ""),
-                title=raw.get("title") or catalog_item.get("title", ""),
-                text=raw.get("text", ""),
-                language=raw.get("language", "ko"),
+                channel_id=str(raw.get("channel_id", "")),
+                channel_name=str(raw.get("channel_name") or catalog_item.get("channel", "")),
+                title=str(raw.get("title") or catalog_item.get("title", "")),
+                text=str(raw.get("text", "")),
+                language=str(raw.get("language", "ko")),
                 start_seconds=start_seconds,
-                end_seconds=raw.get("end_seconds", 0),
-                timestamp_url=raw.get("timestamp_url") or _timestamp_url(source_url, start_seconds),
-                category=raw.get("category") or catalog_item.get("category", ""),
-                tags=raw.get("tags", []),
+                end_seconds=float(raw.get("end_seconds", 0) or 0),
+                timestamp_url=str(raw.get("timestamp_url") or _timestamp_url(source_url, start_seconds)),
+                category=str(raw.get("category") or catalog_item.get("category", "")),
+                tags=[str(tag) for tag in tags],
                 views=int(raw["views"]) if raw.get("views") is not None else int(catalog_item.get("views", 0) or 0),
-                chunk_index=raw.get("chunk_index", 0),
+                published_at=raw.get("published_at"),
+                chunk_index=int(raw.get("chunk_index", 0) or 0),
                 previous_chunk_id=raw.get("previous_chunk_id"),
                 next_chunk_id=raw.get("next_chunk_id"),
+                corpus_type=cast(Literal["transcript", "unknown"], str(raw.get("corpus_type", "unknown"))),
+                evidence_role=cast(
+                    Literal["source_evidence", "non_evidence", "unknown"],
+                    str(raw.get("evidence_role", "unknown")),
+                ),
+                source_origin=str(raw.get("source_origin", "")),
+                transcript_status=cast(
+                    Literal["available", "unavailable", "unknown"],
+                    str(raw.get("transcript_status", "unknown")),
+                ),
+                fallback_used=_as_bool(raw.get("fallback_used", False)),
+                raw_document_id=str(raw.get("raw_document_id", "")),
+                raw_sha256=str(raw.get("raw_sha256", "")),
+                ingestion_run_id=str(raw.get("ingestion_run_id", "")),
+                chunk_policy_version=str(raw.get("chunk_policy_version", "")),
+                content_sha256=str(raw.get("content_sha256", "")),
+                schema_version=int(raw.get("schema_version", 1) or 1),
+                chunk_id_version=int(raw.get("chunk_id_version", 1) or 1),
             )
             chunks.append(chunk)
-        except Exception as e:
-            print(f"  Skip chunk: {e}")
+        except Exception as exc:
+            print(f"  Skip chunk: {exc}")
             continue
     
     print(f"Valid chunks: {len(chunks)}")
@@ -106,15 +133,16 @@ def index_chunks(
     # Initialize embedder and store
     print("Initializing BGE-M3 embedder...")
     embedder = BgeM3Embedder()
-    
+
     print("Connecting to Qdrant...")
     store = QdrantStore()
-    
+
     if not store.collection_exists(collection):
         store.create_collection(collection, dense_vector_size=1024)
         print(f"Created collection '{collection}'")
     else:
         print(f"Collection '{collection}' already exists")
+    store.ensure_payload_indexes(collection)
     
     # Index in batches
     batch_size = 32
@@ -131,8 +159,8 @@ def index_chunks(
         store.upsert_chunks(
             collection_name=collection,
             chunks=batch,
-            dense_embeddings=embeddings["dense"],
-            sparse_embeddings=embeddings["sparse"],
+            dense_embeddings=cast(Any, embeddings["dense"]),
+            sparse_embeddings=cast(Any, embeddings["sparse"]),
         )
         indexed += len(batch)
         print(f"  Indexed {indexed}/{total}")

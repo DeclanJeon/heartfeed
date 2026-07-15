@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json as _json
 import asyncio
 import logging
 import time
@@ -10,26 +11,33 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 from dating_rag import __version__
 from dating_rag.config import Settings, get_settings
 from dating_rag.domain.models import (
     ChatResponse,
+    ChatV2Request,
+    ChatV2Response,
     KnowledgeClaim,
+    ProblemEnvelope,
     QueryPlan,
     RetrievalResult,
 )
+from dating_rag.orchestration.chat_service import ChatService
+
 from dating_rag.embeddings.bge_m3 import BgeM3Embedder
 from dating_rag.generation.generator import Generator
 from dating_rag.generation.prompts import load_prompts
+from dating_rag.generation.examples import select_story_examples
 from dating_rag.retrieval.context_builder import ContextBuilder
 from dating_rag.retrieval.diversifier import diversify
 from dating_rag.retrieval.filters import build_qdrant_filter
 from dating_rag.retrieval.hybrid import HybridRetriever
 from dating_rag.retrieval.query_analyzer import QueryAnalyzer
 from dating_rag.retrieval.reranker import PassageReranker
-from dating_rag.store.qdrant import QdrantStore
+from dating_rag.store.qdrant import PAYLOAD_INDEXES, QdrantStore
 
 logger = logging.getLogger(__name__)
 
@@ -83,20 +91,30 @@ class CitationValidator:
         self,
         answer: str,
         sources: list[RetrievalResult],
+        context_text: str = "",
     ) -> list[str]:
-        """Return warnings for missing or invalid evidence citations."""
+        """Return warnings for labels absent from the rendered context."""
         if not sources:
             return []
 
         import re
 
-        available = {
-            f"S{i + 1}" if source.source_type == "transcript" else f"C{i + 1}"
-            for i, source in enumerate(sources)
-        }
+        if context_text:
+            available = {
+                match.group(1)
+                for match in re.finditer(r"(?m)^\[(S\d+)\]\s*\(", context_text)
+            }
+            available.update(
+                match.group(1)
+                for match in re.finditer(r"(?m)^\[(C\d+)\]\s+", context_text)
+            )
+        else:
+            available = {
+                f"S{i + 1}" if source.source_type == "transcript" else f"C{i + 1}"
+                for i, source in enumerate(sources)
+            }
         cited = {match.group(1) for match in re.finditer(r"\[([SC]\d+)\]", answer)}
         warnings: list[str] = []
-
         invalid = sorted(cited - available)
         if invalid:
             warnings.append(f"Answer cites unavailable sources: {', '.join(invalid)}")
@@ -124,6 +142,7 @@ class AppState:
     citation_validator: CitationValidator
     prompts: dict[str, str]
     collection_name: str = "datewise_transcripts"
+    story_examples: list[dict[str, Any]] = field(default_factory=list)
     # Lazy-loaded reranker fields
     _reranker: PassageReranker | None = field(default=None, repr=False)
     _reranker_model: str = field(default="", repr=False)
@@ -165,6 +184,7 @@ async def lifespan(app: FastAPI):  # noqa: ANN201
     if not store.collection_exists(settings.collection_name):
         store.create_collection(settings.collection_name, dense_vector_size=1024)
         logger.info("Created empty Qdrant collection: %s", settings.collection_name)
+    store.ensure_payload_indexes(settings.collection_name)
     embedder = BgeM3Embedder(
         model_name=settings.embeddings.model_name,
         device=settings.embeddings.device,
@@ -188,9 +208,14 @@ async def lifespan(app: FastAPI):  # noqa: ANN201
         api_url=settings.llm.api_url,
         api_key=settings.llm.api_key,
         model=settings.llm.model,
+        fallback_api_url=settings.llm.fallback_api_url,
+        fallback_api_key=settings.llm.fallback_api_key,
+        fallback_model=settings.llm.fallback_model,
     )
 
     prompts = load_prompts(config_dir=settings.config_dir)
+    story_config = settings.load_yaml_config("story_examples")
+    story_examples = story_config.get("examples", [])
 
     state = AppState(
         settings=settings,
@@ -203,6 +228,7 @@ async def lifespan(app: FastAPI):  # noqa: ANN201
         citation_validator=CitationValidator(),
         prompts=prompts,
         collection_name=settings.collection_name,
+        story_examples=story_examples,
         # Reranker model config — loaded lazily on first request
         _reranker_model=retrieval_cfg.get("rerank_model", "BAAI/bge-reranker-v2-m3"),
         _reranker_device=settings.embeddings.device,
@@ -270,7 +296,7 @@ async def stats(request: Request) -> StatsResponse:
         return StatsResponse(
             collection_name=state.collection_name,
             vector_count=info.points_count or 0,
-            indexed_fields=["video_id", "channel_id", "category", "language", "views"],
+            indexed_fields=[name for name, _ in PAYLOAD_INDEXES],
             qdrant_url=state.settings.qdrant.url,
         )
     except Exception as exc:
@@ -297,7 +323,11 @@ async def chat(request: Request, body: ChatRequest) -> ChatResponse:
         include_category = state.settings.auto_category_filters or bool(
             body.filters and "category" in body.filters
         )
-        qdrant_filter = build_qdrant_filter(plan, include_category=include_category)
+        qdrant_filter = build_qdrant_filter(
+            plan,
+            include_category=include_category,
+            require_transcript_evidence=plan.use_transcripts,
+        )
         filter_dict: dict[str, Any] | None = None
         if qdrant_filter is not None:
             filter_dict = _qdrant_filter_to_dict(qdrant_filter)
@@ -331,9 +361,17 @@ async def chat(request: Request, body: ChatRequest) -> ChatResponse:
                 max_per_channel=retrieval_cfg.get("max_per_channel", 3),
                 max_per_video=retrieval_cfg.get("max_per_video", 2),
             )
-        # 6. Build the exact labeled context passed to the generator.
         okf_claims: list[KnowledgeClaim] = []
-        context_text = state.context_builder.build_context(results, okf_claims, plan)
+        # 6. Build the exact labeled context passed to the generator.
+        context_text = state.context_builder.build_context(
+            results,
+            okf_claims,
+            plan,
+            illustrative_examples=select_story_examples(
+                state.story_examples,
+                plan,
+            ),
+        )
 
         if not state.generator.api_key:
             raise HTTPException(
@@ -353,10 +391,10 @@ async def chat(request: Request, body: ChatRequest) -> ChatResponse:
 
         # 8. Validate citations
         citation_warnings = state.citation_validator.validate(
-            chat_response.answer, results
+            chat_response.answer,
+            results,
+            context_text,
         )
-        if citation_warnings:
-            logger.info("Citation warnings: %s", citation_warnings)
 
         chat_response.citation_warnings = citation_warnings
         elapsed = time.monotonic() - start
@@ -376,6 +414,44 @@ async def chat(request: Request, body: ChatRequest) -> ChatResponse:
         raise HTTPException(status_code=500, detail=f"Internal error: {exc}") from exc
 
 
+@app.post("/v2/chat")
+async def chat_v2(request: Request, body: ChatV2Request) -> ChatV2Response | ProblemEnvelope:
+    """v2 chat endpoint — full safety → intake → retrieval → generation pipeline."""
+    state = _get_state(request)
+    service = ChatService(state)
+    return await service.answer(body)
+
+@app.post("/v2/chat/stream")
+async def chat_v2_stream(request: Request, body: ChatV2Request):
+    """v2 streaming chat endpoint — returns answer text as SSE chunks."""
+    state = _get_state(request)
+    service = ChatService(state)
+
+    async def event_generator():
+        try:
+            result = await service.answer(body)
+            # For non-answered responses, send the full JSON as a single event
+            if not hasattr(result, "answer"):
+                yield f"data: {_json.dumps(result.model_dump(), ensure_ascii=False)}\n\n"
+                return
+
+            # For answered responses, stream the answer text in chunks
+            answer_text = result.answer.summary or result.answer.empathy
+            for i in range(0, len(answer_text), 50):
+                chunk = answer_text[i:i+50]
+                yield f"data: {_json.dumps({'type': 'chunk', 'content': chunk}, ensure_ascii=False)}\n\n"
+
+            # Send the full response as the final event
+            yield f"data: {_json.dumps({'type': 'complete', 'data': result.model_dump()}, ensure_ascii=False)}\n\n"
+        except Exception as exc:
+            yield f"data: {_json.dumps({'type': 'error', 'message': str(exc)}, ensure_ascii=False)}\n\n"
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )
+
 @app.post("/search", response_model=list[RetrievalResult])
 async def search(request: Request, body: SearchRequest) -> list[RetrievalResult]:
     """Search endpoint for testing retrieval without generation."""
@@ -386,7 +462,11 @@ async def search(request: Request, body: SearchRequest) -> list[RetrievalResult]
         include_category = state.settings.auto_category_filters or bool(
             body.filters and "category" in body.filters
         )
-        qdrant_filter = build_qdrant_filter(plan, include_category=include_category)
+        qdrant_filter = build_qdrant_filter(
+            plan,
+            include_category=include_category,
+            require_transcript_evidence=plan.use_transcripts,
+        )
         filter_dict: dict[str, Any] | None = None
         if qdrant_filter is not None:
             filter_dict = _qdrant_filter_to_dict(qdrant_filter)

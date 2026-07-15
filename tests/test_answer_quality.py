@@ -82,6 +82,19 @@ def test_citation_validator_accepts_labels_and_rejects_unknown_labels() -> None:
     warnings = validator.validate("Try an open question [S9].", [source])
     assert any("S9" in warning for warning in warnings)
 
+    warnings = validator.validate(
+        "Use the rendered source [S1].",
+        [source, _source()],
+        "## Transcript Evidence\n\n[S1] (Channel — \"Video\")\nEvidence text",
+    )
+    assert warnings == []
+    warnings = validator.validate(
+        "Use the omitted source [S2].",
+        [source, _source()],
+        "## Transcript Evidence\n\n[S1] (Channel — \"Video\")\nEvidence text",
+    )
+    assert any("S2" in warning for warning in warnings)
+
 
 def test_citation_validator_flags_uncited_answer() -> None:
     warnings = CitationValidator().validate("Try an open question.", [_source()])

@@ -1,0 +1,79 @@
+{
+  "request_id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+  "schema_version": "2",
+  "api_version": "v2",
+  "status": "answered",
+  "answer": {
+    "empathy": "상대방이 연락을 잘 안 해서 불안하신 마음 충분히 이해합니다. 기다리는 시간이 길어질수록 초조해지는 건 자연스러운 감정이에요.",
+    "situation_framing": "연락 빈도 차이는 커뮤니케이션 스타일의 차이에서 비롯될 수 있으며, 반드시 상대방의 관심이 식었음을 의미하지는 않습니다.",
+    "actions": [
+      {
+        "text": "직접적으로 '요즘 어떻게 지내는지' 가벼운 안부 메시지를 보내보세요. 부담스럽지 않은 선에서 먼저 연락하는 것이 관계 유지에 도움이 됩니다.",
+        "basis": "accepted_evidence",
+        "citation_ids": ["cit_001", "cit_002"]
+      },
+      {
+        "text": "상대방의 연락 패턴을 일주일간 관찰한 뒤, 변화가 없다면 솔직하게 대화해보세요.",
+        "basis": "accepted_evidence",
+        "citation_ids": ["cit_001"]
+      },
+      {
+        "text": "자신만의 취미 활동에 집중하면 연락에 대한 집착을 줄이는 데 도움이 됩니다.",
+        "basis": "policy_template",
+        "citation_ids": null
+      }
+    ],
+    "boundaries": "상대방이 명시적으로 관심이 없다고 표현했을 때는 존중하는 것이 중요합니다. 반복적인 무시는 관심 부족의 신호일 수 있습니다.",
+    "summary": "연락 빈도 차이는 다양한 원인이 있을 수 있으므로, 직접적인 소통을 통해 상대방의 의사를 확인하는 것이 가장 확실한 방법입니다."
+  },
+  "evidence_claims": [
+    {
+      "claim_id": "claim_001",
+      "text": "건강한 연애 관계에서는 양쪽 모두가 주도적으로 연락하는 것이 중요하다",
+      "citation_ids": ["cit_001"],
+      "support_state": "supported"
+    },
+    {
+      "claim_id": "claim_002",
+      "text": "연락이 줄어든다고 해서 반드시 관심이 식은 것은 아니다",
+      "citation_ids": ["cit_001", "cit_002"],
+      "support_state": "supported"
+    }
+  ],
+  "citations": [
+    {
+      "citation_id": "cit_001",
+      "source_type": "transcript",
+      "source_id": "yt_video_001",
+      "title": "연락이 줄어든 남자, 진심은 뭘까?",
+      "creator": "연애하는 심리학자",
+      "timestamp_url": "https://youtube.com/watch?v=example1&t=120",
+      "start_seconds": 120.0,
+      "end_seconds": 180.0,
+      "accepted_score": 0.87
+    },
+    {
+      "citation_id": "cit_002",
+      "source_type": "claim",
+      "source_id": "claim_ref_002",
+      "title": "커뮤니케이션 스타일과 관계 만족도",
+      "creator": "데이트 코치 김민수",
+      "timestamp_url": null,
+      "start_seconds": null,
+      "end_seconds": null,
+      "accepted_score": 0.75
+    }
+  ],
+  "conflicts": [
+    {
+      "claim_ids": ["claim_001", "claim_003"],
+      "description": "일부 전문가는 주도적 연락을, 다른 전문가는 거리를 두는 것을 권장합니다",
+      "creator_diversity": 2
+    }
+  ],
+  "personalization": {
+    "lenses_used": ["mbti", "observation"],
+    "disclaimer": "개인화 분석은 참고용이며, 전문 상담을 대체할 수 없습니다."
+  },
+  "cultural_reflection": null
+}

@@ -1,0 +1,23 @@
+{
+  "request_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "schema_version": "2",
+  "api_version": "v2",
+  "status": "needs_clarification",
+  "questions": [
+    {
+      "question_id": "q_relationship_context",
+      "prompt": "현재 관계 상태를 알려주세요. 예: 썸 단계, 연애 중, 이별 후 재회 고민 등",
+      "reason": "답변을 관계 단계에 맞게 조정하기 위해 필요합니다",
+      "required": true,
+      "answer_type": "single_choice",
+      "options": [
+        {"value": "talking_stage", "label": "썸 단계"},
+        {"value": "dating", "label": "연애 중"},
+        {"value": "breakup", "label": "이별 후"},
+        {"value": "reconciliation", "label": "재회 고민"}
+      ],
+      "skip_label": "건너뛰기"
+    }
+  ],
+  "can_answer_without_optional_profile": true
+}

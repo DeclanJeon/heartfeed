@@ -1,0 +1,42 @@
+{
+  "request_id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+  "schema_version": "2",
+  "api_version": "v2",
+  "status": "safety_escalation",
+  "risk_kind": "stalking",
+  "urgency": "elevated",
+  "message": "입력하신 내용에서 상대방의 동의 없는 지속적인 추적 및 접근 시도 정황이 감지되었습니다. 본 서비스는 스토킹 피해 지원 정보를 제공하며, 즉각적인 안전 조치가 필요할 수 있습니다.",
+  "immediate_actions": [
+    "현재 위치를 신뢰할 수 있는 사람에게 공유하세요",
+    "상대방의 연락 기록과 증거를 보존하세요",
+    "112에 신고하여 피해 사실을 접수하세요",
+    "스토킹 피해자 지원 센터에 연락하여 전문 상담을 받으세요"
+  ],
+  "resources": [
+    {
+      "name": "112 긴급신고",
+      "phone": "112",
+      "description": "경찰 긴급 신고 및 스토킹 범죄 신고",
+      "available": "24시간"
+    },
+    {
+      "name": "119 긴급구조",
+      "phone": "119",
+      "description": "긴급 구조 및 응급 상황 대응",
+      "available": "24시간"
+    },
+    {
+      "name": "109 긴급전화 (여성긴급전화)",
+      "phone": "109",
+      "description": "여성폭력 피해 상담 및 긴급 지원",
+      "available": "24시간"
+    },
+    {
+      "name": "스토킹범죄 피해자 지원센터",
+      "phone": "02-735-8994",
+      "description": "스토킹 피해 법률 상담 및 보호조치 안내",
+      "available": "평일 09:00~18:00"
+    }
+  ],
+  "safety_policy_version": "safety-v1.2"
+}

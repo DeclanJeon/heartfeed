@@ -34,6 +34,18 @@ class TestQueryAnalyzer:
     def test_specific_example_korean(self) -> None:
         plan = self.analyzer.analyze("실제 예시를 들어주세요")
         assert plan.intent == "specific_example"
+    def test_story_examples_require_explicit_metaphor_request(self) -> None:
+        plan = self.analyzer.analyze("장거리 연애를 우화로 비유해서 설명해줘")
+        assert plan.intent == "specific_example"
+        assert plan.allow_illustrative_examples is True
+
+        ordinary = self.analyzer.analyze("장거리 연애에서 연락 빈도는?")
+        assert ordinary.allow_illustrative_examples is False
+
+    def test_high_risk_disables_story_examples(self) -> None:
+        plan = self.analyzer.analyze("스토킹 상황을 우화로 설명해줘")
+        assert plan.intent == "high_risk"
+        assert plan.allow_illustrative_examples is False
 
     def test_compare_viewpoints_intent(self) -> None:
         plan = self.analyzer.analyze("Should I text first or wait? Different opinions on this")
@@ -95,6 +107,21 @@ class TestQueryAnalyzer:
         plan = self.analyzer.analyze("이별 후에 어떻게 극복해요?")
         assert plan.category_filter == "breakup"
 
+    def test_target_topic_mbti(self) -> None:
+        plan = self.analyzer.analyze("MBTI별 연애 스타일")
+        assert plan.category_filter == "mbti"
+
+    def test_target_topic_texting(self) -> None:
+        plan = self.analyzer.analyze("카톡 대화 이어가기")
+        assert plan.category_filter == "texting"
+
+    def test_target_topic_no_contact(self) -> None:
+        plan = self.analyzer.analyze("이별 후 no contact")
+        assert plan.category_filter == "breakup"
+
+    def test_target_topic_long_distance(self) -> None:
+        plan = self.analyzer.analyze("장거리 연애")
+        assert plan.category_filter == "long-distance"
     def test_category_none_for_unrelated(self) -> None:
         plan = self.analyzer.analyze("What is the meaning of life?")
         assert plan.category_filter is None
@@ -249,17 +276,18 @@ class TestContextBuilder:
         assert "[S2]" in ctx
         assert "[S3]" not in ctx
 
-    def test_respects_token_budget(self) -> None:
-        builder = ContextBuilder(max_chunks=100, max_tokens=2000)
-        # Each entry with 500-word text ≈ 1554 tokens; header ≈ 17 tokens
-        # After header: 1983 remaining. First entry: 1983 - 1554 = 429 left,
-        # but next entry needs 1554 + 200 safety = 1754 > 429, so only 1 fits.
-        results = [self._make_result(str(i), "word " * 500) for i in range(5)]
+    def test_skips_oversized_result_and_keeps_later_evidence(self) -> None:
+        builder = ContextBuilder(max_chunks=8, max_tokens=1000)
+        results = [
+            self._make_result("large", "large " * 2000),
+            self._make_result("useful", "Useful evidence for the question."),
+        ]
         plan = QueryPlan(use_transcripts=True, use_okf=False)
         ctx = builder.build_context(results, [], plan)
-
         assert "[S1]" in ctx
         assert "[S2]" not in ctx
+        assert "Useful evidence" in ctx
+
 
     def test_empty_results(self) -> None:
         plan = QueryPlan()

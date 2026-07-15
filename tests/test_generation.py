@@ -311,8 +311,8 @@ class TestAnswerGenerator:
 
     def test_init_defaults(self) -> None:
         gen = AnswerGenerator(api_key="test-key")
-        assert gen.model == "gpt-4o-mini"
-        assert gen.api_url == "https://api.openai.com/v1"
+        assert gen.model == "mimo-v2.5"
+        assert gen.api_url == "https://api.xiaomimimo.com/v1"
 
     def test_init_custom(self) -> None:
         gen = AnswerGenerator(
@@ -374,3 +374,42 @@ class TestAnswerGenerator:
     def test_generator_alias(self) -> None:
         from dating_rag.generation.generator import Generator
         assert Generator is AnswerGenerator
+
+def test_default_system_prompt_requires_korean_grounding() -> None:
+    from dating_rag.generation.prompts import SYSTEM_PROMPT
+
+    assert "한국어" in SYSTEM_PROMPT
+    assert "[S1]" in SYSTEM_PROMPT
+    assert "근거" in SYSTEM_PROMPT
+    assert "자료만으로" in SYSTEM_PROMPT
+
+def test_active_yaml_prompt_matches_grounding_contract() -> None:
+    from dating_rag.generation.prompts import load_prompts
+
+    prompt = load_prompts()["system_prompt"]
+    assert "한국어" in prompt
+    assert "[S1]" in prompt
+    assert "제공된 자료만으로는 확인하기 어렵습니다." in prompt
+    assert "short narrative" in prompt
+    assert "Illustrative Example" in prompt
+
+def test_target_questions_receive_evidence_contract() -> None:
+    from dating_rag.retrieval.query_analyzer import QueryAnalyzer
+
+    analyzer = QueryAnalyzer()
+    generator = AnswerGenerator(api_key="test")
+    source = _make_result("Evidence about the target topic.")
+    for question in (
+        "MBTI별 연애 스타일",
+        "카톡 대화 이어가기",
+        "이별 후 no contact",
+        "장거리 연애",
+    ):
+        messages = generator._build_messages(
+            question,
+            [source],
+            analyzer.analyze(question),
+            context_text="## Transcript Evidence\n[S1] Evidence",
+        )
+        assert question in messages[1]["content"]
+        assert "[S1]" in messages[1]["content"]

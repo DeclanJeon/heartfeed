@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from typing import Literal
+from typing import Literal, cast
 
 from dating_rag.domain.models import QueryPlan
 
@@ -14,15 +14,17 @@ Intent = Literal[
     "creator_lookup",
     "definition",
     "high_risk",
+    "saju_request",
 ]
 
 # Korean keywords mapped to intents
 _KR_INTENT_KEYWORDS: dict[str, list[str]] = {
-    "specific_example": ["예시", "예를 들어", "경험", "사례", "어떻게 했", "실제로"],
+    "specific_example": ["예시", "예를 들어", "경험", "사례", "어떻게 했", "실제로", "비유", "우화", "이야기"],
     "compare_viewpoints": ["vs", "비교", "다른 의견", "어느 쪽", "찬반", "반대"],
     "creator_lookup": ["크리에이터", "유튜버", "쌤", "선생님", "님"],
     "definition": ["什么意思", "뜻이 뭐", "의미", "무슨 뜻", "뭔 뜻"],
-    "high_risk": ["자살", "자해", "스토킹", "협박", "폭력", "성범죄", "미성년"],
+    "high_risk": ["자살", "자해", "스토킹", "미행", "협박", "강요", "폭력", "성범죄", "미성년"],
+    "saju_request": ["사주", "팔자", "운세", "역학", "사주팔자"],
 }
 
 # English keywords mapped to intents
@@ -31,21 +33,28 @@ _EN_INTENT_KEYWORDS: dict[str, list[str]] = {
     "compare_viewpoints": ["vs", "compare", "different opinions", "debate", "disagree"],
     "creator_lookup": ["coach", "creator", "youtuber", "channel"],
     "definition": ["what does", "what is", "meaning", "define", "explain"],
-    "high_risk": ["suicide", "self-harm", "stalking", "threat", "violence", "abuse", "underage"],
+    "high_risk": ["suicide", "self-harm", "stalking", "coercion", "domestic", "threat", "violence", "abuse", "underage"],
+    "saju_request": ["saju", "fortune", "destiny", "four pillars"],
 }
 
 # Category keyword mapping
 _CATEGORY_KEYWORDS: dict[str, list[str]] = {
+    "mbti": ["mbti", "엠비티아이", "mbti별", "mbti 유형"],
     "texting": ["text", "message", "reply", "respond", " nhắn", "카톡", "메시지", "답장", "읽씹"],
     "first_dates": ["first date", "데이트", "初次约会", "만남", "약속"],
     "attraction": ["attract", "interest", "flirt", "매력", "끌리", "관심"],
     "confidence": ["confidence", "self-esteem", "mindset", "자신감", "멘탈", "마음가짐"],
     "online_dating": ["tinder", "bumble", "dating app", "profile", "swipe", "앱", "프로필", "온라인"],
     "conversation": ["conversation", "talk", "topic", "대화", "주제", "말하기"],
+    "long-distance": ["long distance", "long-distance", "longdistance", "ldr", "장거리", "원거리"],
     "relationships": ["relationship", "girlfriend", "boyfriend", "partner", "연애", "커플", "관계"],
-    "breakup": ["breakup", "break up", "ex", "move on", "이별", "헤어지", "전남친", "전여친"],
+    "breakup": [
+        "breakup", "break up", "ex", "move on", "no contact", "no_contact",
+        "이별", "헤어지", "전남친", "전여친", "노컨택",
+    ],
     "social_skills": ["social", "body language", "social skills", "사회성", "눈치", "센스"],
     "lifestyle": ["fitness", "fashion", "hobby", "grooming", "운동", "패션", "자기계발"],
+    "saju_request": ["사주", "팔자", "운세", "역학", "사주팔자", "saju", "fortune", "destiny", "four pillars"],
 }
 
 
@@ -84,7 +93,7 @@ def _detect_intent(question: str) -> Intent:
                 scores[intent] = scores.get(intent, 0) + 1
 
     if scores:
-        return max(scores, key=lambda k: scores[k])  # type: ignore[return-value]
+        return cast(Intent, max(scores, key=lambda k: scores[k]))
 
     return "general_advice"
 
@@ -138,6 +147,17 @@ def _extract_topics(question: str) -> list[str]:
     topics.extend(hashtags)
 
     return topics
+
+
+def _allows_illustrative_examples(question: str, intent: Intent) -> bool:
+    """Allow literary analogies only when the user explicitly asks for one."""
+    if intent == "high_risk":
+        return False
+    lowered = question.lower()
+    return intent == "specific_example" and any(
+        marker in question or marker in lowered
+        for marker in ("비유", "우화", "이야기", "예시", "example", "story", "metaphor")
+    )
 
 
 class QueryAnalyzer:
@@ -195,4 +215,5 @@ class QueryAnalyzer:
             require_source_diversity=require_source_diversity,
             category_filter=category,
             channel_filters=channel_filters,
+            allow_illustrative_examples=_allows_illustrative_examples(question, intent),
         )
