@@ -218,7 +218,9 @@ class AnswerGenerator:
                         "max_tokens": max_tokens,
                         "stream": False,
                     }
-                    if response_format:
+                    # Nous models (hy3/flash) reject or ignore response_format;
+                    # the v2 system-prompt override enforces JSON instead.
+                    if response_format and self.provider != "nous":
                         body["response_format"] = response_format
                     response = await self._client.post(
                         f"{api_url}/chat/completions",
