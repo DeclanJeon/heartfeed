@@ -508,6 +508,9 @@ class AnswerGenerator:
             summary=str(answer.get("summary", "")),
         )
 
+        # Drop evidence claims the model emitted without any citation (flash
+        # models sometimes emit empty citation_ids); they are optional
+        # enrichment, not part of the core answer.
         evidence_claims = [
             EvidenceClaim(
                 claim_id=str(ec.get("claim_id", "")),
@@ -516,6 +519,7 @@ class AnswerGenerator:
                 support_state=str(ec.get("support_state", "supported")) if str(ec.get("support_state", "supported")) in ("supported", "disputed", "conditional") else "supported",
             )
             for ec in parsed.get("evidence_claims", [])
+            if ec.get("citation_ids")
         ]
 
         citations = [
