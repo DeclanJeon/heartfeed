@@ -24,7 +24,7 @@ from dating_rag.domain.models import (
     QueryPlan,
     RetrievalResult,
 )
-from dating_rag.generation.prompts import SYSTEM_PROMPT, build_prompt, build_v2_prompt
+from dating_rag.generation.prompts import SYSTEM_PROMPT, V2_SYSTEM_SUFFIX, build_prompt, build_v2_prompt
 if TYPE_CHECKING:
     from dating_rag.retrieval.context_builder import CitationRegistry
 
@@ -417,7 +417,7 @@ class AnswerGenerator:
         if conversation_context:
             user_content = conversation_context + "\n\n" + user_content
         messages = [
-            {"role": "system", "content": system_prompt or SYSTEM_PROMPT},
+            {"role": "system", "content": (system_prompt or SYSTEM_PROMPT) + V2_SYSTEM_SUFFIX},
             {"role": "user", "content": user_content},
         ]
 

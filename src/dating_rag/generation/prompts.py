@@ -272,3 +272,19 @@ def build_v2_prompt(
     )
 
     return "\n\n".join(sections)
+
+
+# Hard override appended to the system prompt for v2 JSON generation. The base
+# SYSTEM_PROMPT describes a narrative answer; for v2 we must suppress that and
+# force strict JSON so small flash models (which ignore response_format) comply
+# on the first attempt instead of wasting a retry.
+V2_SYSTEM_SUFFIX = """\
+
+## v2 출력 모드 (중요)
+
+위의 서술형 지침은 무시하세요. 이 요청은 반드시 **JSON 객체 하나만** 출력해야 합니다.
+- 마크다운 코드 펜스(```), 설명문, 인사말, 서론을 절대 쓰지 마세요.
+- 첫 글자는 반드시 '{' 이어야 하고, 마지막 글자는 '}' 이어야 합니다.
+- 한국어로만 작성하세요.
+- 사용자 메시지의 "Response Format Instructions" 스키마를 정확히 따르세요.
+"""
