@@ -19,7 +19,7 @@ from dating_rag.domain.models import (
     ProblemEnvelope,
     RetrievalResult,
 )
-from dating_rag.intake.planner import IntakeAction, IntakeDecision
+from dating_rag.intake.planner import IntakeAction, IntakeDecision, plan_minimal_intake
 from dating_rag.orchestration.chat_service import ChatService
 from dating_rag.privacy.redaction import RedactedConcern
 from dating_rag.safety.router import SafetyAssessment
@@ -291,3 +291,26 @@ def test_legacy_chat_registered() -> None:
     resp = client.post("/chat", json={"question": "test"})
     # Endpoint exists — may return 503 if state not initialized, but not 404.
     assert resp.status_code != 404
+
+
+def test_followup_without_relationship_keyword_inherits_scope_from_history() -> None:
+    """A short follow-up lacking relationship keywords must NOT be out_of_scope
+    when the prior turns clearly discuss a relationship topic."""
+    followup = "그래서 저렇게 한다음에 어떤 주제로 이야기를 이어가면 좋을까?"
+    history = [
+        {"role": "user", "content": "한 공동체에서 한달정도 봤는데 이 친구가 너무 밝고 명량해"},
+        {"role": "assistant", "content": "연애/관계 상황에서 다가가는 법을 정리해보면"},
+    ]
+    decision = plan_minimal_intake(followup, conversation_history=history)
+    assert decision.reason != "out_of_scope"
+    assert decision.action != IntakeAction.SKIP_OPTIONAL
+
+
+def test_followup_truly_off_topic_still_out_of_scope() -> None:
+    """Without any relationship context in history, an off-topic follow-up
+    should still be flagged out_of_scope."""
+    decision = plan_minimal_intake(
+        "오늘 점심 뭐 먹을까?",
+        conversation_history=[{"role": "user", "content": "날씨가 좋네요"}],
+    )
+    assert decision.reason == "out_of_scope"

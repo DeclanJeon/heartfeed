@@ -57,6 +57,7 @@ def plan_minimal_intake(
     clarification_answers: list | None = None,
     profile: dict | None = None,
     consent: dict | None = None,
+    conversation_history: list | None = None,
 ) -> IntakeDecision:
     """Decide the next intake step for a relationship advice question.
 
@@ -81,7 +82,7 @@ def plan_minimal_intake(
 
     # ── question is clear enough → check profile needs ──────────────────
     if not is_vague:
-        return _decide_with_profile(question, profile, consent, round_number)
+        return _decide_with_profile(question, profile, consent, round_number, conversation_history)
 
     # ── first round: ask one discriminating question ─────────────────────
     if round_number == 0:
@@ -93,7 +94,7 @@ def plan_minimal_intake(
         )
 
     # ── second round after a vague follow-up → just proceed ─────────────
-    return _decide_with_profile(question, profile, consent, round_number)
+    return _decide_with_profile(question, profile, consent, round_number, conversation_history)
 
 
 # ── internals ───────────────────────────────────────────────────────────────
@@ -112,10 +113,19 @@ def _decide_with_profile(
     profile: dict | None,
     consent: dict | None,
     round_number: int,
+    conversation_history: list | None = None,
 ) -> IntakeDecision:
     """Decide whether to request optional profile info or proceed."""
     # Check if question is about relationships (skip for vague/short questions)
-    if not _is_vague(question) and not _RELATIONSHIP_CONTEXT_RE.search(question):
+    has_relationship_context = _RELATIONSHIP_CONTEXT_RE.search(question)
+    if not has_relationship_context and conversation_history:
+        # A follow-up lacking relationship keywords may still continue an
+        # ongoing relationship conversation — inherit scope from history.
+        history_text = " ".join(
+            getattr(t, "content", str(t)) for t in conversation_history[-6:]
+        )
+        has_relationship_context = bool(_RELATIONSHIP_CONTEXT_RE.search(history_text))
+    if not _is_vague(question) and not has_relationship_context:
         return IntakeDecision(
             action=IntakeAction.SKIP_OPTIONAL,
             reason="out_of_scope",

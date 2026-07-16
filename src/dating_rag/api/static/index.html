@@ -184,6 +184,8 @@ q.addEventListener("keydown", e => {
 send.onclick = ask;
 
 let rid = 0;
+const convId = "web-" + Date.now();
+let history = [];
 function addMsg(role, html) {
   const m = document.createElement("div");
   m.className = "msg " + role;
@@ -211,8 +213,9 @@ async function ask() {
       body: JSON.stringify({
         schema_version: "2",
         request_id: "web-" + (++rid),
-        conversation_id: "web-" + rid,
+        conversation_id: convId,
         question: text,
+        conversation_history: history.slice(-6),
         consent: {
           process_my_birth_data: false,
           store_my_data: false,
@@ -234,6 +237,10 @@ async function ask() {
       return;
     }
     renderAnswer(data);
+    history.push({ role: "user", content: text });
+    const ans = data.answer || {};
+    const summary = ans.summary || ans.empathy || "";
+    history.push({ role: "assistant", content: summary });
   } finally {
     send.disabled = false;
   }

@@ -95,6 +95,7 @@ class ChatService:
             request.clarification_answers,
             request.profile.model_dump() if request.profile else None,
             request.consent.model_dump(),
+            request.conversation_history,
         )
         if decision.action == IntakeAction.ASK_QUESTION:
             return ChatV2NeedsClarification(
