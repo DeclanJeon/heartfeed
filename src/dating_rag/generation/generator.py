@@ -388,7 +388,7 @@ class AnswerGenerator:
         personalization: PersonalizationBlock | None = None,
         cultural_reflection: CulturalReflectionBlock | None = None,
         conversation_context: str = "",
-        temperature: float = 0.5,
+        temperature: float = 0.3,
         max_tokens: int = 3000,
     ) -> ChatV2Answered:
         """Build a v2 JSON-constrained response with citation validation.
@@ -421,13 +421,15 @@ class AnswerGenerator:
             {"role": "user", "content": user_content},
         ]
 
-        for attempt in range(2):
+        last_raw = ""
+        for attempt in range(3):
             raw_content = await self._call_llm(
                 messages,
                 temperature=temperature,
                 max_tokens=max_tokens,
                 response_format={"type": "json_object"},
             )
+            last_raw = raw_content
 
             # Strip markdown code fences if present
             clean = raw_content.strip()
@@ -439,18 +441,30 @@ class AnswerGenerator:
                     lines = lines[:-1]
                 clean = "\n".join(lines)
 
-            # Extract JSON from response
+            # Extract the outermost JSON object. Flash models sometimes wrap
+            # the JSON in prose or emit trailing text, so search for the first
+            # "{" and the last "}" rather than requiring a clean object.
             json_start = clean.find("{")
             json_end = clean.rfind("}")
-            if json_start == -1 or json_end == -1 or json_end <= json_start:
-                if attempt == 0:
-                    logger.warning("No JSON found in LLM response, retrying")
-                    messages = list(messages)
-                    messages.append({"role": "user", "content": "위 응답에서 JSON을 찾을 수 없습니다. 반드시 JSON 객체만 반환해주세요."})
-                    continue
-                raise ValueError(f"No JSON found in LLM response: {raw_content[:200]}")
+            if json_start != -1 and json_end > json_start:
+                candidate = clean[json_start : json_end + 1]
+                try:
+                    parsed = json.loads(candidate)
+                except json.JSONDecodeError:
+                    parsed = None
+            else:
+                parsed = None
 
-            parsed = json.loads(clean[json_start:json_end + 1])
+            if parsed is None:
+                logger.warning("No JSON found in LLM response (attempt %d), retrying", attempt)
+                messages = list(messages)
+                messages.append(
+                    {
+                        "role": "user",
+                        "content": "응답에서 유효한 JSON 객체를 찾을 수 없습니다. 다른 설명 없이 JSON 객체만 반환해주세요.",
+                    }
+                )
+                continue
 
             # Validate citation IDs
             invalid_ids = self._validate_v2_citations(parsed, registry)
@@ -471,7 +485,8 @@ class AnswerGenerator:
                 continue
 
             raise ValueError(
-                f"Citation validation failed after retry. Invalid IDs: {invalid_ids}"
+                f"Citation validation failed after retries. Invalid IDs: {invalid_ids}. "
+                f"Last raw (200): {last_raw[:200]}"
             )
 
         # Build ChatV2Answered from parsed JSON

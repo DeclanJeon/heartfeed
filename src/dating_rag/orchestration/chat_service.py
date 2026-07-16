@@ -29,9 +29,9 @@ logger = logging.getLogger(__name__)
 # Timeout budgets (seconds)
 _SAFETY_TIMEOUT = 5
 _RETRIEVAL_TIMEOUT = 30
-_GENERATION_TIMEOUT = 45
+_GENERATION_TIMEOUT = 110
 _SAJU_TIMEOUT = 5
-_TOTAL_TIMEOUT = 90
+_TOTAL_TIMEOUT = 150
 
 
 class ChatService:
