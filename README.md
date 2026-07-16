@@ -90,7 +90,7 @@ cp .env.example .env
 정적 API 키를 사용하는 모든 OpenAI 호환 엔드포인트입니다. `LLM_API_KEY` / `LLM_API_URL` / `LLM_MODEL` 과 선택적 폴백(`LLM_FALLBACK_*`)을 설정하세요.
 
 ### nous (Hermes 운영 에이전트 토큰 재사용)
-운영 서버에 이미 작동 중인 **Hermes agent**의 NousResearch OAuth 토큰을 그대로 재사용합니다. 별도 API 키가 필요 없고, 토큰은 `~/.hermes/auth.json` 에서 읽어 만료(≈1시간) 시 자동 갱신됩니다. 기본 모델은 Hermes와 동일한 빠른 `stepfun/step-3.7-flash:free` 입니다.
+운영 서버에 이미 작동 중인 **Hermes agent**의 NousResearch OAuth 토큰을 그대로 재사용합니다. 별도 API 키가 필요 없고, 토큰은 `~/.hermes/auth.json` 에서 읽어 만료(≈1시간) 시 자동 갱신됩니다. 기본 모델은 **`tencent/hy3:free`** 으로, v2 JSON 스키마를 첫 호출부터 안정적으로 지킵니다 (참고: `stepfun/step-3.7-flash:free` 는 JSON을 자주 누락해 부적합).
 
 ```bash
 # .env

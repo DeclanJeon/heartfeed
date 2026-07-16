@@ -41,7 +41,7 @@ class LLMSettings(BaseSettings):
     # "nous" (reuses the Hermes operational agent's NousResearch OAuth token).
     provider: str = "openai"
     # Nous provider settings (used when provider == "nous").
-    nous_model: str = "stepfun/step-3.7-flash:free"
+    nous_model: str = "tencent/hy3:free"
     nous_auth_path: str = "~/.hermes/auth.json"
 
     model_config = {"env_prefix": "LLM_"}
