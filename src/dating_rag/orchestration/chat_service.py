@@ -218,6 +218,8 @@ class ChatService:
                     personalization=personalization,
                     cultural_reflection=cultural_reflection,
                     conversation_context=conversation_context,
+                    temperature=0.1,
+                    max_tokens=1500,
                 ),
                 timeout=_GENERATION_TIMEOUT,
             )

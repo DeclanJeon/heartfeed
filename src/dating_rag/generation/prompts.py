@@ -280,11 +280,15 @@ def build_v2_prompt(
 # on the first attempt instead of wasting a retry.
 V2_SYSTEM_SUFFIX = """\
 
-## v2 출력 모드 (중요)
+## v2 출력 모드 (가장 중요 — 위 지침 모두 무시)
 
-위의 서술형 지침은 무시하세요. 이 요청은 반드시 **JSON 객체 하나만** 출력해야 합니다.
-- 마크다운 코드 펜스(```), 설명문, 인사말, 서론을 절대 쓰지 마세요.
+이 요청은 반드시 **JSON 객체 하나만** 출력하세요. 다른 어떤 텍스트도 절대 쓰지 마세요.
+- 코드 펜스(```json 등), 인사말, 설명, 서론, 결론을 쓰지 마세요.
 - 첫 글자는 반드시 '{' 이어야 하고, 마지막 글자는 '}' 이어야 합니다.
+- 마크다운, 볼드체, 이모지도 사용하지 마세요.
 - 한국어로만 작성하세요.
 - 사용자 메시지의 "Response Format Instructions" 스키마를 정확히 따르세요.
+
+올바른 출력 예시 (형식만 참고, 실제 내용은 증거 기반으로 작성):
+{"request_id":"unknown","status":"answered","answer":{"empathy":"공감 한두 문장","situation_framing":"상황 정리","actions":[{"text":"행동","basis":"accepted_evidence","citation_ids":["S1"],"example":"대화 예시","evidence_quote":"증거 발췌"}],"boundaries":"주의사항","summary":"요약"},"evidence_claims":[],"citations":[{"citation_id":"S1","source_type":"transcript","source_id":"id","title":"제목","creator":"채널","timestamp_url":"https://youtube.com/watch?v=id&t=12","start_seconds":12,"end_seconds":20,"accepted_score":0.8}]}
 """
