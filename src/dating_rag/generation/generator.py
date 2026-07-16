@@ -206,7 +206,7 @@ class AnswerGenerator:
 
         last_error: Exception | None = None
         for api_url, api_key, model in configs:
-            for attempt in range(3):  # max 3 retries per config
+            for attempt in range(2):  # max 2 retries per config
                 try:
                     headers: dict[str, str] = {"Content-Type": "application/json"}
                     if api_key:
@@ -424,7 +424,7 @@ class AnswerGenerator:
         ]
 
         last_raw = ""
-        for attempt in range(3):
+        for attempt in range(2):
             raw_content = await self._call_llm(
                 messages,
                 temperature=temperature,

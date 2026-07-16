@@ -217,6 +217,7 @@ async def lifespan(app: FastAPI):  # noqa: ANN201
         provider=settings.llm.provider,
         nous_model=settings.llm.nous_model,
         nous_auth_path=settings.llm.nous_auth_path,
+        timeout=35.0,
     )
 
     prompts = load_prompts(config_dir=settings.config_dir)

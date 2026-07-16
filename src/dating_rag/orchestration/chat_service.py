@@ -234,7 +234,7 @@ class ChatService:
                     cultural_reflection=cultural_reflection,
                     conversation_context=conversation_context,
                     temperature=0.1,
-                    max_tokens=900,
+                    max_tokens=1100,
                 ),
                 timeout=_GENERATION_TIMEOUT,
             )
