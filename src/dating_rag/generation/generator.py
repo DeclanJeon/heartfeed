@@ -488,6 +488,11 @@ class AnswerGenerator:
                 f"Citation validation failed after retries. Invalid IDs: {invalid_ids}. "
                 f"Last raw (200): {last_raw[:200]}"
             )
+        if parsed is None:
+            raise ValueError(
+                f"Failed to extract valid JSON from LLM after retries. "
+                f"Last raw (200): {last_raw[:200]}"
+            )
 
         # Build ChatV2Answered from parsed JSON
         answer = parsed.get("answer", {})
