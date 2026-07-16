@@ -98,10 +98,24 @@ class ChatService:
             request.conversation_history,
         )
         if decision.action == IntakeAction.ASK_QUESTION:
+            from dating_rag.domain.models import ClarificationQuestion
+
+            questions = []
+            if decision.clarification_question:
+                questions.append(
+                    ClarificationQuestion(
+                        question_id="intake-1",
+                        prompt=decision.clarification_question,
+                        reason=decision.reason or "clarification needed",
+                        required=False,
+                        answer_type="text",
+                        skip_label="그냥 답변해 주세요",
+                    )
+                )
             return ChatV2NeedsClarification(
                 request_id=request.request_id,
                 status="needs_clarification",
-                questions=[],
+                questions=questions,
             )
 
         # Out-of-scope questions (not about relationships) → insufficient evidence

@@ -84,6 +84,11 @@ def plan_minimal_intake(
     if not is_vague:
         return _decide_with_profile(question, profile, consent, round_number, conversation_history)
 
+    # ── follow-up within an ongoing conversation → never interrupt with a
+    # clarification question; the counselor already has context. ──────────
+    if conversation_history:
+        return _decide_with_profile(question, profile, consent, round_number, conversation_history)
+
     # ── first round: ask one discriminating question ─────────────────────
     if round_number == 0:
         return IntakeDecision(

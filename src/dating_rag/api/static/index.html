@@ -232,6 +232,14 @@ async function ask() {
     }
     const data = await resp.json();
     typ.remove();
+    if (data.status === "needs_clarification") {
+      const qs = (data.questions || []).map(q => q.prompt).join("<br>");
+      const html = qs
+        ? '<div class="bubble">💬 조금만 알려주시면 더 정확해요:<br>' + qs + '<br><br><i>"그냥 답변해 주세요"라고 입력하시면 바로 이어갑니다.</i></div>'
+        : '<div class="bubble">이전 맥락을 이어서 답변드릴게요.</div>';
+      addMsg("bot", html);
+      return;
+    }
     if (data.status && data.status !== "answered") {
       addMsg("bot", '<div class="bubble">⚠️ ' + escapeHtml(JSON.stringify(data)) + "</div>");
       return;
