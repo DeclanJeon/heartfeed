@@ -1,10 +1,9 @@
 """FastAPI application for the dating RAG chatbot."""
 
-import json as _json
 from __future__ import annotations
 
+import json as _json
 import asyncio
-import logging
 import logging
 import os
 import time
@@ -16,6 +15,7 @@ from typing import Any
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel, Field
 
 from dating_rag import __version__
 from dating_rag.config import Settings, get_settings
