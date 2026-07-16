@@ -1,18 +1,21 @@
 """FastAPI application for the dating RAG chatbot."""
 
+import json as _json
 from __future__ import annotations
 
-import json as _json
 import asyncio
 import logging
+import logging
+import os
 import time
 from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import StreamingResponse
-from pydantic import BaseModel, Field
+from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.staticfiles import StaticFiles
 
 from dating_rag import __version__
 from dating_rag.config import Settings, get_settings
@@ -255,6 +258,12 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+_STATIC_DIR = Path(__file__).resolve().parent / "static"
+try:
+    app.mount("/static", StaticFiles(directory=_STATIC_DIR), name="static")
+except Exception:  # pragma: no cover - static dir optional at import time
+    pass
+
 
 def _get_state(request: Request) -> AppState:
     """Retrieve initialized app state from request."""
@@ -288,6 +297,12 @@ async def health_check(request: Request) -> HealthResponse:
         qdrant_connected=qdrant_connected,
         qdrant_collection_count=collection_count,
     )
+
+
+@app.get("/", include_in_schema=False)
+async def index() -> FileResponse:
+    """Serve the web chat client."""
+    return FileResponse(_STATIC_DIR / "index.html")
 
 
 @app.get("/stats", response_model=StatsResponse)
