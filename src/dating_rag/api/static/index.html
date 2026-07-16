@@ -220,6 +220,13 @@ async function ask() {
         },
       }),
     });
+    const ct = resp.headers.get("content-type") || "";
+    if (!resp.ok || !ct.includes("application/json")) {
+      const body = await resp.text().catch(() => "");
+      typ.remove();
+      addMsg("bot", '<div class="bubble">⚠️ 서버 응답을 처리하지 못했어요 (HTTP ' + resp.status + '). 잠시 후 다시 시도해주세요.</div>');
+      return;
+    }
     const data = await resp.json();
     typ.remove();
     if (data.status && data.status !== "answered") {
@@ -227,9 +234,6 @@ async function ask() {
       return;
     }
     renderAnswer(data);
-  } catch (e) {
-    typ.remove();
-    addMsg("bot", '<div class="bubble">오류가 발생했어요: ' + escapeHtml(String(e)) + "</div>");
   } finally {
     send.disabled = false;
   }
