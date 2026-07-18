@@ -37,6 +37,8 @@ _RELATIONSHIP_CONTEXT_RE = __import__("re").compile(
     r"데이트|만남|헤어|이별|결혼|약혼|썸|짝사랑|바람|불륜|"
     r"여인|다가가|좋아하|관심|마음|고백|소개팅|미팅|"
     r"연애|사랑|이성|호감|설레|데이트|만나|약속|"
+    r"회피형|애착|불안형|재회|연락|거절|거리두기|이별 후|"
+    r"relationship|attachment|breakup|reconcil|contact|distance|"
     r"boyfriend|girlfriend|partner|dating|relationship|breakup|married|crush)",
     __import__("re").IGNORECASE,
 )

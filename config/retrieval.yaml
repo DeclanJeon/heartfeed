@@ -1,10 +1,10 @@
 retrieval:
   # Dense retrieval
-  dense_top_k: 12
+  dense_top_k: 8
   dense_score_threshold: 0.35
 
   # Sparse retrieval (BM25)
-  sparse_top_k: 12
+  sparse_top_k: 8
   sparse_score_threshold: 0.0
 
   # Fusion
@@ -14,7 +14,7 @@ retrieval:
   sparse_weight: 0.4
 
   # Reranking
-  rerank_top_k: 10
+  rerank_top_k: 6
   rerank_model: "BAAI/bge-reranker-v2-m3"
 
   # Diversification
@@ -28,5 +28,5 @@ retrieval:
   okf_confidence_threshold: 0.5
 
   # Context window
-  max_context_chunks: 6
+  max_context_chunks: 4
   max_context_tokens: 3000

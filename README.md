@@ -84,6 +84,17 @@ cp .env.example .env
 
 ## LLM 프로바이더 설정
 
+**Rescue 기본(권장):** DeepSeek OpenAI 호환 API
+
+```bash
+LLM_PROVIDER=openai
+LLM_API_URL=https://api.deepseek.com/v1
+LLM_API_KEY=sk-...
+LLM_MODEL=deepseek-v4-flash
+LLM_ALLOW_FREE_LLM=false
+```
+
+
 `LLM_PROVIDER` 환경 변수로 LLM 백엔드를 선택합니다.
 
 ### openai (기본값)
@@ -221,3 +232,21 @@ MIT License - LICENSE 파일 참조
 **만든 ❤️ by HeartFeed Team**
 
 </div>
+
+
+## Rescue / BRT-14
+
+HeartFeed Rescue narrows the product to a **14-day breakup recovery track**.
+
+```bash
+export DATEWISE_PRODUCT_MODE=rescue_brt14
+export DATEWISE_APP_ENV=dev
+export LLM_ALLOW_FREE_LLM=true   # dev only; forbidden in production rescue without override rules
+python -m uvicorn dating_rag.api.app:app --host 0.0.0.0 --port 8000
+```
+
+- Track config: `GET /v2/track/brt14` and `config/tracks/brt14.yaml`
+- Chat body may include `track: { id: "brt14", day_index, contact_status, primary_goal }`
+- Frontend: `ui_reference/v2_heartfeed` routes `/`, `/start`, `/today`, `/pro`
+- Tests: `pytest tests/test_rescue_core.py -q`
+- Claims audit: `python scripts/audit_claims.py`

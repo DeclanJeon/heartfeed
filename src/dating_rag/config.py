@@ -31,18 +31,21 @@ class EmbeddingSettings(BaseSettings):
 class LLMSettings(BaseSettings):
     """LLM API settings with fallback support."""
 
-    api_url: str = "https://api.xiaomimimo.com/v1"
+    api_url: str = "https://api.deepseek.com/v1"
     api_key: str = ""
-    model: str = "mimo-v2.5"
+    model: str = "deepseek-v4-flash"
     fallback_api_url: str = "https://openrouter.ai/api/v1"
     fallback_api_key: str = ""
-    fallback_model: str = "google/gemma-4-31b-it:free"
+    # Paid fallback by default for Rescue; override only in dev.
+    fallback_model: str = "google/gemma-3-27b-it"
     # Provider selection: "openai" (default, any OpenAI-compatible key) or
     # "nous" (reuses the Hermes operational agent's NousResearch OAuth token).
     provider: str = "openai"
     # Nous provider settings (used when provider == "nous").
     nous_model: str = "tencent/hy3:free"
     nous_auth_path: str = "~/.hermes/auth.json"
+    # Explicit override for local experiments only.
+    allow_free_llm: bool = False
 
     model_config = {"env_prefix": "LLM_"}
 
@@ -62,6 +65,17 @@ class Settings(BaseSettings):
     data_dir: Path = Path("./data")
     collection_name: str = "datewise_transcripts"
     auto_category_filters: bool = False
+    # product_mode: "" | "rescue_brt14"
+    product_mode: str = ""
+    app_env: str = "dev"
+    allow_general: bool = False
+    generation_concurrency: int = 4
+    max_output_tokens: int = 2500
+    rescue_retrieval_top_k: int = 4
+    safety_timeout: float = 0.5
+    retrieval_timeout: float = 30.0
+    generation_timeout: float = 90.0
+    total_timeout: float = 150.0
 
     model_config = {"env_prefix": "DATEWISE_"}
     config_dir: Path = Path("./config")

@@ -251,16 +251,25 @@ def build_v2_prompt(
         "- `answer`: object with keys\n"
         "    - `empathy`: string — 공감 한두 문장\n"
         "    - `situation_framing`: string — 상황 정리 2~3문장\n"
+        "    - `narrative`: string — 이야깃거리 (필수, 2~5문단).\n"
+        "      반드시 다음 구조를 따르세요:\n"
+        "      (1) 고전/문학 서사 연결: 사용자의 상황과 닮은 고전·소설 장면(예: 오만과 편견의 첫인상, 로미오와 줄리엣의 성급함, 안나 카레니나의 고립 등)\n"
+        "          을 1문단 이상 구체적으로 언급해 '나와 같은 이야기가 오래전부터 있었다'는 동질감을 줄 것.\n"
+        "      (2) 관계 이론/도서 인사이트: Attached, Gottman, Brené Brown 등 검색된 책의 핵심 개념을 1문단.\n"
+        "      (3) 현실 장면: 검색된 영상 증거와 연결해 지금 할 수 있는 감각으로 마무리.\n"
+        "      저자·작품명·책 제목을 자연스럽게 넣고, 근거 citation_id를 문장 끝에 [S#]로 표시 가능.\n"
         "    - `actions`: array of {text, basis, citation_ids, example, evidence_quote} objects\n"
         "      basis must be one of \"accepted_evidence\", \"user_statement\", \"policy_template\"\n"
         "      example: 행동 제안마다 사용자가 바로 쓸 수 있는 구체적 대화 예시·멘트·시나리오를 반드시 포함.\n"
-        "      evidence_quote: 해당 action의 근거가 된 증거 원문 발췌 (1~2문장) + 출처 타임스탬프 URL. 사용자가 '왜 이 조언이 효과적인지' 이해하고 원본 영상을 바로 확인할 수 있도록.\n"
+        "      evidence_quote: 해당 action의 근거가 된 증거 원문 발췌 (1~2문장) + 출처 타임스탬프 URL 또는 도서 제목.\n"
         "      basis가 \"policy_template\"인 action은 example 필드가 필수입니다.\n"
+        "      가능하면 action 중 최소 1개는 도서(media_kind=book) citation_id를 포함.\n"
         "    - `boundaries`: string — 주의사항 / 한계\n"
         "    - `summary`: string — 한줄 요약\n"
         "- `evidence_claims`: array of {claim_id, text, citation_ids, support_state}\n"
         "  support_state: \"supported\" | \"disputed\" | \"conditional\"\n"
-        "- `citations`: array of {citation_id, source_type, source_id, title, creator, timestamp_url, start_seconds, end_seconds, accepted_score}\n\n"
+        "- `citations`: array of {citation_id, source_type, source_id, title, creator, timestamp_url, start_seconds, end_seconds, accepted_score, media_kind, excerpt, source_origin}\n"
+        "  media_kind: \"youtube\" | \"book\" | \"other\"\n\n"
         "Rules:\n"
         "1. Every factual claim MUST include citation_ids from the Available Citation IDs above.\n"
         "2. Every action must have a `basis` discriminator.\n"
@@ -269,6 +278,9 @@ def build_v2_prompt(
         "5. Every action MUST include a concrete `example` showing the user what to actually say or do.\n"
         "6. Every action MUST include `evidence_quote` — a short excerpt from the retrieved evidence that explains WHY this advice works, plus the source timestamp URL (e.g. https://youtube.com/watch?v=...&t=123) so the user can watch the original.\n"
         "   Do NOT give abstract advice like '다가가세요' without showing HOW.\n"
+        "7. `narrative` is REQUIRED and MUST include at least one classic/literary parallel (고전·소설 서사) plus one modern book/theory insight when those sources appear in the evidence list.\n"
+        "8. Always include book sources in `citations` when they appear in Available Citation IDs (media_kind=book). The UI shows 참고 도서 from these entries — never omit them.\n"
+        "9. Prefer empathy through shared stories: the user should feel '이런 마음이 고전에도 있었구나'.\n"
     )
 
     return "\n\n".join(sections)
@@ -290,5 +302,5 @@ V2_SYSTEM_SUFFIX = """\
 - 사용자 메시지의 "Response Format Instructions" 스키마를 정확히 따르세요.
 
 올바른 출력 예시 (형식만 참고, 실제 내용은 증거 기반으로 작성):
-{"request_id":"unknown","status":"answered","answer":{"empathy":"공감 한두 문장","situation_framing":"상황 정리","actions":[{"text":"행동","basis":"accepted_evidence","citation_ids":["S1"],"example":"대화 예시","evidence_quote":"증거 발췌"}],"boundaries":"주의사항","summary":"요약"},"evidence_claims":[],"citations":[{"citation_id":"S1","source_type":"transcript","source_id":"id","title":"제목","creator":"채널","timestamp_url":"https://youtube.com/watch?v=id&t=12","start_seconds":12,"end_seconds":20,"accepted_score":0.8}]}
+{"request_id":"unknown","status":"answered","answer":{"empathy":"공감 한두 문장","situation_framing":"상황 정리","narrative":"이야깃거리 서사","actions":[{"text":"행동","basis":"accepted_evidence","citation_ids":["S1"],"example":"대화 예시","evidence_quote":"증거 발췌"}],"boundaries":"주의사항","summary":"요약"},"evidence_claims":[],"citations":[{"citation_id":"S1","source_type":"transcript","source_id":"id","title":"제목","creator":"채널","timestamp_url":"https://youtube.com/watch?v=id&t=12","start_seconds":12,"end_seconds":20,"accepted_score":0.8,"media_kind":"youtube","excerpt":"발췌","source_origin":null}]}
 """

@@ -9,6 +9,7 @@ from qdrant_client.models import (
     Distance,
     FieldCondition,
     Filter,
+    MatchAny,
     MatchValue,
     PayloadSchemaType,
     PointStruct,
@@ -60,6 +61,10 @@ def build_qdrant_filter(filters: dict[str, Any] | None) -> Filter | None:
                     gte=value.get("gte"),
                     lte=value.get("lte"),
                 ))
+            )
+        elif isinstance(value, list):
+            conditions.append(
+                FieldCondition(key=key, match=MatchAny(any=value))
             )
         else:
             conditions.append(

@@ -2,7 +2,7 @@ retrieval_thresholds:
   general_advice:
     min_score: 0.015
     min_count: 2
-    min_diversity: 2
+    min_diversity: 1
   specific_example:
     min_score: 0.012
     min_count: 1

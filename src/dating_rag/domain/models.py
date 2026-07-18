@@ -165,6 +165,31 @@ class RequestFilters(BaseModel):
     language: Literal["ko", "en"] | None = None
 
 
+class TrackContext(BaseModel):
+    """BRT-14 track context attached to a chat request."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    id: Literal["brt14"] = "brt14"
+    day_index: int = Field(default=0, ge=0, le=13)
+    contact_status: Literal[
+        "no_contact", "rare", "frequent", "cohabit_pending"
+    ] = "no_contact"
+    primary_goal: Literal[
+        "stabilize", "no_contact_hold", "self_worth", "decide_therapy"
+    ] = "stabilize"
+    hard_boundary: str | None = Field(default=None, max_length=200)
+
+
+class TrackHints(BaseModel):
+    """Server-attached day plan hints for track-aware answers."""
+
+    suggested_day_actions: list[str] = Field(default_factory=list)
+    impulse_protocol: str = ""
+    theme: str = ""
+    day_index: int = 0
+
+
 class ConversationTurn(BaseModel):
     """A single turn in a multi-turn conversation."""
 
@@ -187,6 +212,7 @@ class ChatV2Request(BaseModel):
     consent: Consent
     saju_input: SajuInput | None = None
     filters: RequestFilters | None = None
+    track: TrackContext | None = None
 
 
 # ---- response components --------------------------------------------------
@@ -204,6 +230,10 @@ class Citation(BaseModel):
     start_seconds: float | None = None
     end_seconds: float | None = None
     accepted_score: float
+    media_kind: Literal["youtube", "book", "other"] = "youtube"
+    excerpt: str | None = None
+    source_origin: str | None = None
+    rights: Literal["public_domain", "copyrighted_summary", "unknown"] = "unknown"
 
 
 class EvidenceClaim(BaseModel):
@@ -239,6 +269,10 @@ class AnsweredContent(BaseModel):
     actions: list[ActionItem]
     boundaries: str
     summary: str
+    narrative: str = Field(
+        default="",
+        description="이야깃거리 — 도서·영상 증거를 엮은 서사 2~5문단.",
+    )
 
 
 class ClarificationQuestion(BaseModel):
@@ -306,6 +340,7 @@ class ChatV2Answered(ChatV2Base):
     conflicts: list[ConflictItem] | None = None
     personalization: PersonalizationBlock | None = None
     cultural_reflection: CulturalReflectionBlock | None = None
+    track_hints: TrackHints | None = None
 
 
 class ChatV2SafetyEscalation(ChatV2Base):

@@ -16,4 +16,8 @@ data/chunks/
 data/chunks-target/
 data/chunks-target-remaining/
 data/okf/
+!data/okf/claims/
+!data/okf/claims/**
+!data/okf/concepts/
+!data/okf/concepts/**
 data/catalog-index.json

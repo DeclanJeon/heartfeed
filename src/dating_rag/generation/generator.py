@@ -92,9 +92,9 @@ class AnswerGenerator:
 
     def __init__(
         self,
-        api_url: str = "https://api.xiaomimimo.com/v1",
+        api_url: str = "https://api.deepseek.com/v1",
         api_key: str = "",
-        model: str = "mimo-v2.5",
+        model: str = "deepseek-v4-flash",
         *,
         timeout: float = 60.0,
         fallback_api_url: str = "",
@@ -218,9 +218,27 @@ class AnswerGenerator:
                         "max_tokens": max_tokens,
                         "stream": False,
                     }
+                    # DeepSeek V4 flash uses reasoning tokens by default; disable
+                    # thinking so max_tokens is spent on visible content/JSON.
+                    model_l = (model or "").lower()
+                    if "deepseek" in model_l or "deepseek.com" in (api_url or ""):
+                        body["thinking"] = {"type": "disabled"}
                     # Nous models (hy3/flash) reject or ignore response_format;
                     # the v2 system-prompt override enforces JSON instead.
                     if response_format and self.provider != "nous":
+                        # DeepSeek requires the word "json" in the prompt for
+                        # response_format=json_object.
+                        if response_format.get("type") == "json_object":
+                            msgs = list(messages)
+                            if msgs and "json" not in msgs[0].get("content", "").lower():
+                                msgs[0] = {
+                                    **msgs[0],
+                                    "content": (
+                                        msgs[0].get("content", "")
+                                        + "\n\nRespond with a single JSON object only."
+                                    ),
+                                }
+                            body["messages"] = msgs
                         body["response_format"] = response_format
                     response = await self._client.post(
                         f"{api_url}/chat/completions",
@@ -229,7 +247,12 @@ class AnswerGenerator:
                     )
                     response.raise_for_status()
                     data: dict[str, Any] = response.json()
-                    return str(data["choices"][0]["message"]["content"])
+                    msg = data["choices"][0]["message"]
+                    content = msg.get("content") or ""
+                    if not content and msg.get("reasoning_content"):
+                        # Fallback if thinking could not be disabled.
+                        content = str(msg.get("reasoning_content") or "")
+                    return str(content)
                 except Exception as exc:
                     last_error = exc
                     # Nous OAuth tokens can expire mid-flight; on 401 force a
@@ -327,6 +350,11 @@ class AnswerGenerator:
                 "temperature": temperature,
                 "max_tokens": max_tokens,
                 "stream": True,
+                **(
+                    {"thinking": {"type": "disabled"}}
+                    if ("deepseek" in (model or "").lower() or "deepseek.com" in (api_url or ""))
+                    else {}
+                ),
             },
         ) as response:
             response.raise_for_status()
@@ -448,12 +476,21 @@ class AnswerGenerator:
             # "{" and the last "}" rather than requiring a clean object.
             json_start = clean.find("{")
             json_end = clean.rfind("}")
-            if json_start != -1 and json_end > json_start:
-                candidate = clean[json_start : json_end + 1]
-                try:
-                    parsed = json.loads(candidate)
-                except json.JSONDecodeError:
-                    parsed = None
+            if json_start != -1:
+                # Prefer complete object; if truncated, take from first "{" to end and repair.
+                if json_end > json_start:
+                    candidate = clean[json_start : json_end + 1]
+                else:
+                    candidate = clean[json_start:]
+                parsed = None
+                for cand in (candidate, _repair_json_candidate(candidate) or ""):
+                    if not cand:
+                        continue
+                    try:
+                        parsed = json.loads(cand)
+                        break
+                    except json.JSONDecodeError:
+                        continue
             else:
                 parsed = None
 
@@ -504,7 +541,7 @@ class AnswerGenerator:
             actions=[
                 ActionItem(
                     text=str(a.get("text", "")),
-                    basis=str(a.get("basis", "accepted_evidence")),
+                    basis=str(a.get("basis", "accepted_evidence")),  # type: ignore[arg-type]
                     citation_ids=a.get("citation_ids"),
                     example=a.get("example"),
                     evidence_quote=a.get("evidence_quote"),
@@ -513,6 +550,7 @@ class AnswerGenerator:
             ],
             boundaries=str(answer.get("boundaries", "")),
             summary=str(answer.get("summary", "")),
+            narrative=str(answer.get("narrative", "") or ""),
         )
 
         # Drop evidence claims the model emitted without any citation (flash
@@ -523,26 +561,83 @@ class AnswerGenerator:
                 claim_id=str(ec.get("claim_id", "")),
                 text=str(ec.get("text", "")),
                 citation_ids=list(ec.get("citation_ids", [])),
-                support_state=str(ec.get("support_state", "supported")) if str(ec.get("support_state", "supported")) in ("supported", "disputed", "conditional") else "supported",
+                support_state=str(ec.get("support_state", "supported")) if str(ec.get("support_state", "supported")) in ("supported", "disputed", "conditional") else "supported",  # type: ignore[arg-type]
             )
             for ec in parsed.get("evidence_claims", [])
             if ec.get("citation_ids")
         ]
 
-        citations = [
-            Citation(
-                citation_id=str(c.get("citation_id", "")),
-                source_type=str(c.get("source_type", "transcript")) if str(c.get("source_type", "transcript")) in ("transcript", "claim") else "transcript",
-                source_id=str(c.get("source_id", "")),
-                title=str(c.get("title", "")),
-                creator=str(c.get("creator", "")),
-                timestamp_url=c.get("timestamp_url"),
-                start_seconds=c.get("start_seconds"),
-                end_seconds=c.get("end_seconds"),
-                accepted_score=float(c.get("accepted_score", 0)),
-            )
+        # Prefer registry-backed citations so media_kind / excerpts stay accurate
+        # even when the model omits or partially fills the citations array.
+        registry_by_id = {c.citation_id: c for c in registry.get_all_citations()}
+        model_citations = {
+            str(c.get("citation_id", "")): c
             for c in parsed.get("citations", [])
+            if c.get("citation_id")
+        }
+        used_ids: list[str] = []
+        for a in answer.get("actions", []):
+            for cid in a.get("citation_ids") or []:
+                if cid not in used_ids:
+                    used_ids.append(str(cid))
+        for ec in parsed.get("evidence_claims", []):
+            for cid in ec.get("citation_ids") or []:
+                if cid not in used_ids:
+                    used_ids.append(str(cid))
+        if not used_ids:
+            used_ids = list(registry_by_id.keys())
+
+        # Always surface book + classic sources in citations when present in
+        # the retrieval registry, even if the model only cited YouTube IDs.
+        # UI 참고 도서 / 이야깃거리 depend on these entries.
+        book_ids = [
+            cid
+            for cid, base in registry_by_id.items()
+            if base.media_kind == "book" or (base.source_origin or "").startswith("book")
+            or base.source_origin == "classic-literature"
         ]
+        # Prefer classics first for narrative empathy, then theory books.
+        classic_ids = [
+            cid
+            for cid in book_ids
+            if (registry_by_id[cid].source_origin or "") == "classic-literature"
+        ]
+        other_book_ids = [cid for cid in book_ids if cid not in classic_ids]
+        for cid in classic_ids + other_book_ids:
+            if cid not in used_ids:
+                used_ids.append(cid)
+
+        citations: list[Citation] = []
+        for cid in used_ids:
+            if cid not in registry_by_id:
+                continue
+            base = registry_by_id[cid]
+            extra = model_citations.get(cid, {})
+            media = str(extra.get("media_kind") or base.media_kind or "youtube")
+            if media not in ("youtube", "book", "other"):
+                media = base.media_kind
+            citations.append(
+                Citation(
+                    citation_id=base.citation_id,
+                    source_type=base.source_type if base.source_type in ("transcript", "claim") else "transcript",  # type: ignore[arg-type]
+                    source_id=base.source_id,
+                    title=str(extra.get("title") or base.title),
+                    creator=str(extra.get("creator") or base.creator),
+                    timestamp_url=extra.get("timestamp_url") or base.timestamp_url,
+                    start_seconds=extra.get("start_seconds") if extra.get("start_seconds") is not None else base.start_seconds,
+                    end_seconds=extra.get("end_seconds") if extra.get("end_seconds") is not None else base.end_seconds,
+                    accepted_score=float(extra.get("accepted_score", base.accepted_score)),
+                    media_kind=media,  # type: ignore[arg-type]
+                    excerpt=extra.get("excerpt") or base.excerpt,
+                    source_origin=extra.get("source_origin") or base.source_origin,
+                    rights=(
+                        str(extra.get("rights") or base.rights or "unknown")
+                        if str(extra.get("rights") or base.rights or "unknown")
+                        in ("public_domain", "copyrighted_summary", "unknown")
+                        else base.rights
+                    ),  # type: ignore[arg-type]
+                )
+            )
 
         return ChatV2Answered(
             request_id=str(parsed.get("request_id", "unknown")),
@@ -610,3 +705,40 @@ def _detect_conflicts(answer: str, context: list[RetrievalResult]) -> list[str]:
             if len(trimmed) > 20:  # skip trivially short matches
                 conflicts.append(trimmed[:200])
     return conflicts[:5]  # cap to avoid noise
+def _repair_json_candidate(text: str) -> str | None:
+    """Best-effort close truncated JSON objects/arrays from LLM output."""
+    s = text.strip()
+    if not s:
+        return None
+    # trim trailing incomplete string
+    # balance braces/brackets ignoring content in strings
+    stack: list[str] = []
+    in_str = False
+    esc = False
+    for ch in s:
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+            continue
+        if ch == '"':
+            in_str = True
+        elif ch in "{[":
+            stack.append(ch)
+        elif ch == "}" and stack and stack[-1] == "{":
+            stack.pop()
+        elif ch == "]" and stack and stack[-1] == "[":
+            stack.pop()
+    if in_str:
+        s += '"'
+    # close remaining in reverse
+    while stack:
+        opener = stack.pop()
+        s += "}" if opener == "{" else "]"
+    return s
+
+
+

@@ -61,13 +61,31 @@ class CitationRegistry:
                 cid = f"C{claim_idx}"
 
             meta = result.metadata
+            origin = str(meta.get("source_origin", "") or "")
+            platform = str(meta.get("platform", "") or "")
+            if origin.startswith("book") or origin == "classic-literature" or platform == "book":
+                media_kind = "book"
+            elif meta.get("timestamp_url") or "youtube" in str(meta.get("url", "")).lower():
+                media_kind = "youtube"
+            else:
+                media_kind = "other"
+            full_text = str(meta.get("text", "") or result.text or "")
+            if origin == "classic-literature":
+                rights = "public_domain"
+                excerpt = full_text[:2500] or None
+            elif origin.startswith("book") or platform == "book":
+                rights = "copyrighted_summary"
+                excerpt = full_text[:800] or None
+            else:
+                rights = "unknown"
+                excerpt = full_text[:400] or None
             self._citations[cid] = Citation(
                 citation_id=cid,
                 source_type=str(result.source_type),
                 source_id=str(result.chunk_id),
                 title=str(meta.get("title", "")),
                 creator=str(meta.get("channel_name", "Unknown")),
-                timestamp_url=str(meta.get("timestamp_url", "")) or None,
+                timestamp_url=str(meta.get("timestamp_url", "") or meta.get("url", "") or "") or None,
                 start_seconds=(
                     float(meta["start_seconds"])
                     if meta.get("start_seconds") is not None
@@ -79,6 +97,10 @@ class CitationRegistry:
                     else None
                 ),
                 accepted_score=result.score,
+                media_kind=media_kind,  # type: ignore[arg-type]
+                excerpt=excerpt,
+                source_origin=origin or None,
+                rights=rights,  # type: ignore[arg-type]
             )
 
     # -- public lookups ---------------------------------------------------
@@ -153,7 +175,70 @@ class ContextBuilder:
         if transcript_results and plan.use_transcripts:
             evidence_lines: list[str] = []
             rendered_index = 0
-            for result in transcript_results[: self.max_chunks]:
+
+            def _is_book(result: RetrievalResult) -> bool:
+                origin = str((result.metadata or {}).get("source_origin", "") or "")
+                platform = str((result.metadata or {}).get("platform", "") or "")
+                return (
+                    origin.startswith("book")
+                    or origin == "classic-literature"
+                    or platform == "book"
+                )
+
+            # Prefer a mix: keep up to 2 book chunks even if YouTube ranks higher.
+            # Otherwise first-date style queries only show video citations.
+            books = [r for r in transcript_results if _is_book(r)]
+            non_books = [r for r in transcript_results if not _is_book(r)]
+            book_slots = min(2, len(books), max(0, self.max_chunks - 1))
+            classic_books = [
+                r
+                for r in books
+                if str((r.metadata or {}).get("source_origin", "")) == "classic-literature"
+            ]
+            theory_books = [r for r in books if r not in classic_books]
+            # Reserve: up to 1 classic narrative + 1 theory book when available
+            classic_slots = min(1, len(classic_books), book_slots)
+            theory_slots = min(1, len(theory_books), max(0, book_slots - classic_slots))
+            reserved_slots = classic_slots + theory_slots
+            if reserved_slots == 0:
+                reserved_slots = book_slots
+
+            ordered: list[RetrievalResult] = []
+            ordered.extend(non_books[: max(0, self.max_chunks - reserved_slots)])
+            for b in classic_books[:classic_slots] + theory_books[: max(theory_slots, book_slots - classic_slots)]:
+                if b not in ordered:
+                    ordered.append(b)
+            for r in transcript_results:
+                if len(ordered) >= self.max_chunks:
+                    break
+                if r not in ordered:
+                    ordered.append(r)
+
+            def _entry_text(result: RetrievalResult) -> str:
+                text = (result.text or "").strip()
+                # Book HQ/templates are long; keep a tight excerpt so they fit
+                # the token budget alongside YouTube evidence.
+                if _is_book(result) and len(text) > 700:
+                    return text[:700].rstrip() + "…"
+                if len(text) > 1200:
+                    return text[:1200].rstrip() + "…"
+                return text
+
+            # Render classics/books first so token exhaustion cannot drop them.
+            book_pick = [r for r in ordered if _is_book(r)][: max(reserved_slots, book_slots)]
+            other_pick = [r for r in ordered if not _is_book(r)]
+            render_queue: list[RetrievalResult] = []
+            seen_chunk: set[str] = set()
+            for r in book_pick + other_pick:
+                key = str(r.chunk_id)
+                if key in seen_chunk:
+                    continue
+                seen_chunk.add(key)
+                render_queue.append(r)
+                if len(render_queue) >= self.max_chunks:
+                    break
+
+            for result in render_queue:
                 channel = result.metadata.get("channel_name", "Unknown")
                 title = result.metadata.get("title", "")
                 timestamp_url = str(result.metadata.get("timestamp_url", ""))
@@ -163,7 +248,7 @@ class ContextBuilder:
                     header += f' — "{title}"'
                 header += ")"
 
-                text = result.text.strip()
+                text = _entry_text(result)
                 source_line = _format_timestamp_url(timestamp_url)
 
                 entry = header + "\n" + text

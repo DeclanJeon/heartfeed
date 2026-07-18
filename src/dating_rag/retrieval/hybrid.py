@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING, Any
 from qdrant_client.models import SparseVector
 
 from dating_rag.domain.models import RetrievalResult
+from dating_rag.rescue.embed_cache import query_embed_cache
 from dating_rag.store.qdrant import QdrantStore
 
 if TYPE_CHECKING:
@@ -50,10 +51,15 @@ def _to_sparse_vector(lexical_weights: dict[int, float] | dict[str, float]) -> S
         lexical_weights: Dict mapping token IDs to their weights.
 
     Returns:
-        Qdrant SparseVector with sorted indices and values.
+        Qdrant SparseVector with sorted unique indices and values.
     """
-    indices = sorted(int(k) for k in lexical_weights)
-    values = [float(lexical_weights[k]) for k in indices]
+    merged: dict[int, float] = {}
+    for k, v in lexical_weights.items():
+        idx = int(k)
+        # last write wins if duplicate token ids appear under different key types
+        merged[idx] = float(v)
+    indices = sorted(merged.keys())
+    values = [merged[i] for i in indices]
     return SparseVector(indices=indices, values=values)
 
 
@@ -100,6 +106,7 @@ class HybridRetriever:
         *,
         filters: dict[str, Any] | None = None,
         limit: int | None = None,
+        score_threshold: float | None = None,
     ) -> list[dict[str, Any]]:
         """Perform dense vector search.
 
@@ -107,6 +114,8 @@ class HybridRetriever:
             vector: Dense query embedding.
             filters: Optional metadata filters.
             limit: Override default dense_top_k.
+            score_threshold: Override default dense_threshold (use for book
+                diversity search where scores are often slightly lower).
 
         Returns:
             List of search result dicts with id, score, payload.
@@ -116,7 +125,7 @@ class HybridRetriever:
             query_vector=vector,
             vector_name="dense",
             top_k=limit or self.dense_top_k,
-            score_threshold=self.dense_threshold,
+            score_threshold=self.dense_threshold if score_threshold is None else score_threshold,
             query_filter=filters,
         )
 
@@ -171,6 +180,7 @@ class HybridRetriever:
         *,
         filters: dict[str, Any] | None = None,
         limit: int | None = None,
+        fast: bool = False,
     ) -> list[RetrievalResult]:
         """Perform full hybrid search: encode query, search both vectors, fuse.
 
@@ -178,21 +188,79 @@ class HybridRetriever:
             query: Natural language query text.
             filters: Optional metadata filters (category, channel_id, views, etc.).
             limit: Maximum results to return (defaults to dense_top_k).
+            fast: When True (Rescue), skip extra book/classic fan-out searches.
 
         Returns:
             Fused retrieval results as RetrievalResult objects.
         """
-        # Encode query into dense + sparse vectors
-        encoded = self.embedder.encode_query(query)
-        dense_vector: list[float] = encoded["dense"].tolist()
-        sparse_vector = _to_sparse_vector(encoded["sparse"])
+        # Encode query into dense + sparse vectors (cached)
+        encoded = query_embed_cache.get(query)
+        if encoded is None:
+            raw = self.embedder.encode_query(query)
+            # store plain lists/dicts so cache is process-safe and non-mutating
+            encoded = {
+                "dense": raw["dense"].tolist() if hasattr(raw["dense"], "tolist") else list(raw["dense"]),
+                "sparse": {int(k): float(v) for k, v in dict(raw["sparse"]).items()},
+            }
+            query_embed_cache.set(query, encoded)
+        dense_vector = list(encoded["dense"])
+        sparse_vector = _to_sparse_vector(dict(encoded["sparse"]))
 
-        # Dense + sparse retrieval
+        # Dense + sparse retrieval (main)
         dense_results = self.dense_search(dense_vector, filters=filters)
         sparse_results = self.sparse_search(sparse_vector, filters=filters)
 
-        # Fuse with RRF
+        if fast:
+            book_dense = []
+            classic_dense = []
+        else:
+            # Explicit book + classic literature retrieval (required for 참고 도서 /
+            # 이야깃거리 even when YouTube dominates cosine scores).
+            book_filter = {
+                "source_origin": [
+                    "book-insight",
+                    "book-insight-hq",
+                    "classic-literature",
+                ]
+            }
+            classic_filter = {"source_origin": "classic-literature"}
+            if filters:
+                book_filter = {**filters, **book_filter}
+                classic_filter = {**filters, **classic_filter}
+
+            book_dense = self.dense_search(
+                dense_vector,
+                filters=book_filter,
+                limit=10,
+                score_threshold=min(0.15, self.dense_threshold),
+            )
+            classic_dense = self.dense_search(
+                dense_vector,
+                filters=classic_filter,
+                limit=6,
+                score_threshold=min(0.12, self.dense_threshold),
+            )
+
+        # Fuse main results with RRF
         fused = self.rrf_fusion(dense_results, sparse_results)
+
+        # Merge: reserve slots for theory books + classic narratives
+        seen_ids = {r["id"] for r in fused}
+
+        def _merge(results: list[dict[str, Any]], limit: int) -> int:
+            added = 0
+            for br in results:
+                if br["id"] in seen_ids:
+                    continue
+                fused.append(br)
+                seen_ids.add(br["id"])
+                added += 1
+                if added >= limit:
+                    break
+            return added
+
+        _merge(classic_dense, 2)
+        _merge(book_dense, 3)
 
         # Convert to domain objects, apply limit
         results = [

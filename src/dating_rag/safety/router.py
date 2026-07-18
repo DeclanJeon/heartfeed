@@ -23,7 +23,10 @@ _SELF_HARM_KW: list[str] = [
 _STALKING_KW: list[str] = [
     "따라다니", "따라다녀", "따라다녔", "따라와", "기다리고", "기다렸",
     "계속 연락", "스토킹", "감시", "몰래",
+    "위치 추적", "위치추적", "gps 추적", "계정 해킹", "해킹해서",
+    "몰래 녹음", "몰래 촬영", "잠금 해제", "카톡 몰래",
     "stalking", "following", "watching", "monitoring",
+    "track location", "hack account", "spy on",
 ]
 
 _VIOLENCE_KW: list[str] = [

@@ -1,0 +1,120 @@
+track_id: brt14
+title: 이별 회복 14일
+disclaimer: 전문 심리치료·의료를 대체하지 않습니다. 위기 시 109 / 112 / 119.
+policy:
+  no_reunion_guarantee: true
+  no_manipulation: true
+  impulse_protocol: 연락 충동이 오면 20분 타이머를 켜고, 그 사이 물 한 잔·짧은 산책·감정 메모 5줄을 한다.
+days:
+- day: 0
+  theme: 안정화 — 오늘만 버티기
+  actions:
+  - 수면 전 폰을 다른 방에 두기
+  - 감정 메모 5줄 쓰기 (판단 없이 사실·감정만)
+  - 물 500ml 마시기
+  reflection: 지금 몸이 가장 필요로 하는 것은 무엇인가?
+  suggested_question: 이별 직후 밤마다 연락하고 싶어요. 오늘 어떻게 버틸까요?
+- day: 1
+  theme: 충동 다루기
+  actions:
+  - 20분 지연 규칙을 1회 실천하기
+  - 전 연인 SNS 앱 알림 끄기
+  - 낮에 10분 걷기
+  reflection: 충동이 가장 세졌던 시각은 언제였나?
+  suggested_question: 전 연인 스토리를 확인하게 됩니다. 끊는 방법이 있을까요?
+- day: 2
+  theme: 경계 문장
+  actions:
+  - 나만의 금지선 한 줄 적기
+  - 공통 친구에게 말할 경계 문장 초안 쓰기
+  - 체크인(기분·연락 충동) 남기기
+  reflection: 지키지 못하면 가장 후회할 경계는?
+  suggested_question: 공통 친구 모임에서 마주칠 예정입니다. 경계 문장 예시가 필요해요.
+- day: 3
+  theme: 정보 과부하 줄이기
+  actions:
+  - 재회·이별 유튜브 시청 상한 30분
+  - 신뢰할 자료 1개만 북마크
+  - 수면 루틴 고정(취침 시각)
+  reflection: 검색이 위로가 되었나, 불안을 키웠나?
+  suggested_question: 친구가 재회 앱을 추천해요. 들어야 할까요?
+- day: 4
+  theme: 자책 내려놓기
+  actions:
+  - 내가 한 일 / 상대 선택 / 상황 세 칸 메모
+  - 자책 문장을 사실 문장으로 고쳐 쓰기 3개
+  - 가벼운 식사 챙기기
+  reflection: 자책이 막는 다음 행동은 무엇인가?
+  suggested_question: 이별 후 자책이 심합니다. 오늘 할 수 있는 일 3가지만 알려주세요.
+- day: 5
+  theme: 루틴 복구
+  actions:
+  - 기상 후 30분 내 햇빛·물
+  - 업무/학습 타이머 25분 1회
+  - 취침 전 카페인 끊기
+  reflection: 오늘 루틴 중 가장 지키기 쉬운 하나는?
+  suggested_question: 이별 후 식욕·수면이 무너졌습니다. AI 조언 범위와 상담 기준을 알려주세요.
+- day: 6
+  theme: 관계 패턴 스케치
+  actions:
+  - 반복된 갈등 패턴 한 문장 요약
+  - 내가 원했던 안전감 한 줄
+  - 체크인 저장
+  reflection: 다음 관계에서 다르게 하고 싶은 한 가지는?
+  suggested_question: 이별이 맞는지 아직 확신이 없습니다. 어떻게 정리할까요?
+- day: 7
+  theme: 중간 점검
+  actions:
+  - 7일 체크인 돌아보기
+  - 잘 지킨 경계 축하 메모
+  - 다음 7일 목표 하나 정하기
+  reflection: 한 주 전 나와 비교하면?
+  suggested_question: No-contact를 하다 술을 마시면 무너집니다. 프로토콜을 짜주세요.
+- day: 8
+  theme: SNS·디지털 위생
+  actions:
+  - 차단/뮤트/보관 중 하나 실행
+  - 사진 앨범 아카이브 폴더로 이동(삭제 강요 없음)
+  - 알림 없는 시간대 2시간
+  reflection: 디지털 접촉이 남긴 감정은?
+  suggested_question: 전 연인이 스토리 올리면 확인하게 됩니다. 끊는 방법이 있을까요?
+- day: 9
+  theme: 지지 체계
+  actions:
+  - 믿을 수 있는 사람 1명에게 상태 공유(선택)
+  - 혼자만의 회복 활동 1개
+  - 상담/핫라인 번호 저장해 두기
+  reflection: 도움을 청하기 어려운 이유는?
+  suggested_question: 이별 2주째 식욕·수면이 무너졌습니다. 상담을 가야 할까요?
+- day: 10
+  theme: 재연락 결정 프레임
+  actions:
+  - 연락의 목적 3가지 적기(조작 목적 제외)
+  - 목적이 치유가 아니면 보류 표시
+  - 충동 시 20분 규칙 재확인
+  reflection: 지금 연락하면 얻는 것 / 잃는 것?
+  suggested_question: 상대가 먼저 연락이 왔습니다. 답장 기준을 어떻게 잡을까요?
+- day: 11
+  theme: 정체성 회복
+  actions:
+  - 연애 밖에서 나를 정의하는 문장 3개
+  - 작은 성취 하나 기록
+  - 취미 20분
+  reflection: 관계 없이도 유지하고 싶은 나는?
+  suggested_question: 이별 후 자존감이 바닥입니다. 오늘 할 일만 알려주세요.
+- day: 12
+  theme: 미래 시나리오
+  actions:
+  - 3개월 후 원하는 일상 스케치
+  - 피하고 싶은 관계 패턴 목록
+  - 체크인
+  reflection: 회복의 다음 단계는 상담인가, 루틴 유지인가?
+  suggested_question: 상대 새 연애 소식을 들었어요. 감정 쓰나미를 넘기는 법이 궁금합니다.
+- day: 13
+  theme: 마무리와 졸업
+  actions:
+  - 14일 회고 10줄
+  - 유지할 경계 3개 확정
+  - 필요 시 전문 상담 예약 여부 결정
+  reflection: 이 트랙에서 가장 도움이 된 것은?
+  suggested_question: 14일을 마쳤어요. 앞으로 무엇을 유지하면 좋을까요?

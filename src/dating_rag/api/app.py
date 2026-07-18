@@ -178,6 +178,22 @@ class AppState:
 async def lifespan(app: FastAPI):  # noqa: ANN201
     """Initialize pipeline components on startup."""
     settings = get_settings()
+    from dating_rag.rescue.guards import assert_production_llm_safe
+
+    try:
+        assert_production_llm_safe(
+            product_mode=getattr(settings, "product_mode", "") or "",
+            env=getattr(settings, "app_env", None),
+            provider=settings.llm.provider,
+            model=settings.llm.model
+            if settings.llm.provider != "nous"
+            else settings.llm.nous_model,
+            fallback_model=settings.llm.fallback_model,
+            allow_free_llm=bool(getattr(settings.llm, "allow_free_llm", False)),
+        )
+    except RuntimeError as exc:
+        logger.error("LLM production guard failed: %s", exc)
+        raise
 
     # Load retrieval config for tuning parameters
     retrieval_cfg = settings.retrieval_config.get("retrieval", {})
@@ -440,9 +456,18 @@ async def chat_v2(request: Request, body: ChatV2Request) -> ChatV2Response | Pro
     service = ChatService(state)
     return await service.answer(body)
 
+
+@app.get("/v2/track/brt14")
+async def get_brt14_track() -> dict:
+    """Public BRT-14 day plan config for the frontend."""
+    from dating_rag.rescue.track import load_brt14_track
+
+    return load_brt14_track()
+
+
 @app.post("/v2/chat/stream")
 async def chat_v2_stream(request: Request, body: ChatV2Request):
-    """v2 streaming chat endpoint — returns answer text as SSE chunks."""
+    """SSE wrapper. Rescue note: full answer then chunk until true token stream lands."""
     state = _get_state(request)
     service = ChatService(state)
 

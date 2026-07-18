@@ -72,11 +72,25 @@ class ClaimRetriever:
                 # In v1 we just validate existence; claim content parsing
                 # will be implemented when claims are authored.
                 claim_id = claim_filename.replace(".md", "")
+                statement = ""
+                try:
+                    raw = claim_path.read_text(encoding="utf-8")
+                    if raw.startswith("---"):
+                        parts = raw.split("---", 2)
+                        fm = parts[1] if len(parts) > 1 else ""
+                        for line in fm.splitlines():
+                            if line.strip().startswith("statement:"):
+                                statement = line.split(":", 1)[1].strip().strip('"').strip("'")
+                                break
+                            if line.strip().startswith("title:") and not statement:
+                                statement = line.split(":", 1)[1].strip().strip('"').strip("'")
+                except OSError:
+                    statement = ""
                 claims.append(
                     KnowledgeClaim(
                         claim_id=claim_id,
                         concept_id=concept_id,
-                        statement="",  # Will be populated from claim file
+                        statement=statement,
                         evidence_chunk_ids=transcript_chunk_ids,
                     )
                 )
