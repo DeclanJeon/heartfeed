@@ -74,7 +74,18 @@ class ChatService:
 
     def _max_tokens(self) -> int:
         settings = getattr(self._state, "settings", None)
-        return int(getattr(settings, "max_output_tokens", 700) or 700)
+        return int(getattr(settings, "max_output_tokens", 1600) or 1600)
+
+    def _enable_rerank(self) -> bool:
+        settings = getattr(self._state, "settings", None)
+        return bool(getattr(settings, "enable_rerank", False))
+
+    def _retrieval_fast(self) -> bool:
+        settings = getattr(self._state, "settings", None)
+        # Rescue always fast; general defaults fast via settings.retrieval_fast
+        if self._product_mode() == "rescue_brt14":
+            return True
+        return bool(getattr(settings, "retrieval_fast", True))
 
     async def answer(
         self, request: ChatV2Request,
@@ -107,11 +118,13 @@ class ChatService:
     ) -> ChatV2Response | ProblemEnvelope:
         state = self._state
         safety_timeout, retrieval_timeout, generation_timeout, _ = self._budgets()
+        timings: dict[str, float] = {}
+        t_pipe = time.perf_counter()
         stage_t0 = time.perf_counter()
 
         # ── 1. Redaction (needed by safety) ──────────────────────────────
         redacted = await asyncio.to_thread(redact_concern, request.question)
-        logger.debug("stage=redact ms=%.0f", (time.perf_counter() - stage_t0) * 1000)
+        timings["ms_redact"] = (time.perf_counter() - stage_t0) * 1000
 
         # ── 2. Safety check (timeout → fail-safe escalate) ───────────────
         stage_t0 = time.perf_counter()
@@ -132,8 +145,15 @@ class ChatService:
                 confidence=0.5,
                 matched_keywords=["safety_timeout"],
             )
-        logger.debug("stage=safety ms=%.0f", (time.perf_counter() - stage_t0) * 1000)
+        timings["ms_safety"] = (time.perf_counter() - stage_t0) * 1000
         if assessment is not None:
+            logger.info(
+                "stage_timings request_id=%s status=safety_escalation ms_total=%.0f ms_redact=%.0f ms_safety=%.0f",
+                request.request_id,
+                (time.perf_counter() - t_pipe) * 1000,
+                timings.get("ms_redact", 0),
+                timings.get("ms_safety", 0),
+            )
             return generate_safety_response(
                 assessment, request_id=request.request_id,
             )
@@ -207,7 +227,7 @@ class ChatService:
             return await asyncio.to_thread(
                 lambda: state.retriever.search(
                     redacted.redacted_text,
-                    fast=(mode == "rescue_brt14"),
+                    fast=self._retrieval_fast(),
                 )
             )
 
@@ -223,10 +243,13 @@ class ChatService:
                 detail="Retrieval timed out",
                 instance="/v2/chat",
             )
+        timings["ms_retrieve"] = (time.perf_counter() - stage_t0) * 1000
+        n_results = len(results) if results is not None else 0
         logger.info(
-            "stage=retrieve ms=%.0f n=%s",
-            (time.perf_counter() - stage_t0) * 1000,
-            len(results) if results is not None else 0,
+            "stage=retrieve ms=%.0f n=%s fast=%s",
+            timings["ms_retrieve"],
+            n_results,
+            self._retrieval_fast(),
         )
 
         # ── 5. Evidence gate ─────────────────────────────────────────────
@@ -264,18 +287,24 @@ class ChatService:
             accepted = accepted[:top_k]
 
         # ── 6. Rerank ────────────────────────────────────────────────────
-        # Rescue: never lazy-load cross-encoder (cold load blows 15s budget).
-        if mode != "rescue_brt14":
+        # Interactive default: skip (cold load of cross-encoder blows latency).
+        stage_t0 = time.perf_counter()
+        did_rerank = False
+        if self._enable_rerank() and mode != "rescue_brt14":
             reranker = state.get_reranker()
             if reranker is not None:
                 accepted = await asyncio.to_thread(
                     reranker.rerank, redacted.redacted_text, accepted,
                 )
+                did_rerank = True
+        timings["ms_rerank"] = (time.perf_counter() - stage_t0) * 1000
 
         # ── 7. Context + registry ────────────────────────────────────────
+        stage_t0 = time.perf_counter()
         context_text, registry = state.context_builder.build_context_with_registry(
             accepted, [], plan,
         )
+        timings["ms_context"] = (time.perf_counter() - stage_t0) * 1000
 
         # Inject track day hints into generation context
         track_hints_model: TrackHints | None = None
@@ -353,6 +382,7 @@ class ChatService:
             )
 
         stage_t0 = time.perf_counter()
+        gen_status = "answered"
         try:
             result = await asyncio.wait_for(
                 state.generator.build_v2_response(
@@ -370,6 +400,18 @@ class ChatService:
                 timeout=generation_timeout,
             )
         except asyncio.TimeoutError:
+            gen_status = "generate_timeout"
+            timings["ms_generate"] = (time.perf_counter() - stage_t0) * 1000
+            logger.info(
+                "stage_timings request_id=%s status=%s ms_total=%.0f ms_retrieve=%.0f ms_generate=%.0f retrieval_fast=%s rerank=%s",
+                request.request_id,
+                gen_status,
+                (time.perf_counter() - t_pipe) * 1000,
+                timings.get("ms_retrieve", 0),
+                timings.get("ms_generate", 0),
+                self._retrieval_fast(),
+                did_rerank,
+            )
             return ProblemEnvelope(
                 type="about:blank",
                 title="Service Unavailable",
@@ -378,7 +420,19 @@ class ChatService:
                 instance="/v2/chat",
             )
         except Exception as exc:
+            gen_status = "provider_schema_failure"
+            timings["ms_generate"] = (time.perf_counter() - stage_t0) * 1000
             logger.warning("Generation failed: %s", exc, exc_info=True)
+            logger.info(
+                "stage_timings request_id=%s status=%s ms_total=%.0f ms_retrieve=%.0f ms_generate=%.0f retrieval_fast=%s rerank=%s",
+                request.request_id,
+                gen_status,
+                (time.perf_counter() - t_pipe) * 1000,
+                timings.get("ms_retrieve", 0),
+                timings.get("ms_generate", 0),
+                self._retrieval_fast(),
+                did_rerank,
+            )
             return ChatV2InsufficientEvidence(
                 request_id=request.request_id,
                 status="insufficient_evidence",
@@ -389,9 +443,25 @@ class ChatService:
         finally:
             await generation_admission.release()
 
+        timings["ms_generate"] = (time.perf_counter() - stage_t0) * 1000
         logger.info(
-            "stage=generate ms=%.0f",
-            (time.perf_counter() - stage_t0) * 1000,
+            "stage_timings request_id=%s status=answered ms_total=%.0f "
+            "ms_redact=%.0f ms_safety=%.0f ms_retrieve=%.0f ms_rerank=%.0f "
+            "ms_context=%.0f ms_generate=%.0f n_results=%s n_accepted=%s "
+            "retrieval_fast=%s rerank=%s max_tokens=%s",
+            request.request_id,
+            (time.perf_counter() - t_pipe) * 1000,
+            timings.get("ms_redact", 0),
+            timings.get("ms_safety", 0),
+            timings.get("ms_retrieve", 0),
+            timings.get("ms_rerank", 0),
+            timings.get("ms_context", 0),
+            timings.get("ms_generate", 0),
+            n_results,
+            len(accepted) if accepted is not None else 0,
+            self._retrieval_fast(),
+            did_rerank,
+            self._max_tokens(),
         )
 
         return ChatV2Answered(

@@ -70,12 +70,16 @@ class Settings(BaseSettings):
     app_env: str = "dev"
     allow_general: bool = True
     generation_concurrency: int = 4
-    max_output_tokens: int = 2500
+    # Interactive latency profile (Phase 0–1)
+    max_output_tokens: int = 1600
     rescue_retrieval_top_k: int = 4
+    enable_rerank: bool = False
+    retrieval_fast: bool = True
+    warmup_embeds: bool = True
     safety_timeout: float = 0.5
-    retrieval_timeout: float = 30.0
-    generation_timeout: float = 90.0
-    total_timeout: float = 150.0
+    retrieval_timeout: float = 20.0
+    generation_timeout: float = 60.0
+    total_timeout: float = 90.0
 
     model_config = {"env_prefix": "DATEWISE_"}
     config_dir: Path = Path("./config")

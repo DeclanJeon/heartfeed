@@ -223,6 +223,7 @@ async def lifespan(app: FastAPI):  # noqa: ANN201
         max_tokens=retrieval_cfg.get("max_context_tokens", 3000),
     )
 
+    gen_timeout = float(getattr(settings, "generation_timeout", 60.0) or 60.0)
     generator = Generator(
         api_url=settings.llm.api_url,
         api_key=settings.llm.api_key,
@@ -233,7 +234,7 @@ async def lifespan(app: FastAPI):  # noqa: ANN201
         provider=settings.llm.provider,
         nous_model=settings.llm.nous_model,
         nous_auth_path=settings.llm.nous_auth_path,
-        timeout=35.0,
+        timeout=gen_timeout,
     )
 
     prompts = load_prompts(config_dir=settings.config_dir)
@@ -258,7 +259,45 @@ async def lifespan(app: FastAPI):  # noqa: ANN201
     )
 
     app.state.rag = state  # type: ignore[attr-defined]
-    logger.info("Dating RAG API initialized (version=%s)", __version__)
+    logger.info(
+        "Dating RAG API initialized (version=%s enable_rerank=%s retrieval_fast=%s max_tokens=%s gen_timeout=%.0f)",
+        __version__,
+        getattr(settings, "enable_rerank", False),
+        getattr(settings, "retrieval_fast", True),
+        getattr(settings, "max_output_tokens", 1600),
+        gen_timeout,
+    )
+
+    # Warm query-embed cache so first user avoids cold BGE-M3 cliff.
+    if bool(getattr(settings, "warmup_embeds", True)):
+        try:
+            from dating_rag.rescue.embed_cache import query_embed_cache
+
+            seeds = [
+                "이별 후 연락이 없어요",
+                "첫 데이트 대화 주제",
+                "장거리 연애가 힘들어요",
+            ]
+            t0 = __import__("time").perf_counter()
+            for q in seeds:
+                raw = embedder.encode_query(q)
+                encoded = {
+                    "dense": raw["dense"].tolist()
+                    if hasattr(raw["dense"], "tolist")
+                    else list(raw["dense"]),
+                    "sparse": {
+                        int(k): float(v) for k, v in dict(raw["sparse"]).items()
+                    },
+                }
+                query_embed_cache.set(q, encoded)
+            logger.info(
+                "embed_warmup done n=%s ms=%.0f",
+                len(seeds),
+                (__import__("time").perf_counter() - t0) * 1000,
+            )
+        except Exception:
+            logger.warning("embed_warmup failed", exc_info=True)
+
     yield
     logger.info("Shutting down Dating RAG API")
 
