@@ -272,13 +272,14 @@ async def lifespan(app: FastAPI):  # noqa: ANN201
     if bool(getattr(settings, "warmup_embeds", True)):
         try:
             from dating_rag.rescue.embed_cache import query_embed_cache
+            import time as _time
 
             seeds = [
                 "이별 후 연락이 없어요",
                 "첫 데이트 대화 주제",
                 "장거리 연애가 힘들어요",
             ]
-            t0 = __import__("time").perf_counter()
+            t0 = _time.perf_counter()
             for q in seeds:
                 raw = embedder.encode_query(q)
                 encoded = {
@@ -293,7 +294,7 @@ async def lifespan(app: FastAPI):  # noqa: ANN201
             logger.info(
                 "embed_warmup done n=%s ms=%.0f",
                 len(seeds),
-                (__import__("time").perf_counter() - t0) * 1000,
+                (_time.perf_counter() - t0) * 1000,
             )
         except Exception:
             logger.warning("embed_warmup failed", exc_info=True)

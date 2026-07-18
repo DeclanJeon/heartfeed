@@ -76,6 +76,8 @@ class Settings(BaseSettings):
     enable_rerank: bool = False
     retrieval_fast: bool = True
     warmup_embeds: bool = True
+    embed_cache_path: str = "data/cache/query_embeds.json"
+    embed_cache_max: int = 512
     safety_timeout: float = 0.5
     retrieval_timeout: float = 20.0
     generation_timeout: float = 60.0
