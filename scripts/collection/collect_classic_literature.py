@@ -436,47 +436,619 @@ BOOKS = [
             "parental_responsibility", "otherness_and_rejection", "sympathy_and_monstrosity",
         ]
     },
+
+    # ═══ EXPANSION 2026-07-18: multi-angle relationship classics ═══
+    {
+        "title": "The Tale of Genji", "author": "Murasaki Shikibu", "year": 1008,
+        "concepts": [
+            "courtship_rituals_and_nuance", "fleeting_beauty_and_attachment",
+            "jealousy_among_multiple_bonds", "emotional_restraint_vs_desire",
+            "memory_of_past_lovers", "status_and_romance",
+            "unspoken_longing", "impermanence_of_relationships",
+        ]
+    },
+    {
+        "title": "Dream of the Red Chamber", "author": "Cao Xueqin", "year": 1791,
+        "concepts": [
+            "family_system_and_romance", "arranged_expectations_vs_true_feeling",
+            "coming_of_age_love", "grief_after_forced_separation",
+            "idealized_lover_vs_reality", "decline_of_household_and_love",
+        ]
+    },
+    {
+        "title": "춘향전", "author": "고전 소설 (작자 미상)", "year": 1700,
+        "concepts": [
+            "신분의_벽을_넘는_사랑", "이별과_재회", "정절과_신뢰",
+            "권력에_맞선_연인", "약속과_인내", "사회적_압력과_연애", "그리움의_서사",
+        ]
+    },
+    {
+        "title": "구운몽", "author": "김만중", "year": 1689,
+        "concepts": [
+            "욕망과_각성", "다중_관계의_환상", "집착의_공허함",
+            "깨달음_후의_관계관", "꿈과_현실의_사랑",
+        ]
+    },
+    {
+        "title": "흥부전", "author": "고전 소설 (작자 미상)", "year": 1700,
+        "concepts": [
+            "형제_갈등과_화해", "탐욕과_관계_파괴", "베풂과_신뢰", "가족_내_정의",
+        ]
+    },
+    {
+        "title": "무정", "author": "이광수", "year": 1917,
+        "concepts": [
+            "근대적_연애관", "삼각관계와_선택", "계몽과_감정",
+            "이별의_이성화", "자아_실현과_사랑",
+        ]
+    },
+    {
+        "title": "사랑손님과 어머니", "author": "주요섭", "year": 1925,
+        "concepts": [
+            "재혼과_아이_시점", "미망인의_감정", "사회적_시선",
+            "말하지_못한_호감", "가족_재구성의_불안",
+        ]
+    },
+    {
+        "title": "메밀꽃 필 무렵", "author": "이효석", "year": 1936,
+        "concepts": [
+            "우연한_재회", "과거의_인연", "말하지_못한_진심",
+            "여정의_정서", "그리움의_서정",
+        ]
+    },
+    {
+        "title": "토지", "author": "박경리", "year": 1969,
+        "concepts": [
+            "역사_속_사랑과_이별", "가문과_개인_감정", "복수와_연민",
+            "운명과_선택", "긴_시간_속의_관계",
+        ]
+    },
+    {
+        "title": "난장이가 쏘아올린 작은 공", "author": "조세희", "year": 1978,
+        "concepts": [
+            "경제적_압박과_관계", "가족_연대", "상처받은_세대의_사랑", "연민과_존엄",
+        ]
+    },
+    {
+        "title": "Middlemarch", "author": "George Eliot", "year": 1871,
+        "concepts": [
+            "idealism_meets_marriage_reality", "mismatched_intellectual_partnership",
+            "career_ambition_vs_spouse", "slow_disillusionment",
+            "second_chances_after_widowhood", "gossip_and_reputation", "empathy_as_maturity",
+        ]
+    },
+    {
+        "title": "The Portrait of a Lady", "author": "Henry James", "year": 1881,
+        "concepts": [
+            "freedom_then_entrapment", "charming_manipulator",
+            "inheritance_and_control", "refusing_safe_proposals",
+            "self_betrayal_in_marriage", "seeing_clearly_too_late",
+        ]
+    },
+    {
+        "title": "Jude the Obscure", "author": "Thomas Hardy", "year": 1895,
+        "concepts": [
+            "class_barriers_to_partnership", "failed_marriage_traps",
+            "intellectual_companionship_vs_convention", "societal_punishment_of_love",
+            "hopelessness_and_attachment",
+        ]
+    },
+    {
+        "title": "The Scarlet Letter", "author": "Nathaniel Hawthorne", "year": 1850,
+        "concepts": [
+            "shame_and_secret_love", "public_judgment_of_relationships",
+            "guilt_vs_honesty", "hypocrisy_in_moralizing", "child_as_living_consequence",
+        ]
+    },
+    {
+        "title": "Little Women", "author": "Louisa May Alcott", "year": 1868,
+        "concepts": [
+            "friendship_before_romance", "refusing_proposal_for_self",
+            "different_sisters_different_love_paths", "creative_identity_and_love",
+            "quiet_steady_partnership", "grief_binding_family",
+        ]
+    },
+    {
+        "title": "Ethan Frome", "author": "Edith Wharton", "year": 1911,
+        "concepts": [
+            "loveless_marriage_stagnation", "affair_as_escape_fantasy",
+            "poverty_trapping_relationships", "guilt_after_failed_escape",
+            "caregiving_resentment",
+        ]
+    },
+    {
+        "title": "Their Eyes Were Watching God", "author": "Zora Neale Hurston", "year": 1937,
+        "concepts": [
+            "finding_voice_in_love", "three_marriages_three_lessons",
+            "passion_with_equality", "leaving_oppressive_partner",
+            "selfhood_before_couplehood", "grief_and_storytelling",
+        ]
+    },
+    {
+        "title": "Giovanni's Room", "author": "James Baldwin", "year": 1956,
+        "concepts": [
+            "fear_of_true_desire", "self_denial_hurting_partners",
+            "shame_and_intimacy", "choosing_safety_over_authenticity", "jealousy_and_flight",
+        ]
+    },
+    {
+        "title": "The Remains of the Day", "author": "Kazuo Ishiguro", "year": 1989,
+        "concepts": [
+            "repressed_feelings_at_work", "missed_timing_in_love",
+            "duty_blocking_vulnerability", "regret_on_looking_back",
+            "politeness_as_emotional_armor",
+        ]
+    },
+    {
+        "title": "Never Let Me Go", "author": "Kazuo Ishiguro", "year": 2005,
+        "concepts": [
+            "love_under_limited_future", "memory_as_intimacy",
+            "triangular_attachment", "acceptance_and_tenderness", "what_we_owe_each_other",
+        ]
+    },
+    {
+        "title": "One Hundred Years of Solitude", "author": "Gabriel García Márquez", "year": 1967,
+        "concepts": [
+            "family_patterns_repeating_in_love", "solitude_inside_marriage",
+            "obsessive_desire", "forgetting_and_remembering_lovers",
+        ]
+    },
+    {
+        "title": "Beloved", "author": "Toni Morrison", "year": 1987,
+        "concepts": [
+            "trauma_shaping_intimacy", "mother_love_and_horror",
+            "haunting_past_in_present_bonds", "community_healing",
+            "naming_pain_to_love_again",
+        ]
+    },
+    {
+        "title": "Normal People", "author": "Sally Rooney", "year": 2018,
+        "concepts": [
+            "class_gap_in_young_love", "misread_signals",
+            "on_again_off_again_cycle", "intimacy_without_words",
+            "power_shifts_over_time", "healing_through_being_seen",
+            "long_distance_emotional_weather",
+        ]
+    },
+    {
+        "title": "Call Me by Your Name", "author": "André Aciman", "year": 2007,
+        "concepts": [
+            "summer_intensity", "first_same_sex_awakening",
+            "silence_and_yearning", "parents_unexpected_wisdom",
+            "remembering_without_erasing", "brief_love_lifelong_echo",
+        ]
+    },
+    {
+        "title": "The Bell Jar", "author": "Sylvia Plath", "year": 1963,
+        "concepts": [
+            "identity_crisis_and_dating", "performative_romance",
+            "mental_health_and_intimacy", "rejecting_prescribed_roles",
+            "aloneness_vs_loneliness",
+        ]
+    },
+    {
+        "title": "On Earth We're Briefly Gorgeous", "author": "Ocean Vuong", "year": 2019,
+        "concepts": [
+            "letter_to_mother_and_love", "queer_first_love",
+            "language_barriers_in_family", "tenderness_after_violence",
+            "body_memory_in_relationships",
+        ]
+    },
+    {
+        "title": "The Song of Achilles", "author": "Madeline Miller", "year": 2011,
+        "concepts": [
+            "devotion_beyond_glory", "love_and_war_priorities",
+            "jealousy_of_fate", "grief_as_epic", "chosen_family_vs_duty",
+        ]
+    },
+    {
+        "title": "Circe", "author": "Madeline Miller", "year": 2018,
+        "concepts": [
+            "becoming_self_after_rejection", "power_imbalance_with_gods",
+            "motherhood_and_boundaries", "choosing_mortal_love", "solitude_as_growth",
+        ]
+    },
+    {
+        "title": "The Winter's Tale", "author": "William Shakespeare", "year": 1611,
+        "concepts": [
+            "jealousy_destroying_family", "time_healing_wounds",
+            "repentance_and_reunion", "lost_child_and_restoration",
+            "forgiveness_after_years",
+        ]
+    },
+    {
+        "title": "Antony and Cleopatra", "author": "William Shakespeare", "year": 1607,
+        "concepts": [
+            "passion_vs_political_duty", "public_image_of_couple",
+            "grand_romance_and_self_myth", "loyalty_tested_by_war",
+        ]
+    },
+    {
+        "title": "Pachinko", "author": "Min Jin Lee", "year": 2017,
+        "concepts": [
+            "diaspora_and_marriage", "survival_over_romance",
+            "shame_and_belonging", "mothers_sacrifices",
+            "quiet_endurance_in_partnership", "identity_secrets_in_family",
+        ]
+    },
+    {
+        "title": "Convenience Store Woman", "author": "Sayaka Murata", "year": 2016,
+        "concepts": [
+            "refusing_normative_romance", "society_pressure_to_couple",
+            "found_identity_outside_dating", "performative_normality",
+            "boundaries_against_matchmaking",
+        ]
+    },
+    {
+        "title": "Breasts and Eggs", "author": "Mieko Kawakami", "year": 2019,
+        "concepts": [
+            "body_and_self_worth", "sisterhood_over_romance",
+            "single_motherhood_choices", "economic_anxiety_and_intimacy",
+        ]
+    },
+    {
+        "title": "The Seven Husbands of Evelyn Hugo", "author": "Taylor Jenkins Reid", "year": 2017,
+        "concepts": [
+            "ambition_and_secret_love", "queer_love_hidden_in_public",
+            "transactional_marriages", "true_partner_vs_headline_partner",
+        ]
+    },
+    {
+        "title": "Lessons in Chemistry", "author": "Bonnie Garmus", "year": 2022,
+        "concepts": [
+            "intellectual_equals_in_love", "sexism_at_work_and_home",
+            "grief_after_sudden_loss", "single_parent_strength", "respect_as_attraction",
+        ]
+    },
+    {
+        "title": "Tomorrow, and Tomorrow, and Tomorrow", "author": "Gabrielle Zevin", "year": 2022,
+        "concepts": [
+            "creative_partnership_vs_romance", "friendship_heartbreak",
+            "misaligned_expectations", "collaboration_after_rupture",
+        ]
+    },
+    {
+        "title": "The Midnight Library", "author": "Matt Haig", "year": 2020,
+        "concepts": [
+            "alternate_life_regrets_in_love", "what_if_with_ex",
+            "choosing_present_relationship", "depression_and_connection",
+        ]
+    },
+    {
+        "title": "A Man Called Ove", "author": "Fredrik Backman", "year": 2012,
+        "concepts": [
+            "grief_after_spouse_death", "neighbors_as_found_family",
+            "love_shown_through_acts", "softening_after_isolation",
+        ]
+    },
+    {
+        "title": "Eleanor Oliphant Is Completely Fine", "author": "Gail Honeyman", "year": 2017,
+        "concepts": [
+            "social_isolation_and_crush", "trauma_blocking_intimacy",
+            "friendship_as_gateway_to_love", "healing_before_partnership",
+        ]
+    },
+    {
+        "title": "The Time Traveler's Wife", "author": "Audrey Niffenegger", "year": 2003,
+        "concepts": [
+            "uneven_timelines_in_love", "waiting_and_uncertainty",
+            "commitment_without_control", "building_life_around_unpredictability",
+        ]
+    },
+    {
+        "title": "Atonement", "author": "Ian McEwan", "year": 2001,
+        "concepts": [
+            "false_accusation_destroying_lovers", "class_and_misreading",
+            "guilt_lasting_lifetime", "art_as_attempted_repair", "war_separating_couples",
+        ]
+    },
+    {
+        "title": "On Chesil Beach", "author": "Ian McEwan", "year": 2007,
+        "concepts": [
+            "wedding_night_anxiety", "sexual_communication_failure",
+            "pride_preventing_repair", "one_night_that_ends_marriage",
+        ]
+    },
+    {
+        "title": "The Sense of an Ending", "author": "Julian Barnes", "year": 2011,
+        "concepts": [
+            "unreliable_memory_of_exes", "late_life_reckoning",
+            "jealousy_rewritten_as_story", "humility_about_the_past",
+        ]
+    },
+    {
+        "title": "Americanah", "author": "Chimamanda Ngozi Adichie", "year": 2013,
+        "concepts": [
+            "long_distance_migration_love", "race_and_dating_abroad",
+            "rekindling_after_years", "returning_home_with_changed_self",
+        ]
+    },
+    {
+        "title": "The God of Small Things", "author": "Arundhati Roy", "year": 1997,
+        "concepts": [
+            "forbidden_caste_love", "family_violence_and_silence",
+            "desire_against_law", "small_things_that_break_lives",
+        ]
+    },
+    {
+        "title": "The Namesake", "author": "Jhumpa Lahiri", "year": 2003,
+        "concepts": [
+            "immigrant_parents_marriage", "name_and_identity_in_dating",
+            "cultural_hybrid_romance", "duty_to_family_vs_partner",
+        ]
+    },
+    {
+        "title": "Interpreter of Maladies", "author": "Jhumpa Lahiri", "year": 1999,
+        "concepts": [
+            "tourist_intimacy_and_confession", "marital_distance",
+            "loneliness_in_couplehood", "small_maladies_of_love",
+        ]
+    },
+    {
+        "title": "Conversations with Friends", "author": "Sally Rooney", "year": 2017,
+        "concepts": [
+            "affair_with_married_person", "friendship_and_jealousy",
+            "intellectualizing_feelings", "power_age_gaps", "ambiguous_commitment",
+        ]
+    },
+    {
+        "title": "Beautiful World, Where Are You", "author": "Sally Rooney", "year": 2021,
+        "concepts": [
+            "emails_as_intimacy", "anxiety_in_modern_dating",
+            "friendship_sustaining_romance", "choosing_ordinary_love",
+        ]
+    },
+    {
+        "title": "Writers & Lovers", "author": "Lily King", "year": 2020,
+        "concepts": [
+            "grief_and_dating_again", "two_suitors_two_futures",
+            "creative_block_and_romance", "choosing_kindness",
+        ]
+    },
+    {
+        "title": "The Marriage Plot", "author": "Jeffrey Eugenides", "year": 2011,
+        "concepts": [
+            "love_triangle_after_college", "mental_illness_and_caregiving",
+            "theory_vs_lived_romance", "what_marriage_plot_means_now",
+        ]
+    },
+    {
+        "title": "South of the Border, West of the Sun", "author": "Haruki Murakami", "year": 1992,
+        "concepts": [
+            "childhood_friend_reappears", "marriage_and_temptation",
+            "midlife_emptiness", "choosing_family_or_flame",
+        ]
+    },
+    {
+        "title": "Sputnik Sweetheart", "author": "Haruki Murakami", "year": 1999,
+        "concepts": [
+            "unrequited_love_triangle", "disappearance_and_longing",
+            "one_sided_devotion", "mystery_of_the_other",
+        ]
+    },
+    {
+        "title": "Colorless Tsukuru Tazaki and His Years of Pilgrimage", "author": "Haruki Murakami", "year": 2013,
+        "concepts": [
+            "friend_group_exile_wound", "reconnecting_after_years",
+            "travel_to_heal_bonds", "color_and_identity_in_love",
+        ]
+    },
+    {
+        "title": "Men Without Women", "author": "Haruki Murakami", "year": 2014,
+        "concepts": [
+            "men_after_breakups", "quiet_loneliness",
+            "ex_wives_and_memory", "tenderness_in_short_encounters",
+        ]
+    },
+    {
+        "title": "The Wind-Up Bird Chronicle", "author": "Haruki Murakami", "year": 1994,
+        "concepts": [
+            "wife_disappearance", "marriage_mystery",
+            "historical_trauma_in_present_bonds", "listening_as_love",
+        ]
+    },
+    {
+        "title": "1Q84", "author": "Haruki Murakami", "year": 2009,
+        "concepts": [
+            "two_worlds_seeking_each_other", "childhood_promise",
+            "parallel_paths_converging", "trust_without_full_explanation",
+        ]
+    },
+    {
+        "title": "Like Water for Chocolate", "author": "Laura Esquivel", "year": 1989,
+        "concepts": [
+            "family_rules_blocking_love", "desire_expressed_through_care",
+            "repressed_passion", "tradition_vs_choice",
+        ]
+    },
+    {
+        "title": "The House of the Spirits", "author": "Isabel Allende", "year": 1982,
+        "concepts": [
+            "generations_of_love_patterns", "passionate_patriarch_harm",
+            "women_solidarity", "memory_keeping_relationships",
+        ]
+    },
+    {
+        "title": "A Suitable Boy", "author": "Vikram Seth", "year": 1993,
+        "concepts": [
+            "arranged_marriage_search", "mother_pressure",
+            "choosing_among_suitors", "communal_tensions_and_love",
+        ]
+    },
+    {
+        "title": "Half of a Yellow Sun", "author": "Chimamanda Ngozi Adichie", "year": 2006,
+        "concepts": [
+            "love_in_civil_war", "infidelity_under_stress",
+            "class_in_intimacy", "survival_bonding",
+        ]
+    },
+    {
+        "title": "Gone Girl", "author": "Gillian Flynn", "year": 2012,
+        "concepts": [
+            "performative_marriage", "revenge_fantasy_in_couples",
+            "mutual_manipulation", "staying_for_control",
+        ]
+    },
+    {
+        "title": "Me Before You", "author": "Jojo Moyes", "year": 2012,
+        "concepts": [
+            "caregiving_and_romance", "autonomy_vs_saving_someone",
+            "love_cannot_force_will_to_live", "grief_after_choice",
+        ]
+    },
+    {
+        "title": "The English Patient", "author": "Michael Ondaatje", "year": 1992,
+        "concepts": [
+            "affair_in_wartime", "bodies_and_memory",
+            "loyalty_torn_by_nations", "healing_and_confession",
+        ]
+    },
+    {
+        "title": "Enduring Love", "author": "Ian McEwan", "year": 1997,
+        "concepts": [
+            "obsession_mistaken_for_love", "couple_under_external_threat",
+            "trust_erosion", "shared_trauma_bond",
+        ]
+    },
+    {
+        "title": "White Teeth", "author": "Zadie Smith", "year": 2000,
+        "concepts": [
+            "immigrant_marriages", "friendship_across_cultures",
+            "faith_and_romance_clash", "second_generation_identity_love",
+        ]
+    },
+    {
+        "title": "The Lowland", "author": "Jhumpa Lahiri", "year": 2013,
+        "concepts": [
+            "brothers_and_shared_love", "stepmother_bonds",
+            "quiet_endurance", "return_to_homeland_memory",
+        ]
+    },
+    {
+        "title": "My Year of Rest and Relaxation", "author": "Ottessa Moshfegh", "year": 2018,
+        "concepts": [
+            "numbing_instead_of_relating", "toxic_friendship",
+            "avoidant_withdrawal", "waking_up_to_connection",
+        ]
+    },
+    {
+        "title": "The Idiot (Batuman)", "author": "Elif Batuman", "year": 2017,
+        "concepts": [
+            "email_crush_era", "language_learning_and_misread_signals",
+            "intellectual_infatuation", "slow_undefined_relationship",
+        ]
+    },
+    {
+        "title": "Either/Or", "author": "Elif Batuman", "year": 2022,
+        "concepts": [
+            "literature_as_relationship_map", "sex_and_meaning_search",
+            "choosing_how_to_live_and_love",
+        ]
+    },
+    {
+        "title": "Middlesex", "author": "Jeffrey Eugenides", "year": 2002,
+        "concepts": [
+            "identity_and_desire", "family_secrets_shaping_love",
+            "first_love_and_body", "becoming_oneself_in_relationship",
+        ]
+    },
+    {
+        "title": "The Handmaid's Tale", "author": "Margaret Atwood", "year": 1985,
+        "concepts": [
+            "control_over_bodies_and_bonds", "memory_of_former_partnership",
+            "coerced_intimacy", "hope_as_relationship_fuel",
+        ]
+    },
+    {
+        "title": "Daniel Deronda", "author": "George Eliot", "year": 1876,
+        "concepts": [
+            "marriage_for_security_regretted", "moral_growth_through_empathy",
+            "identity_search_and_love", "emotional_cruelty_in_marriage",
+        ]
+    },
+
 ]
 
 
 def generate_classic_insight(book: dict, concept: str, index: int) -> str:
-    """Generate rich insight content for classic literature."""
-    readable = concept.replace("_", " ").replace("-", " ").title()
+    """Generate rich, multi-angle insight for classic literature (relationship RAG)."""
+    readable = concept.replace("_", " ").replace("-", " ")
+    # Keep Korean concept labels readable
+    if any("\uac00" <= ch <= "\ud7a3" for ch in concept):
+        readable = concept.replace("_", " ")
+    else:
+        readable = readable.title()
+
+    title = book["title"]
+    author = book["author"]
+    year = abs(int(book["year"]))
+    era = (
+        "고대"
+        if year < 500
+        else "중세·전근대"
+        if year < 1600
+        else "근대 초기"
+        if year < 1800
+        else "19세기"
+        if year < 1900
+        else "20세기"
+        if year < 2000
+        else "동시대"
+    )
+
+    # Light situation tags for retrieval / narrative linking
+    tags: list[str] = []
+    c_low = concept.lower()
+    mapping = [
+        (("break", "이별", "loss", "grief", "farewell", "상실", "재회", "그리움"), "이별·상실·재회"),
+        (("jealous", "trust", "betray", "cheat", "adulter", "배신", "질투"), "신뢰·질투·배신"),
+        (("first", "courtship", "crush", " banter", "첫인상", "호감"), "썸·첫인상·호감"),
+        (("long", "distance", "separat", "wait", "여정", "이별과"), "장거리·기다림"),
+        (("conflict", "fight", "pride", "apology", "misread", "갈등", "화해"), "갈등·오해·화해"),
+        (("marriage", "결혼", "부부", "가정"), "결혼·동반자 관계"),
+        (("self", "identity", "independ", "자아", "자존"), "자아·독립·자존감"),
+        (("family", "family_", "가족", "부모", "가문"), "가족·주변 압력"),
+        (("class", "money", "econom", "신분", "경제"), "계급·경제 조건"),
+        (("trauma", "shame", "mental", "heal", "치유", "상처"), "상처·치유·정신건강"),
+    ]
+    for keys, label in mapping:
+        if any(k in c_low or k in concept for k in keys):
+            tags.append(label)
+    if not tags:
+        tags.append("보편 연애·관계 역학")
+    tag_line = ", ".join(dict.fromkeys(tags))
+
     return f"""## {readable}
 
-**Literary Insight from "{book['title']}" by {book['author']} ({abs(book['year'])})**
+**Literary Insight from "{title}" by {author} ({year}, {era})**
 
-{readable} — a timeless theme explored in this classic work that offers profound insights into human relationships and emotional dynamics.
+### 한 줄 렌즈
+「{title}」은 **{readable}** 을(를) 통해, 오늘날 연애·관계 고민(예: {tag_line})과 맞닿는 인간 패턴을 보여 줍니다. 고전은 ‘정답’이 아니라 **입체적 거울**입니다.
 
-### The Literary Context
+### 서사 속 장면 (이야깃거리 재료)
+1. **인물 구도**: {author}의 작품 세계 안에서 이 테마는 한 사람의 욕망만이 아니라, 상대·가족·사회 규범이 얽힌 **관계 네트워크**로 나타납니다.
+2. **전환점**: 작은 말실수, 침묵, 자존심, 혹은 한 번의 선택이 쌓여 신뢰가 무너지거나 회복되는 **누적 드라마**가 됩니다.
+3. **감정 진실**: 시대 배경({era})이 달라도 질투·수치·그리움·안도 같은 감정 코어는 현대 연애 상담 장면과 공명합니다.
 
-In "{book['title']}", {readable} emerges as a central tension that drives the narrative and reveals fundamental truths about how people love, struggle, and grow.
+### 관계 역학으로 읽기 (솔루션 다각도)
+- **개인 내면**: 이상화, 회피, 집착, 자기비하 등 내 안의 패턴이 상대에게 어떻게 투사되는지.
+- **둘의 상호작용**: 대화 타이밍, 사과, 경계, 돌봄 노동, 성적·정서적 합의.
+- **제3의 압력**: 가족·경제·평판·문화 규범이 연애를 ‘개인 감정’만의 문제로 두지 않게 만듦.
+- **시간축**: 첫인상 → 갈등 → 이별/재회 → 애도 → 성장의 **서사 아크**로 보면 지금 단계가 선명해짐.
 
-### Key Observations from the Text
+### 현대 연애에 옮기는 적용 (실천)
+1. **이름 붙이기**: 지금 감정을 「{readable}」 렌즈로 한 문장 정의해 보세요. (예: “자존심 때문에 사과를 미루는 중”)
+2. **장면 재연 금지**: 고전 속 파국 선택(침묵으로 처벌, 복수, 이상화 고착)을 피하고, **짧은 점검 대화**로 바꾸세요.
+3. **경계와 존중**: 작품이 경고하는 권력 남용·통제·수치심 유발은 로맨스가 아니라 **위험 신호**입니다.
+4. **성장형 엔딩**: 완벽한 해피엔딩보다 “서로를 더 정확히 보게 됨”을 목표로 두면, 이별이든 지속이든 존엄이 남습니다.
 
-The narrative illustrates that this dynamic is not merely fictional but reflects universal patterns in human relationships:
-
-1. **Universal Relevance**: Characters in classic literature face the same emotional challenges we encounter today — trust, jealousy, sacrifice, communication, and the fear of loss.
-
-2. **Consequences of Choices**: The author shows how small decisions compound over time, leading to either deepened connection or irreversible damage.
-
-3. **Emotional Truth**: Even across centuries, the emotional core of this theme resonates because human nature remains constant.
-
-### Modern Application
-
-Drawing from this literary exploration:
-
-- **Pattern Recognition**: When you notice similar dynamics in your own relationship, you can reference centuries of human wisdom about how to navigate them.
-
-- **Emotional Vocabulary**: Literature gives us precise language for complex feelings that might otherwise remain unnamed.
-
-- **Perspective**: Seeing how characters handle — or fail to handle — these situations helps us make more conscious choices in our own lives.
-
-- **Growth Through Narrative**: Stories model transformation, showing that even painful experiences can lead to deeper understanding and more authentic connections.
+### 상담가가 붙일 수 있는 질문
+- 나는 지금 {title}의 누구 자리에 가까운가? (가해·피해자·방관·성장하는 쪽)
+- 이 상황에서 ‘자존심’과 ‘연결’ 중 무엇을 우선하고 있는가?
+- 한 달 뒤의 내가 고마워할 선택은 무엇인가?
 
 ### Relationship Takeaway
-
-Classic literature reminds us that love is not a destination but a journey — one filled with the same contradictions, growth opportunities, and moments of grace that characters have navigated for centuries. By studying these patterns, we gain wisdom that modern self-help books are only beginning to rediscover.
+고전·문학은 연애를 **한 가지 팁**이 아니라 **서사·윤리·감정·사회**가 겹친 입체로 보게 합니다. 「{title}」의 {readable} 모티프를 빌려, 사용자는 “나만 이런 게 아니구나”라는 동질감과 함께, 다음 행동의 선택지를 더 넓게 가질 수 있습니다.
 """
 
 

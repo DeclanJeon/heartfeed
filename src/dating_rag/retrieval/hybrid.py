@@ -237,8 +237,8 @@ class HybridRetriever:
             classic_dense = self.dense_search(
                 dense_vector,
                 filters=classic_filter,
-                limit=6,
-                score_threshold=min(0.12, self.dense_threshold),
+                limit=10,
+                score_threshold=min(0.10, self.dense_threshold),
             )
 
         # Fuse main results with RRF
@@ -259,7 +259,7 @@ class HybridRetriever:
                     break
             return added
 
-        _merge(classic_dense, 2)
+        _merge(classic_dense, 3)
         _merge(book_dense, 3)
 
         # Convert to domain objects, apply limit

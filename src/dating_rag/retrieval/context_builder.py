@@ -189,15 +189,15 @@ class ContextBuilder:
             # Otherwise first-date style queries only show video citations.
             books = [r for r in transcript_results if _is_book(r)]
             non_books = [r for r in transcript_results if not _is_book(r)]
-            book_slots = min(2, len(books), max(0, self.max_chunks - 1))
+            book_slots = min(3, len(books), max(0, self.max_chunks - 1))
             classic_books = [
                 r
                 for r in books
                 if str((r.metadata or {}).get("source_origin", "")) == "classic-literature"
             ]
             theory_books = [r for r in books if r not in classic_books]
-            # Reserve: up to 1 classic narrative + 1 theory book when available
-            classic_slots = min(1, len(classic_books), book_slots)
+            # Reserve: up to 2 classic narratives + 1 theory book when available
+            classic_slots = min(2, len(classic_books), book_slots)
             theory_slots = min(1, len(theory_books), max(0, book_slots - classic_slots))
             reserved_slots = classic_slots + theory_slots
             if reserved_slots == 0:

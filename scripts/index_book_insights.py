@@ -38,7 +38,7 @@ def parse_frontmatter(content: str) -> tuple[dict, str]:
 def index_book_insights(
     corpus_dir: str,
     collection: str = "datewise_transcripts",
-    batch_size: int = 32,
+    batch_size: int = 8,
 ):
     """Index all book insight files into Qdrant."""
     
