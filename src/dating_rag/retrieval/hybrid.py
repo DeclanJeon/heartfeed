@@ -211,8 +211,18 @@ class HybridRetriever:
         sparse_results = self.sparse_search(sparse_vector, filters=filters)
 
         if fast:
+            # Fast path: still pull a small classic-only set for 이야깃거리 ranking
+            # (theory book fan-out stays off to protect latency).
             book_dense = []
-            classic_dense = []
+            classic_filter = {"source_origin": "classic-literature"}
+            if filters:
+                classic_filter = {**filters, **classic_filter}
+            classic_dense = self.dense_search(
+                dense_vector,
+                filters=classic_filter,
+                limit=8,
+                score_threshold=min(0.10, self.dense_threshold),
+            )
         else:
             # Explicit book + classic literature retrieval (required for 참고 도서 /
             # 이야깃거리 even when YouTube dominates cosine scores).

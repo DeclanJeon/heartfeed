@@ -25,6 +25,10 @@ from dating_rag.rescue.policy import should_refuse_ood, normalize_track
 from dating_rag.rescue.limits import generation_admission
 from dating_rag.rescue.track import track_hints_for_day
 from dating_rag.retrieval.evidence_gate import EvidenceGate
+from dating_rag.retrieval.book_ranker import (
+    format_narrative_brief,
+    merge_ranked_books_into_accepted,
+)
 from dating_rag.safety.router import generate_safety_response, route_safety
 
 if TYPE_CHECKING:
@@ -286,6 +290,33 @@ class ChatService:
         if mode == "rescue_brt14" and accepted:
             accepted = accepted[:top_k]
 
+        # ── 5b. Book/classic narrative ranking middleware ─────────────────
+        # Score indexed books for 이야깃거리 / 참고 도서 even when retrieval_fast
+        # skipped fan-out (books may still appear via main hybrid).
+        book_low_coverage = False
+        narrative_brief = ""
+        try:
+            accepted, ranked_books, book_low_coverage = merge_ranked_books_into_accepted(
+                accepted,
+                results or [],
+                redacted.redacted_text,
+                topics=plan.topics,
+                classic_k=2,
+                theory_k=1,
+            )
+            narrative_brief = format_narrative_brief(ranked_books)
+            logger.info(
+                "book_rank n=%s low_coverage=%s top=%s",
+                len(ranked_books),
+                book_low_coverage,
+                [
+                    str((s.result.metadata or {}).get("title", s.result.chunk_id))[:40]
+                    for s in ranked_books[:3]
+                ],
+            )
+        except Exception:
+            logger.warning("book_rank failed", exc_info=True)
+
         # ── 6. Rerank ────────────────────────────────────────────────────
         # Interactive default: skip (cold load of cross-encoder blows latency).
         stage_t0 = time.perf_counter()
@@ -304,6 +335,15 @@ class ChatService:
         context_text, registry = state.context_builder.build_context_with_registry(
             accepted, [], plan,
         )
+        if narrative_brief:
+            context_text = narrative_brief + "\n" + context_text
+        if book_low_coverage:
+            context_text = (
+                "## Coverage Note\n"
+                "Indexed classic/book hits for this query are sparse. "
+                "Prefer honesty over inventing titles; YouTube evidence remains primary.\n\n"
+                + context_text
+            )
         timings["ms_context"] = (time.perf_counter() - stage_t0) * 1000
 
         # Inject track day hints into generation context

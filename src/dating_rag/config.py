@@ -78,6 +78,8 @@ class Settings(BaseSettings):
     warmup_embeds: bool = True
     embed_cache_path: str = "data/cache/query_embeds.json"
     embed_cache_max: int = 512
+    # Warn when fewer ranked books than this (classic_k+theory_k default 3)
+    book_coverage_min: int = 3
     safety_timeout: float = 0.5
     retrieval_timeout: float = 20.0
     generation_timeout: float = 60.0

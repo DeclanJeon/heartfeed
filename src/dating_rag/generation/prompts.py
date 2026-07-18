@@ -183,7 +183,6 @@ def build_prompt(
     sections.append(f"## Question\n\n{question}")
 
     return "\n\n".join(sections)
-    return "\n\n".join(sections)
 
 
 # ---------------------------------------------------------------------------
@@ -247,9 +246,10 @@ def build_v2_prompt(
         "JSON only (no fences/prose). ChatV2Answered keys:\n"
         "- request_id, status=\"answered\"\n"
         "- answer: {empathy, situation_framing, narrative, actions[], boundaries, summary}\n"
-        "  narrative (2~4 short paragraphs): (1) one classic/literary parallel by name "
-        "when Available IDs include classic/book sources (2) one theory/book insight if present "
-        "(3) tie to a concrete next scene. Use Korean. Optional [S#] at sentence ends.\n"
+        "  narrative (2~4 short paragraphs): MUST follow ## Narrative Source Brief order when present. "
+        "(1) top-ranked classic/book by title+author from that brief with [S#] "
+        "(2) next book/theory if listed (3) concrete next scene for the user. "
+        "Never invent titles not in brief/IDs. Korean.\n"
         "  actions[]: {text, basis, citation_ids, example, evidence_quote}. "
         "basis ∈ accepted_evidence|user_statement|policy_template. "
         "example + evidence_quote required (how to say/do + short source excerpt/URL). "
