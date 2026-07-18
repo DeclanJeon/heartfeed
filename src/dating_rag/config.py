@@ -66,9 +66,9 @@ class Settings(BaseSettings):
     collection_name: str = "datewise_transcripts"
     auto_category_filters: bool = False
     # product_mode: "" | "rescue_brt14"
-    product_mode: str = ""
+    product_mode: str = ""  # empty = general dating; rescue_brt14 optional
     app_env: str = "dev"
-    allow_general: bool = False
+    allow_general: bool = True
     generation_concurrency: int = 4
     max_output_tokens: int = 2500
     rescue_retrieval_top_k: int = 4

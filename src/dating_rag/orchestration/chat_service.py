@@ -231,9 +231,22 @@ class ChatService:
 
         # ── 5. Evidence gate ─────────────────────────────────────────────
         from dating_rag.domain.models import QueryPlan
-        plan = QueryPlan(intent=decision.reason or "breakup", topics=["breakup"])
+        intent = decision.reason or "general_advice"
+        topics = ["relationship", "dating"]
         if track is not None:
-            plan.topics = ["breakup", "no_contact", f"day_{track.day_index}"]
+            intent = "breakup"
+            topics = ["breakup", "no_contact", f"day_{track.day_index}"]
+        elif any(k in request.question for k in ("이별", "헤어진", "재회", "연락 끊")):
+            topics = ["breakup", "no_contact"]
+        elif any(k in request.question for k in ("첫 데이트", "썸", "소개팅")):
+            topics = ["first_dates", "conversation"]
+        elif any(k in request.question for k in ("장거리", "LD")):
+            topics = ["long-distance", "texting"]
+        elif any(k in request.question for k in ("MBTI", "mbti", "엠비티아이")):
+            topics = ["mbti", "conversation"]
+        elif any(k in request.question for k in ("싸움", "갈등", "화해", "다퉜")):
+            topics = ["conversation", "counseling"]
+        plan = QueryPlan(intent=intent, topics=topics)
         gate_decision = self._evidence_gate.accept(results, plan)
 
         if gate_decision.reason_code != "accepted":
