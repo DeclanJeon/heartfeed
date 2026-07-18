@@ -220,8 +220,8 @@ class HybridRetriever:
             classic_dense = self.dense_search(
                 dense_vector,
                 filters=classic_filter,
-                limit=8,
-                score_threshold=min(0.10, self.dense_threshold),
+                limit=12,
+                score_threshold=min(0.08, self.dense_threshold),
             )
         else:
             # Explicit book + classic literature retrieval (required for 참고 도서 /
@@ -269,7 +269,7 @@ class HybridRetriever:
                     break
             return added
 
-        _merge(classic_dense, 3)
+        _merge(classic_dense, 4)
         _merge(book_dense, 3)
 
         # Convert to domain objects, apply limit

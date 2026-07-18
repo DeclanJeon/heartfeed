@@ -971,85 +971,88 @@ BOOKS = [
 
 
 def generate_classic_insight(book: dict, concept: str, index: int) -> str:
-    """Generate rich, multi-angle insight for classic literature (relationship RAG)."""
-    readable = concept.replace("_", " ").replace("-", " ")
-    # Keep Korean concept labels readable
+    """Story-first classic insight for user-facing 이야깃거리 storytelling."""
     if any("\uac00" <= ch <= "\ud7a3" for ch in concept):
-        readable = concept.replace("_", " ")
+        theme = concept.replace("_", " ")
     else:
-        readable = readable.title()
+        theme = concept.replace("_", " ").replace("-", " ").title()
 
     title = book["title"]
     author = book["author"]
     year = abs(int(book["year"]))
     era = (
-        "고대"
-        if year < 500
-        else "중세·전근대"
-        if year < 1600
-        else "근대 초기"
-        if year < 1800
-        else "19세기"
-        if year < 1900
-        else "20세기"
-        if year < 2000
-        else "동시대"
+        "고대" if year < 500 else
+        "중세·전근대" if year < 1600 else
+        "근대 초기" if year < 1800 else
+        "19세기" if year < 1900 else
+        "20세기" if year < 2000 else
+        "동시대"
     )
 
-    # Light situation tags for retrieval / narrative linking
-    tags: list[str] = []
-    c_low = concept.lower()
-    mapping = [
-        (("break", "이별", "loss", "grief", "farewell", "상실", "재회", "그리움"), "이별·상실·재회"),
-        (("jealous", "trust", "betray", "cheat", "adulter", "배신", "질투"), "신뢰·질투·배신"),
-        (("first", "courtship", "crush", " banter", "첫인상", "호감"), "썸·첫인상·호감"),
-        (("long", "distance", "separat", "wait", "여정", "이별과"), "장거리·기다림"),
-        (("conflict", "fight", "pride", "apology", "misread", "갈등", "화해"), "갈등·오해·화해"),
-        (("marriage", "결혼", "부부", "가정"), "결혼·동반자 관계"),
-        (("self", "identity", "independ", "자아", "자존"), "자아·독립·자존감"),
-        (("family", "family_", "가족", "부모", "가문"), "가족·주변 압력"),
-        (("class", "money", "econom", "신분", "경제"), "계급·경제 조건"),
-        (("trauma", "shame", "mental", "heal", "치유", "상처"), "상처·치유·정신건강"),
-    ]
-    for keys, label in mapping:
-        if any(k in c_low or k in concept for k in keys):
-            tags.append(label)
-    if not tags:
-        tags.append("보편 연애·관계 역학")
-    tag_line = ", ".join(dict.fromkeys(tags))
+    # Scene seeds keyed by theme keywords (Korean storytelling scaffold)
+    scene_bank = {
+        "이별": "헤어짐의 문 앞에서 마지막으로 돌아보는 장면",
+        "재회": "오랜만에 다시 마주친 순간, 말이 먼저 나오지 않는 장면",
+        "질투": "상대의 한 마디·한 시선에 마음이 요동치는 장면",
+        "자존": "사랑받고 싶으면서도 자신을 굽히지 않으려는 장면",
+        "기다림": "답이 오지 않는 시간을 견디는 장면",
+        "오해": "사소한 침묵이 큰 단절로 커지는 장면",
+        "결혼": "약속과 일상 사이에서 흔들리는 장면",
+        "비밀": "말하지 못한 진실을 끌어안은 채 웃는 장면",
+        "희생": "상대를 위해 자신을 뒤로 미루는 장면",
+        "성장": "아픔 뒤에 서로를 다시 보게 되는 장면",
+    }
+    scene = "마음이 갈라지는 결정적 순간"
+    cl = theme.lower() + " " + concept
+    for k, v in scene_bank.items():
+        if k in theme or k in concept or k in cl:
+            scene = v
+            break
+    # English soft matches
+    en_map = {
+        "jealous": "질투가 관계를 흔드는 장면",
+        "pride": "자존심 때문에 진심을 삼키는 장면",
+        "break": "이별이 다가오는 장면",
+        "wait": "기다림이 길어지는 장면",
+        "trust": "신뢰가 시험받는 장면",
+        "love": "사랑한다고 느끼지만 표현이 엇갈리는 장면",
+        "marriage": "결혼·동반 약속 앞에서 망설이는 장면",
+        "grief": "상실 뒤의 공허를 견디는 장면",
+        "reunion": "재회의 설렘과 어색함이 겹치는 장면",
+    }
+    for k, v in en_map.items():
+        if k in cl.lower():
+            scene = v
+            break
 
-    return f"""## {readable}
+    return f"""## {theme}
 
-**Literary Insight from "{title}" by {author} ({year}, {era})**
+**Story seed from 「{title}」 · {author} ({year}, {era})**
 
-### 한 줄 렌즈
-「{title}」은 **{readable}** 을(를) 통해, 오늘날 연애·관계 고민(예: {tag_line})과 맞닿는 인간 패턴을 보여 줍니다. 고전은 ‘정답’이 아니라 **입체적 거울**입니다.
+### 한 줄 이야기
+{title}에서 우리는 **{scene}**을 만납니다. 테마는 **{theme}** — 오늘의 연애 고민과 같은 결의 감정입니다.
 
-### 서사 속 장면 (이야깃거리 재료)
-1. **인물 구도**: {author}의 작품 세계 안에서 이 테마는 한 사람의 욕망만이 아니라, 상대·가족·사회 규범이 얽힌 **관계 네트워크**로 나타납니다.
-2. **전환점**: 작은 말실수, 침묵, 자존심, 혹은 한 번의 선택이 쌓여 신뢰가 무너지거나 회복되는 **누적 드라마**가 됩니다.
-3. **감정 진실**: 시대 배경({era})이 달라도 질투·수치·그리움·안도 같은 감정 코어는 현대 연애 상담 장면과 공명합니다.
+### 스토리 비트 (이야깃거리 본문용)
+1. **시작**: 인물들은 서로를 원하지만, 상황·성격·사회 조건이 속도를 어긋나게 둡니다.
+2. **충돌**: {theme}이(가) 표면으로 올라옵니다. 작은 선택(침묵, 자존심, 성급함, 회피)이 관계를 한 방향으로 밀어 붙입니다.
+3. **대가**: 말이 늦거나 마음이 앞서면, 관계에는 되돌리기 어려운 금이 갑니다. 작품은 그 대가를 숨기지 않습니다.
+4. **여운**: 완벽한 해피엔딩보다, “그때 나는 왜 그랬을까”를 남깁니다. 독자(사용자)가 자기 이야기로 옮겨 적게 만드는 여백이 핵심입니다.
 
-### 관계 역학으로 읽기 (솔루션 다각도)
-- **개인 내면**: 이상화, 회피, 집착, 자기비하 등 내 안의 패턴이 상대에게 어떻게 투사되는지.
-- **둘의 상호작용**: 대화 타이밍, 사과, 경계, 돌봄 노동, 성적·정서적 합의.
-- **제3의 압력**: 가족·경제·평판·문화 규범이 연애를 ‘개인 감정’만의 문제로 두지 않게 만듦.
-- **시간축**: 첫인상 → 갈등 → 이별/재회 → 애도 → 성장의 **서사 아크**로 보면 지금 단계가 선명해짐.
+### 유저에게 건네는 스토리텔링 톤
+- “당신만 이상한 게 아닙니다. {title} 속 인물도 같은 자리에서 흔들렸습니다.”
+- 교훈 나열 대신 **장면 → 감정 → 오늘의 한 수** 순서로 말합니다.
+- 작품명·작가명을 자연스럽게 부르고, 현대 상황(문자, 읽씹, 장거리, 이별 후 충동)으로 한 번 더 번역합니다.
 
-### 현대 연애에 옮기는 적용 (실천)
-1. **이름 붙이기**: 지금 감정을 「{readable}」 렌즈로 한 문장 정의해 보세요. (예: “자존심 때문에 사과를 미루는 중”)
-2. **장면 재연 금지**: 고전 속 파국 선택(침묵으로 처벌, 복수, 이상화 고착)을 피하고, **짧은 점검 대화**로 바꾸세요.
-3. **경계와 존중**: 작품이 경고하는 권력 남용·통제·수치심 유발은 로맨스가 아니라 **위험 신호**입니다.
-4. **성장형 엔딩**: 완벽한 해피엔딩보다 “서로를 더 정확히 보게 됨”을 목표로 두면, 이별이든 지속이든 존엄이 남습니다.
-
-### 상담가가 붙일 수 있는 질문
-- 나는 지금 {title}의 누구 자리에 가까운가? (가해·피해자·방관·성장하는 쪽)
-- 이 상황에서 ‘자존심’과 ‘연결’ 중 무엇을 우선하고 있는가?
-- 한 달 뒤의 내가 고마워할 선택은 무엇인가?
+### 오늘의 연결 (상담 브릿지)
+지금 사용자의 고민이 {theme}에 가깝다면, 고전은 정답이 아니라 **거울 스토리**입니다.
+- 나는 이 이야기에서 누구의 자리에 서 있는가?
+- 다음 장면에서 바꾸고 싶은 한 가지는 무엇인가?
+- 침묵·복수·이상화 대신, 오늘 할 수 있는 짧은 대화는 무엇인가?
 
 ### Relationship Takeaway
-고전·문학은 연애를 **한 가지 팁**이 아니라 **서사·윤리·감정·사회**가 겹친 입체로 보게 합니다. 「{title}」의 {readable} 모티프를 빌려, 사용자는 “나만 이런 게 아니구나”라는 동질감과 함께, 다음 행동의 선택지를 더 넓게 가질 수 있습니다.
+「{title}」({author})의 {theme} 서사는 연애를 팁 목록이 아니라 **이어지는 이야기**로 보게 합니다. 사용자는 동질감과 함께, 다음 행동의 선택지를 이야기 속에서 고를 수 있습니다.
 """
+
 
 
 def main():

@@ -246,10 +246,11 @@ def build_v2_prompt(
         "JSON only (no fences/prose). ChatV2Answered keys:\n"
         "- request_id, status=\"answered\"\n"
         "- answer: {empathy, situation_framing, narrative, actions[], boundaries, summary}\n"
-        "  narrative (2~4 short paragraphs): MUST follow ## Narrative Source Brief order when present. "
-        "(1) top-ranked classic/book by title+author from that brief with [S#] "
-        "(2) next book/theory if listed (3) concrete next scene for the user. "
-        "Never invent titles not in brief/IDs. Korean.\n"
+        "  narrative (이야깃거리, 3~5 short paragraphs): THIS IS STORYTELLING, not advice bullets. "
+        "MUST follow ## Narrative Source Brief. "
+        "(1) user-feeling open (2) main classic tale with named work+author and a concrete scene "
+        "(want/conflict/cost) and [S#] (3) optional second classic beat (4) bridge to user today. "
+        "No invented titles. Korean prose.\n"
         "  actions[]: {text, basis, citation_ids, example, evidence_quote}. "
         "basis ∈ accepted_evidence|user_statement|policy_template. "
         "example + evidence_quote required (how to say/do + short source excerpt/URL). "
@@ -273,5 +274,5 @@ V2_SYSTEM_SUFFIX = """\
 ## v2 출력 모드
 JSON 객체 하나만 출력. 펜스/인사/설명 금지. 시작 '{', 끝 '}'. 한국어.
 스키마: answer.{empathy,situation_framing,narrative,actions,boundaries,summary} + evidence_claims + citations.
-actions마다 example·evidence_quote 필수. Available Citation IDs만 사용.
+narrative는 고전 스토리텔링(작품명·장면·감정) 중심. actions마다 example·evidence_quote 필수. Available Citation IDs만.
 """

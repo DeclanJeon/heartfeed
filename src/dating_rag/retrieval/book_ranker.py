@@ -204,16 +204,25 @@ def format_narrative_brief(ranked: list[ScoredBook]) -> str:
         return (
             "## Narrative Source Brief\n\n"
             "NO ranked classic/book sources available for this query. "
-            "Do NOT invent book or classic titles. Keep narrative grounded in YouTube evidence only, "
-            "and set narrative to focus on situation storytelling without fake literature citations. "
-            "Flag that 참고 도서 coverage is low.\n"
+            "Do NOT invent book or classic titles. Keep narrative as gentle situation storytelling "
+            "from YouTube evidence only (no fake literature). Flag low 참고 도서 coverage.\n"
         )
     lines = [
-        "## Narrative Source Brief (use IN THIS ORDER for 이야깃거리)",
-        "Ranked by relevance score (vector + lexical + topic). "
-        "narrative MUST reference the top classic/book by title/author when listed. "
-        "Include their citation_ids. Do not invent titles not listed.",
+        "## Narrative Source Brief — 이야깃거리 = 고전 스토리텔링 (필수)",
+        "Ranked by relevance. You MUST tell the user a short STORY from the top classics, not abstract tips.",
+        "Order: use sources top-down. Prefer classic-literature for the main tale; theory books as a short bridge.",
         "",
+        "How to write `narrative` (Korean, 3~5 short paragraphs):",
+        "1) Open with the user's feeling in one warm sentence.",
+        "2) Main tale: 「작품명」(작가) 속 구체 장면 — who wanted what, what went wrong, what it cost. "
+        "Use story beats from the evidence excerpt (시작·충돌·대가·여운).",
+        "3) Optional second classic/book if listed, in one shorter beat.",
+        "4) Bridge: '지금 당신 상황과 닿는 지점' 한 단락 + soft next-step hint (not a full action list).",
+        "5) Cite with [S#] from Available Citation IDs. Never invent titles not listed.",
+        "",
+        "Tone: storytelling, not lecture. Empathy first. No bullet tips inside narrative.",
+        "",
+        "Ranked sources:",
     ]
     for i, s in enumerate(ranked, 1):
         meta = s.result.metadata or {}
@@ -221,7 +230,7 @@ def format_narrative_brief(ranked: list[ScoredBook]) -> str:
         author = str(meta.get("channel_name") or meta.get("channel") or "")
         origin = str(meta.get("source_origin") or "")
         kind = "classic" if origin == "classic-literature" else "book"
-        excerpt = (s.result.text or str(meta.get("text") or ""))[:220].replace("\n", " ")
+        excerpt = (s.result.text or str(meta.get("text") or ""))[:450].replace("\n", " ")
         lines.append(
             f"{i}. [{kind}] score={s.score:.3f} | {title}"
             + (f" — {author}" if author else "")

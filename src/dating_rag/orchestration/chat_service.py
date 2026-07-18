@@ -301,7 +301,7 @@ class ChatService:
                 results or [],
                 redacted.redacted_text,
                 topics=plan.topics,
-                classic_k=2,
+                classic_k=3,
                 theory_k=1,
             )
             narrative_brief = format_narrative_brief(ranked_books)
